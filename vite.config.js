@@ -2,6 +2,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+  base: '/autiwiki/',
   // This configuration ensures that the 'public' directory is copied to the
   // build output directory ('dist'). This is the default Vite behavior,
   // but this file makes it explicit. The JSON data files are located in
