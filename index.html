@@ -1,98 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <title>AutiWiki</title>
-
-  <!-- Google AdSense script placeholder -->
-  <!-- Paste your AdSense code snippet here -->
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
-    }
-
-    /* Flex-container voor H1 + knoppen op één regel */
-    .header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      flex-wrap: wrap; /* zorgt dat het op kleine schermen niet breekt */
-      margin-bottom: 20px;
-    }
-
-    .header h1 {
-      margin: 0;
-      font-size: 1.8em;
-    }
-
-    .language-buttons button {
-      padding: 6px 12px;
-      font-size: 1em;
-      cursor: pointer;
-    }
-
-    .pdf-container {
-      width: 100%;
-      height: 80vh;
-      border: 1px solid #ccc;
-      background: white;
-    }
-
-    .footer {
-      text-align: center;
-      padding: 20px 0;
-      margin-top: 20px;
-      border-top: 1px solid #ccc;
-    }
-
-    .footer a {
-      margin: 0 10px;
-      color: #007bff;
-      text-decoration: none;
-    }
-
-    .footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-  <!-- Gecombineerde header: H1 + taalknoppen -->
-  <div class="header">
-    <h1>AutiWiki</h1>
-    <div class="language-buttons">
-      <button onclick="loadPdf('autiwiki-nl.pdf')">NL</button>
-      <!--<button onclick="loadPdf('autiwiki-en.pdf')">EN</button>
-      <button onclick="loadPdf('autiwiki-fr.pdf')">FR</button>-->
-    </div>
-  </div>
-
-  <!--<embed id="pdfViewer" src="autiwiki-nl.pdf" type="application/pdf" class="pdf-container" />-->
-
-  <div class="footer">
-    <a href="contact.html">Contact Us</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="about.html">About Us</a>
-  </div>
-
-    <p>Copyright © Sterkmakers in autisme , Peter Vermeulen , Karel Decherf</p>
-
-  <!-- BotPress Chatbot -->
-  <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
-  <script src="https://files.bpcontent.cloud/2025/08/13/16/20250813160706-I4RPYOII.js" defer></script>
-
-  <!-- PDF wissel-functie -->
-  <script>
-    function loadPdf(filename) {
-      const viewer = document.getElementById('pdfViewer');
-      if (viewer) viewer.src = filename;
-    }
-  </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AutiWiki</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
