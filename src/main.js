@@ -4,16 +4,19 @@ import './style.css';
 const app = document.getElementById('app');
 let glossary = [];
 let quotes = {};
+let explanations = {};
 
 // --- Data Fetching and Initialization ---
 async function init() {
     try {
-        const [glossaryRes, quotesRes] = await Promise.all([
-            fetch('glossary.json'), // Relative path
-            fetch('quotes.json')  // Relative path
+        const [glossaryRes, quotesRes, explanationsRes] = await Promise.all([
+            fetch('glossary.json'),
+            fetch('quotes.json'),
+            fetch('explanations.json') // Load the new explanations
         ]);
         glossary = await glossaryRes.json();
         quotes = await quotesRes.json();
+        explanations = await explanationsRes.json();
 
         window.addEventListener('hashchange', renderPage);
         renderPage(); // Initial render
@@ -27,7 +30,6 @@ async function init() {
 function renderPage() {
     const termId = window.location.hash.substring(1);
 
-    // Create main layout
     app.innerHTML = `
         <header>
             <h1><a href="#">AutiWiki</a></h1>
@@ -41,10 +43,8 @@ function renderPage() {
     const sidebar = document.getElementById('sidebar');
     const content = document.getElementById('content');
 
-    // Always render the navigation
     sidebar.innerHTML = createNavHtml(glossary);
 
-    // Render content based on hash
     const term = findTermById(glossary, termId);
 
     if (term) {
@@ -52,7 +52,7 @@ function renderPage() {
     } else {
         renderHomePage(content);
         if (termId) {
-            window.location.hash = ''; // Clear invalid hash
+            window.location.hash = '';
         }
     }
 }
@@ -69,13 +69,15 @@ function renderTermDetail(contentElement, term) {
     const breadcrumbs = generateBreadcrumbs(glossary, term.id);
     const breadcrumbsHtml = breadcrumbs.map(b => `<a href="#${b.id}">${b.name}</a>`).join(' / ');
 
-    let quotesHtml = '<h3>Citaten</h3>';
+    let contentHtml = '';
+    const explanation = explanations[term.id];
+
     if (term.quotes && term.quotes.length > 0) {
-        quotesHtml += '<div class="quotes-list">';
+        contentHtml += '<h3>Citaten</h3><div class="quotes-list">';
         for (const quoteId of term.quotes) {
             const quote = quotes[quoteId];
             if (quote) {
-                quotesHtml += `
+                contentHtml += `
                     <blockquote class="quote-card">
                         <p>${quote.text.replace(/\n/g, '<br>')}</p>
                         <footer>— ${quote.source}</footer>
@@ -83,25 +85,29 @@ function renderTermDetail(contentElement, term) {
                 `;
             }
         }
-        quotesHtml += '</div>';
+        contentHtml += '</div>';
+    } else if (explanation) {
+        // If no quotes, show the explanation
+        contentHtml += `
+            <h3>Verheldering</h3>
+            <p class="explanation-text">${explanation}</p>
+        `;
     } else {
-        quotesHtml += '<p>Geen citaten gevonden voor deze term.</p>';
+        contentHtml += '<p>Geen citaten of verhelderende tekst gevonden voor deze term.</p>';
     }
 
     contentElement.innerHTML = `
         <div id="breadcrumbs">${breadcrumbsHtml}</div>
         <h2>${term.name}</h2>
         <div class="term-content">
-            ${quotesHtml}
+            ${contentHtml}
         </div>
     `;
 }
 
 // --- HTML Generation ---
 function createNavHtml(terms) {
-    if (!terms || terms.length === 0) {
-        return ''; // Return empty string if no terms
-    }
+    if (!terms || terms.length === 0) return '';
     let html = '<ul>';
     for (const term of terms) {
         html += `<li><a href="#${term.id}">${term.name}</a>`;
