@@ -79,6 +79,19 @@ function renderTermDetail(contentElement, term) {
     let contentHtml = '';
     const explanation = explanations[term.id];
 
+    // Display explanation if it exists
+    if (explanation) {
+        contentHtml += `
+            <h3>Verheldering</h3>
+            <div class="quotes-list">
+                <blockquote class="quote-card">
+                    <p>${explanation}</p>
+                </blockquote>
+            </div>
+        `;
+    }
+
+    // Display quotes if they exist, even if they are empty
     if (term.quotes && term.quotes.length > 0) {
         contentHtml += '<h3>Citaten</h3><div class="quotes-list">';
         for (const quoteId of term.quotes) {
@@ -93,17 +106,10 @@ function renderTermDetail(contentElement, term) {
             }
         }
         contentHtml += '</div>';
-    } else if (explanation) {
-        // Wrap explanation in a quote-card for visual consistency
-        contentHtml += `
-            <h3>Verheldering</h3>
-            <div class="quotes-list">
-                <blockquote class="quote-card">
-                    <p>${explanation}</p>
-                </blockquote>
-            </div>
-        `;
-    } else {
+    }
+
+    // Fallback message if no content is available at all
+    if (!explanation && (!term.quotes || term.quotes.length === 0)) {
         contentHtml += '<p>Geen citaten of verhelderende tekst gevonden voor deze term.</p>';
     }
 
