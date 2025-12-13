@@ -1,0 +1,3639 @@
+[
+  {
+    "id": "aandacht",
+    "name": "aandacht",
+    "level": 1,
+    "quotes": [
+      1
+    ],
+    "children": []
+  },
+  {
+    "id": "aanleren",
+    "name": "aanleren",
+    "level": 1,
+    "quotes": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "children": [
+      {
+        "id": "expliciet-aanleren",
+        "name": "expliciet aanleren",
+        "level": 2,
+        "quotes": [
+          9,
+          10
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "aanpassen",
+    "name": "aanpassen",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "mensen-met-autisme-ondersteunen-door-ons-gedrag-en-onze-communicatie-aan-te-passen-aan-hun-beperking",
+        "name": "mensen met autisme ondersteunen door ons gedrag en onze communicatie aan te passen aan hun beperking",
+        "level": 2,
+        "quotes": [
+          11,
+          12,
+          13
+        ],
+        "children": []
+      },
+      {
+        "id": "moeite-met-aanpassen-aan",
+        "name": "moeite met aanpassen aan",
+        "level": 2,
+        "quotes": [
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20
+        ],
+        "children": [
+          {
+            "id": "aan-communicatienood-ontvanger",
+            "name": "aan communicatienood ontvanger",
+            "level": 3,
+            "quotes": [
+              21
+            ],
+            "children": []
+          },
+          {
+            "id": "aan-omgeving",
+            "name": "aan omgeving",
+            "level": 3,
+            "quotes": [
+              22,
+              23,
+              24,
+              25,
+              25
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "moeite-met-aanpassen-van",
+        "name": "moeite met aanpassen van",
+        "level": 2,
+        "quotes": [
+          26
+        ],
+        "children": []
+      },
+      {
+        "id": "‘ons’-aanpassen",
+        "name": "‘ons’ aanpassen",
+        "level": 2,
+        "quotes": [
+          27,
+          28,
+          29,
+          22
+        ],
+        "children": [
+          {
+            "id": "hoe?",
+            "name": "hoe?",
+            "level": 3,
+            "quotes": [
+              24,
+              30
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "enkele-praktische-tips",
+        "name": "enkele praktische tips",
+        "level": 2,
+        "quotes": [
+          31
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘absolute’-denkers",
+    "name": "‘absolute’ denkers",
+    "level": 1,
+    "quotes": [
+      32
+    ],
+    "children": []
+  },
+  {
+    "id": "abstract",
+    "name": "abstract",
+    "level": 1,
+    "quotes": [
+      33,
+      34
+    ],
+    "children": []
+  },
+  {
+    "id": "‘achteraf’",
+    "name": "‘achteraf’",
+    "level": 1,
+    "quotes": [
+      35,
+      36
+    ],
+    "children": [
+      {
+        "id": "antwoorden",
+        "name": "antwoorden",
+        "level": 2,
+        "quotes": [
+          37
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "ad-rem",
+    "name": "ad rem",
+    "level": 1,
+    "quotes": [
+      38
+    ],
+    "children": []
+  },
+  {
+    "id": "administratie",
+    "name": "administratie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "afbouwen-van-ondersteuning",
+    "name": "afbouwen van ondersteuning",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "afgeleid-worden",
+    "name": "afgeleid worden",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "opstellen",
+        "name": "opstellen",
+        "level": 2,
+        "quotes": [
+          39,
+          40
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "agressie",
+    "name": "agressie",
+    "level": 1,
+    "quotes": [
+      41,
+      42,
+      43,
+      44
+    ],
+    "children": []
+  },
+  {
+    "id": "‘alles’-of-‘niets’",
+    "name": "‘alles’ of ‘niets’",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "‘alles’",
+        "name": "‘alles’",
+        "level": 3,
+        "quotes": [
+          45
+        ],
+        "children": []
+      },
+      {
+        "id": "‘niets’",
+        "name": "‘niets’",
+        "level": 3,
+        "quotes": [
+          46
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "andere-manier-van",
+    "name": "andere manier van",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": [
+      {
+        "id": "‘hoe’-je-iets-zegt",
+        "name": "‘hoe’ je iets zegt",
+        "level": 3,
+        "quotes": [
+          47,
+          48
+        ],
+        "children": []
+      },
+      {
+        "id": "interpreteren",
+        "name": "interpreteren",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "expressie",
+        "name": "expressie",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "inschatten",
+        "name": "inschatten",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "invloed-op",
+        "name": "invloed op",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘anders’",
+    "name": "‘anders’",
+    "level": 1,
+    "quotes": [
+      2
+    ],
+    "children": []
+  },
+  {
+    "id": "angst",
+    "name": "angst",
+    "level": 1,
+    "quotes": [
+      49
+    ],
+    "children": []
+  },
+  {
+    "id": "arrogant",
+    "name": "arrogant",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘asociaal’",
+    "name": "‘asociaal’",
+    "level": 1,
+    "quotes": [
+      50,
+      51
+    ],
+    "children": []
+  },
+  {
+    "id": "associatief",
+    "name": "associatief",
+    "level": 1,
+    "quotes": [
+      52,
+      25
+    ],
+    "children": [
+      {
+        "id": "geheugen",
+        "name": "geheugen",
+        "level": 2,
+        "quotes": [
+          25,
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘attention-shifting’",
+    "name": "‘attention shifting’",
+    "level": 1,
+    "quotes": [
+      53
+    ],
+    "children": []
+  },
+  {
+    "id": "‘autistische’-logica",
+    "name": "‘autistische’ logica",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "enthousiasmes-/-stereotiepe-of-obsessieve-interesses",
+        "name": "enthousiasmes / stereotiepe of obsessieve interesses",
+        "level": 2,
+        "quotes": [
+          54
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "autobiografisch-geheugen",
+    "name": "autobiografisch geheugen",
+    "level": 1,
+    "quotes": [
+      25,
+      52,
+      55,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "autonomie",
+    "name": "autonomie",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "begrijpen",
+    "name": "begrijpen",
+    "level": 1,
+    "quotes": [
+      56
+    ],
+    "children": []
+  },
+  {
+    "id": "belonen",
+    "name": "belonen",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": [
+      {
+        "id": "belonen-vs.-bestraffen",
+        "name": "belonen vs. bestraffen",
+        "level": 2,
+        "quotes": [
+          25,
+          2,
+          57,
+          58,
+          59,
+          7,
+          60,
+          5
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "beperkt-gamma-aan-communicatiestijlen",
+    "name": "beperkt gamma aan communicatiestijlen",
+    "level": 1,
+    "quotes": [
+      61,
+      62,
+      63
+    ],
+    "children": []
+  },
+  {
+    "id": "beredeneren",
+    "name": "beredeneren",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "berekenen",
+    "name": "berekenen",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "bestraffen",
+    "name": "bestraffen",
+    "level": 1,
+    "quotes": [
+      25,
+      2,
+      64,
+      4,
+      5
+    ],
+    "children": []
+  },
+  {
+    "id": "‘betekenis-achter-de-betekenis’",
+    "name": "‘betekenis achter de betekenis’",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "betekenisverlening",
+    "name": "betekenisverlening",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "bewaken-eigen-grenzen",
+    "name": "bewaken eigen grenzen",
+    "level": 1,
+    "quotes": [
+      65
+    ],
+    "children": []
+  },
+  {
+    "id": "camoufleren",
+    "name": "camoufleren",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "catatonie",
+    "name": "catatonie",
+    "level": 1,
+    "quotes": [
+      66
+    ],
+    "children": []
+  },
+  {
+    "id": "centrale-coherentie",
+    "name": "centrale coherentie",
+    "level": 1,
+    "quotes": [
+      67
+    ],
+    "children": []
+  },
+  {
+    "id": "chaos",
+    "name": "chaos",
+    "level": 1,
+    "quotes": [
+      22
+    ],
+    "children": []
+  },
+  {
+    "id": "communicatie",
+    "name": "communicatie",
+    "level": 1,
+    "quotes": [
+      68,
+      69,
+      70
+    ],
+    "children": [
+      {
+        "id": "beperkingen-bij-hoog-en-normaal-begaafden",
+        "name": "beperkingen bij hoog en normaal begaafden",
+        "level": 2,
+        "quotes": [
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78
+        ],
+        "children": []
+      },
+      {
+        "id": "beurtrolneming",
+        "name": "beurtrolneming",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "concreet-en-visueel",
+        "name": "concreet en visueel",
+        "level": 2,
+        "quotes": [
+          79,
+          80,
+          81,
+          82
+        ],
+        "children": []
+      },
+      {
+        "id": "couperen",
+        "name": "couperen",
+        "level": 2,
+        "quotes": [
+          83,
+          84
+        ],
+        "children": []
+      },
+      {
+        "id": "emotioneel-incorrect",
+        "name": "emotioneel incorrect",
+        "level": 2,
+        "quotes": [
+          85
+        ],
+        "children": []
+      },
+      {
+        "id": "≠expressie",
+        "name": "≠expressie",
+        "level": 2,
+        "quotes": [
+          86
+        ],
+        "children": []
+      },
+      {
+        "id": "pedant,-formeel,-stijf,-houterig,-harkerig",
+        "name": "pedant, formeel, stijf, houterig, harkerig",
+        "level": 2,
+        "quotes": [
+          87,
+          88
+        ],
+        "children": []
+      },
+      {
+        "id": "‘rechttoe-rechtaan’-/-duidelijkheid-/-eenduidigheid-/-letterlijk-/-ondubbelzinnigheid",
+        "name": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+        "level": 2,
+        "quotes": [
+          89
+        ],
+        "children": []
+      },
+      {
+        "id": "traag",
+        "name": "traag",
+        "level": 2,
+        "quotes": [
+          90
+        ],
+        "children": []
+      },
+      {
+        "id": "uitputtend,-veel-energie-vragen",
+        "name": "uitputtend, veel energie vragen",
+        "level": 2,
+        "quotes": [
+          62,
+          91,
+          25,
+          25,
+          25
+        ],
+        "children": []
+      },
+      {
+        "id": "visueel",
+        "name": "visueel",
+        "level": 2,
+        "quotes": [
+          92
+        ],
+        "children": []
+      },
+      {
+        "id": "woordvindingsproblemen",
+        "name": "woordvindingsproblemen",
+        "level": 2,
+        "quotes": [
+          93
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "communicatienood",
+    "name": "communicatienood",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "communicatiestijlen",
+    "name": "communicatiestijlen",
+    "level": 1,
+    "quotes": [
+      83,
+      94,
+      95,
+      25
+    ],
+    "children": [
+      {
+        "id": "communicatiestijl-van-televisieprogramma’s-imiteren",
+        "name": "communicatiestijl van televisieprogramma’s imiteren",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "compenseren",
+    "name": "compenseren",
+    "level": 1,
+    "quotes": [
+      25,
+      25,
+      96
+    ],
+    "children": []
+  },
+  {
+    "id": "concentratieproblemen",
+    "name": "concentratieproblemen",
+    "level": 1,
+    "quotes": [
+      97,
+      98
+    ],
+    "children": []
+  },
+  {
+    "id": "concreet",
+    "name": "concreet",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "vs.-abstract",
+        "name": "vs. abstract",
+        "level": 2,
+        "quotes": [
+          99,
+          33
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "concretiseren",
+    "name": "concretiseren",
+    "level": 1,
+    "quotes": [
+      100,
+      79
+    ],
+    "children": []
+  },
+  {
+    "id": "contextblindheid",
+    "name": "contextblindheid",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "corrigeren",
+    "name": "corrigeren",
+    "level": 1,
+    "quotes": [
+      101
+    ],
+    "children": [
+      {
+        "id": "detaildenken",
+        "name": "detaildenken",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "associatief-1",
+        "name": "associatief",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "visueel-2",
+        "name": "visueel",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘denken-en-voelen’",
+    "name": "‘denken en voelen’",
+    "level": 1,
+    "quotes": [
+      102,
+      103,
+      35,
+      36
+    ],
+    "children": []
+  },
+  {
+    "id": "‘denken-dat-de-ander-al-weet-wat-jij-weet-/-denkt’",
+    "name": "‘denken dat de ander al weet wat jij weet / denkt’",
+    "level": 1,
+    "quotes": [
+      104
+    ],
+    "children": []
+  },
+  {
+    "id": "depressie",
+    "name": "depressie",
+    "level": 1,
+    "quotes": [
+      105
+    ],
+    "children": []
+  },
+  {
+    "id": "detaildenken-1",
+    "name": "detaildenken",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "diagnosestelling",
+    "name": "diagnosestelling",
+    "level": 1,
+    "quotes": [
+      106,
+      107
+    ],
+    "children": []
+  },
+  {
+    "id": "disharmonisch-ontwikkelingsprofiel",
+    "name": "disharmonisch ontwikkelingsprofiel",
+    "level": 1,
+    "quotes": [
+      108
+    ],
+    "children": []
+  },
+  {
+    "id": "distantie",
+    "name": "distantie",
+    "level": 1,
+    "quotes": [
+      109
+    ],
+    "children": []
+  },
+  {
+    "id": "driftbuien",
+    "name": "driftbuien",
+    "level": 1,
+    "quotes": [
+      110,
+      36
+    ],
+    "children": []
+  },
+  {
+    "id": "dubbelzinnigheid,-dubbelzinnig-taalgebruik",
+    "name": "dubbelzinnigheid, dubbelzinnig taalgebruik",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "echolalie",
+    "name": "echolalie",
+    "level": 1,
+    "quotes": [
+      111,
+      112,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "egocentrisch",
+    "name": "egocentrisch",
+    "level": 1,
+    "quotes": [
+      113,
+      114
+    ],
+    "children": []
+  },
+  {
+    "id": "eigen-emoties",
+    "name": "eigen emoties",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "eigen-keuzes",
+    "name": "eigen keuzes",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "ondersteunen",
+        "name": "ondersteunen",
+        "level": 2,
+        "quotes": [
+          115,
+          116
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "emoties",
+    "name": "emoties",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "emotionele-intelligentie",
+    "name": "emotionele intelligentie",
+    "level": 1,
+    "quotes": [
+      117
+    ],
+    "children": []
+  },
+  {
+    "id": "emotionele-onrijpheid",
+    "name": "emotionele onrijpheid",
+    "level": 1,
+    "quotes": [
+      118
+    ],
+    "children": []
+  },
+  {
+    "id": "empathie",
+    "name": "empathie",
+    "level": 1,
+    "quotes": [
+      119,
+      17
+    ],
+    "children": []
+  },
+  {
+    "id": "energiekost",
+    "name": "energiekost",
+    "level": 1,
+    "quotes": [
+      120
+    ],
+    "children": []
+  },
+  {
+    "id": "enthousiasmes",
+    "name": "enthousiasmes",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "episodisch-geheugen",
+    "name": "episodisch geheugen",
+    "level": 1,
+    "quotes": [
+      52
+    ],
+    "children": []
+  },
+  {
+    "id": "‘executive-function’",
+    "name": "‘executive function’",
+    "level": 1,
+    "quotes": [
+      1
+    ],
+    "children": []
+  },
+  {
+    "id": "expliciet-aanleren-1",
+    "name": "expliciet aanleren",
+    "level": 1,
+    "quotes": [
+      9,
+      10
+    ],
+    "children": []
+  },
+  {
+    "id": "expliciteren",
+    "name": "expliciteren",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "explosieve",
+    "name": "explosieve",
+    "level": 1,
+    "quotes": [
+      110
+    ],
+    "children": [
+      {
+        "id": "gevoelens-1",
+        "name": "gevoelens",
+        "level": 2,
+        "quotes": [
+          110,
+          36
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "expressie-2",
+    "name": "expressie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "externaliseren",
+    "name": "externaliseren",
+    "level": 1,
+    "quotes": [
+      121
+    ],
+    "children": []
+  },
+  {
+    "id": "extreme",
+    "name": "extreme",
+    "level": 1,
+    "quotes": [
+      122
+    ],
+    "children": [
+      {
+        "id": "emotie",
+        "name": "emotie",
+        "level": 2,
+        "quotes": [
+          110
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "figuurlijk-taalgebruik",
+    "name": "figuurlijk taalgebruik",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "flexibiliteit",
+    "name": "flexibiliteit",
+    "level": 1,
+    "quotes": [
+      1
+    ],
+    "children": []
+  },
+  {
+    "id": "fragmentarisch-/-fragmentair",
+    "name": "fragmentarisch / fragmentair",
+    "level": 1,
+    "quotes": [
+      67,
+      123
+    ],
+    "children": [
+      {
+        "id": "communiceren-1",
+        "name": "communiceren",
+        "level": 2,
+        "quotes": [
+          124
+        ],
+        "children": []
+      },
+      {
+        "id": "geheugen-1",
+        "name": "geheugen",
+        "level": 2,
+        "quotes": [
+          52
+        ],
+        "children": []
+      },
+      {
+        "id": "informatieverwerking",
+        "name": "informatieverwerking",
+        "level": 2,
+        "quotes": [
+          67
+        ],
+        "children": []
+      },
+      {
+        "id": "waarnemen",
+        "name": "waarnemen",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "aan-communicatie",
+        "name": "aan communicatie",
+        "level": 2,
+        "quotes": [
+          125
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "gedachten",
+    "name": "gedachten",
+    "level": 1,
+    "quotes": [
+      52
+    ],
+    "children": [
+      {
+        "id": "repetitief",
+        "name": "repetitief",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘gedeelde’-aandacht",
+    "name": "‘gedeelde’ aandacht",
+    "level": 1,
+    "quotes": [
+      126
+    ],
+    "children": []
+  },
+  {
+    "id": "gedrag",
+    "name": "gedrag",
+    "level": 1,
+    "quotes": [
+      127
+    ],
+    "children": []
+  },
+  {
+    "id": "gedragsstoornis",
+    "name": "gedragsstoornis",
+    "level": 1,
+    "quotes": [
+      22
+    ],
+    "children": []
+  },
+  {
+    "id": "gefragmenteerde-beleving,-informatieverwerking",
+    "name": "gefragmenteerde beleving, informatieverwerking",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "geheugen-2",
+    "name": "geheugen",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "episodisch",
+        "name": "episodisch",
+        "level": 2,
+        "quotes": [
+          52
+        ],
+        "children": []
+      },
+      {
+        "id": "‘slecht-geheugen’",
+        "name": "‘slecht geheugen’",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "gelijktijdig",
+    "name": "gelijktijdig",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "denken-en-voelen",
+        "name": "denken en voelen",
+        "level": 2,
+        "quotes": [
+          102,
+          103,
+          35,
+          36
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘gepakt’-worden",
+    "name": "‘gepakt’ worden",
+    "level": 1,
+    "quotes": [
+      37,
+      128
+    ],
+    "children": [
+      {
+        "id": "door-emoties",
+        "name": "door emoties",
+        "level": 2,
+        "quotes": [
+          110
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "gepest-worden",
+    "name": "gepest worden",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "voeren",
+        "name": "voeren",
+        "level": 2,
+        "quotes": [
+          129,
+          130,
+          98,
+          131
+        ],
+        "children": []
+      },
+      {
+        "id": "volgen",
+        "name": "volgen",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      },
+      {
+        "id": "met-meerdere-personen",
+        "name": "met meerdere personen",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      },
+      {
+        "id": "‘rechttoe-rechtaan’-/-duidelijkheid-/-eenduidigheid-/-letterlijk-/-ondubbelzinnigheid-1",
+        "name": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "alles-of-niets",
+        "name": "alles of niets",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "‘anders’-1",
+        "name": "‘anders’",
+        "level": 2,
+        "quotes": [
+          8,
+          132
+        ],
+        "children": []
+      },
+      {
+        "id": "communicatie-van-emoties",
+        "name": "communicatie van emoties",
+        "level": 2,
+        "quotes": [
+          133,
+          134
+        ],
+        "children": []
+      },
+      {
+        "id": "eigen-emoties-1",
+        "name": "eigen emoties",
+        "level": 2,
+        "quotes": [
+          135
+        ],
+        "children": [
+          {
+            "id": "herkennen",
+            "name": "herkennen",
+            "level": 3,
+            "quotes": [
+              136
+            ],
+            "children": []
+          },
+          {
+            "id": "uitdrukken-/-verwoorden",
+            "name": "uitdrukken / verwoorden",
+            "level": 3,
+            "quotes": [
+              137,
+              138,
+              139,
+              140,
+              25,
+              25
+            ],
+            "children": []
+          }
+        ]
+      },
+      {
+        "id": "explosief",
+        "name": "explosief",
+        "level": 2,
+        "quotes": [
+          110,
+          141,
+          122
+        ],
+        "children": []
+      },
+      {
+        "id": "herkennen-1",
+        "name": "herkennen",
+        "level": 2,
+        "quotes": [
+          135,
+          122
+        ],
+        "children": []
+      },
+      {
+        "id": "hevig",
+        "name": "hevig",
+        "level": 2,
+        "quotes": [
+          142
+        ],
+        "children": []
+      },
+      {
+        "id": "moduleren-en-reguleren",
+        "name": "moduleren en reguleren",
+        "level": 2,
+        "quotes": [
+          142,
+          143
+        ],
+        "children": []
+      },
+      {
+        "id": "niet-gelijktijdig-kunnen-‘denken-en-voelen’-1",
+        "name": "niet gelijktijdig kunnen ‘denken en voelen’",
+        "level": 2,
+        "quotes": [
+          102,
+          103,
+          35,
+          36
+        ],
+        "children": []
+      },
+      {
+        "id": "onaangepast",
+        "name": "onaangepast",
+        "level": 2,
+        "quotes": [
+          134
+        ],
+        "children": []
+      },
+      {
+        "id": "reguleren",
+        "name": "reguleren",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "overspoeld-worden",
+        "name": "overspoeld worden",
+        "level": 2,
+        "quotes": [
+          110,
+          141,
+          36,
+          144
+        ],
+        "children": []
+      },
+      {
+        "id": "geen-volumeknop",
+        "name": "geen volumeknop",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "van-anderen",
+        "name": "van anderen",
+        "level": 2,
+        "quotes": [
+          145,
+          146,
+          147,
+          148,
+          117,
+          149
+        ],
+        "children": []
+      },
+      {
+        "id": "verkeerd-uiten",
+        "name": "verkeerd uiten",
+        "level": 2,
+        "quotes": [
+          110,
+          25,
+          150,
+          122
+        ],
+        "children": []
+      },
+      {
+        "id": "negatieve",
+        "name": "negatieve",
+        "level": 2,
+        "quotes": [
+          151,
+          43
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "goed-gevoel",
+    "name": "goed gevoel",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "goede-verstandhouding",
+    "name": "goede verstandhouding",
+    "level": 1,
+    "quotes": [
+      152
+    ],
+    "children": []
+  },
+  {
+    "id": "‘grote’-meisjes",
+    "name": "‘grote’ meisjes",
+    "level": 1,
+    "quotes": [
+      153
+    ],
+    "children": []
+  },
+  {
+    "id": "‘grotere-plaatje’",
+    "name": "‘grotere plaatje’",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘hak-op-de-tak’",
+    "name": "‘hak op de tak’",
+    "level": 1,
+    "quotes": [
+      154
+    ],
+    "children": []
+  },
+  {
+    "id": "hautain",
+    "name": "hautain",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "herhaling",
+    "name": "herhaling",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "hersenprocessen",
+    "name": "hersenprocessen",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘hoe’-je-iets-zegt-1",
+    "name": "‘hoe’ je iets zegt",
+    "level": 1,
+    "quotes": [
+      47,
+      48
+    ],
+    "children": []
+  },
+  {
+    "id": "humor",
+    "name": "humor",
+    "level": 1,
+    "quotes": [
+      155,
+      156
+    ],
+    "children": []
+  },
+  {
+    "id": "hyperrealisme",
+    "name": "hyperrealisme",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "hypersensitiviteit",
+    "name": "hypersensitiviteit",
+    "level": 1,
+    "quotes": [
+      25,
+      157,
+      158,
+      159
+    ],
+    "children": []
+  },
+  {
+    "id": "hypochondrie",
+    "name": "hypochondrie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "idiosyncratisch",
+    "name": "idiosyncratisch",
+    "level": 1,
+    "quotes": [
+      160
+    ],
+    "children": [
+      {
+        "id": "taalgebruik",
+        "name": "taalgebruik",
+        "level": 2,
+        "quotes": [
+          161,
+          162,
+          163,
+          164,
+          165
+        ],
+        "children": []
+      },
+      {
+        "id": "communiceren-2",
+        "name": "communiceren",
+        "level": 2,
+        "quotes": [
+          165
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "iets-vragen",
+    "name": "iets vragen",
+    "level": 1,
+    "quotes": [
+      62,
+      91
+    ],
+    "children": []
+  },
+  {
+    "id": "ik-ander-differentiatie",
+    "name": "ik-ander differentiatie",
+    "level": 1,
+    "quotes": [
+      166,
+      136,
+      167,
+      168,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "impulscontrole",
+    "name": "impulscontrole",
+    "level": 1,
+    "quotes": [
+      15,
+      37
+    ],
+    "children": []
+  },
+  {
+    "id": "individuele-begeleiding",
+    "name": "individuele begeleiding",
+    "level": 1,
+    "quotes": [
+      169
+    ],
+    "children": []
+  },
+  {
+    "id": "informatienood",
+    "name": "informatienood",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "informatieoverlast",
+    "name": "informatieoverlast",
+    "level": 1,
+    "quotes": [
+      134
+    ],
+    "children": []
+  },
+  {
+    "id": "initiatief-nemen-/-initiëren-van-contact",
+    "name": "initiatief nemen / initiëren van contact",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "inlevingsvermogen",
+    "name": "inlevingsvermogen",
+    "level": 1,
+    "quotes": [
+      119,
+      17
+    ],
+    "children": []
+  },
+  {
+    "id": "integratieve-intelligentie",
+    "name": "integratieve intelligentie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "kanaliseren",
+    "name": "kanaliseren",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "van-autisme",
+        "name": "van autisme",
+        "level": 2,
+        "quotes": [
+          170
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "klungeligheid",
+    "name": "klungeligheid",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "kort-lontje",
+    "name": "kort lontje",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘kwade’-bedoelingen",
+    "name": "‘kwade’ bedoelingen",
+    "level": 1,
+    "quotes": [
+      171,
+      172
+    ],
+    "children": []
+  },
+  {
+    "id": "leren-1",
+    "name": "leren",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "nld",
+        "name": "NLD",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "lijstjes",
+    "name": "lijstjes",
+    "level": 1,
+    "quotes": [
+      173
+    ],
+    "children": []
+  },
+  {
+    "id": "logica",
+    "name": "logica",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "luisteren-1",
+    "name": "luisteren",
+    "level": 1,
+    "quotes": [
+      174
+    ],
+    "children": []
+  },
+  {
+    "id": "manipulatie",
+    "name": "manipulatie",
+    "level": 1,
+    "quotes": [
+      175
+    ],
+    "children": []
+  },
+  {
+    "id": "mentale-rituelen",
+    "name": "mentale rituelen",
+    "level": 1,
+    "quotes": [
+      176
+    ],
+    "children": []
+  },
+  {
+    "id": "mentale-weerstand",
+    "name": "mentale weerstand",
+    "level": 1,
+    "quotes": [
+      176
+    ],
+    "children": []
+  },
+  {
+    "id": "metavisie",
+    "name": "metavisie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "miscommuniceren",
+    "name": "miscommuniceren",
+    "level": 1,
+    "quotes": [
+      177,
+      178,
+      179,
+      180
+    ],
+    "children": []
+  },
+  {
+    "id": "misinterpreteren",
+    "name": "misinterpreteren",
+    "level": 1,
+    "quotes": [
+      181,
+      174
+    ],
+    "children": []
+  },
+  {
+    "id": "moeilijkheden-met-communicatie",
+    "name": "moeilijkheden met communicatie",
+    "level": 1,
+    "quotes": [
+      171,
+      172
+    ],
+    "children": []
+  },
+  {
+    "id": "narcisme",
+    "name": "narcisme",
+    "level": 1,
+    "quotes": [
+      182,
+      183
+    ],
+    "children": [
+      {
+        "id": "zelfoverschatting",
+        "name": "zelfoverschatting",
+        "level": 2,
+        "quotes": [
+          184,
+          185,
+          186,
+          107,
+          187
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘neen’-zeggen",
+    "name": "‘neen’ zeggen",
+    "level": 1,
+    "quotes": [
+      188
+    ],
+    "children": []
+  },
+  {
+    "id": "negatieve-gevoelens",
+    "name": "negatieve gevoelens",
+    "level": 1,
+    "quotes": [
+      189
+    ],
+    "children": []
+  },
+  {
+    "id": "neologisme",
+    "name": "neologisme",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "netwerk",
+    "name": "netwerk",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "neurotypische-projecties",
+    "name": "neurotypische projecties",
+    "level": 1,
+    "quotes": [
+      13,
+      190
+    ],
+    "children": []
+  },
+  {
+    "id": "niet-begrepen-voelen",
+    "name": "niet begrepen voelen",
+    "level": 1,
+    "quotes": [
+      86
+    ],
+    "children": []
+  },
+  {
+    "id": "niet-gelijktijdig-kunnen-‘denken-en-voelen’-2",
+    "name": "niet gelijktijdig kunnen ‘denken en voelen’",
+    "level": 1,
+    "quotes": [
+      102,
+      103,
+      35,
+      36
+    ],
+    "children": []
+  },
+  {
+    "id": "‘niet-kunnen’-vs.-‘niet-willen’",
+    "name": "‘niet kunnen’ vs. ‘niet willen’",
+    "level": 1,
+    "quotes": [
+      191
+    ],
+    "children": []
+  },
+  {
+    "id": "nld-1",
+    "name": "nld",
+    "level": 1,
+    "quotes": [
+      2,
+      192,
+      193
+    ],
+    "children": []
+  },
+  {
+    "id": "non-verbaal",
+    "name": "non-verbaal",
+    "level": 1,
+    "quotes": [
+      194
+    ],
+    "children": []
+  },
+  {
+    "id": "nuance",
+    "name": "nuance",
+    "level": 1,
+    "quotes": [
+      195,
+      196,
+      197
+    ],
+    "children": []
+  },
+  {
+    "id": "obsessieve-interesses",
+    "name": "obsessieve interesses",
+    "level": 1,
+    "quotes": [
+      198
+    ],
+    "children": [
+      {
+        "id": "seksualiteit-1",
+        "name": "seksualiteit",
+        "level": 2,
+        "quotes": [
+          199
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "omgeving-aanpassen",
+    "name": "omgeving aanpassen",
+    "level": 1,
+    "quotes": [
+      25,
+      25,
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "omgaan-met-autisme-als-begeleider-/-verzorger-/-therapeut",
+    "name": "omgaan met autisme als begeleider / verzorger / therapeut",
+    "level": 1,
+    "quotes": [
+      56
+    ],
+    "children": []
+  },
+  {
+    "id": "omkering-van-persoonlijke-voornaamwoorden",
+    "name": "omkering van persoonlijke voornaamwoorden",
+    "level": 1,
+    "quotes": [
+      200
+    ],
+    "children": []
+  },
+  {
+    "id": "onaangepaste",
+    "name": "onaangepaste",
+    "level": 1,
+    "quotes": [
+      139,
+      25,
+      25,
+      25,
+      25,
+      25
+    ],
+    "children": [
+      {
+        "id": "emotie-1",
+        "name": "emotie",
+        "level": 2,
+        "quotes": [
+          122,
+          201,
+          132
+        ],
+        "children": []
+      },
+      {
+        "id": "expressie-3",
+        "name": "expressie",
+        "level": 2,
+        "quotes": [
+          25,
+          139,
+          140
+        ],
+        "children": []
+      },
+      {
+        "id": "gedrag-1",
+        "name": "gedrag",
+        "level": 2,
+        "quotes": [
+          127
+        ],
+        "children": []
+      },
+      {
+        "id": "reactie",
+        "name": "reactie",
+        "level": 2,
+        "quotes": [
+          139,
+          25,
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "ondervragingen",
+    "name": "ondervragingen",
+    "level": 1,
+    "quotes": [
+      202
+    ],
+    "children": []
+  },
+  {
+    "id": "onlogische-angsten",
+    "name": "onlogische angsten",
+    "level": 1,
+    "quotes": [
+      203
+    ],
+    "children": [
+      {
+        "id": "hypochondrie-1",
+        "name": "hypochondrie",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "onrijpheid",
+    "name": "onrijpheid",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": [
+      {
+        "id": "sociale-naïviteit",
+        "name": "sociale naïviteit",
+        "level": 2,
+        "quotes": [
+          175
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘ons’-aanpassen-1",
+    "name": "‘ons’ aanpassen",
+    "level": 1,
+    "quotes": [
+      56
+    ],
+    "children": []
+  },
+  {
+    "id": "ontvangstpatroon-opleggen",
+    "name": "ontvangstpatroon opleggen",
+    "level": 1,
+    "quotes": [
+      204
+    ],
+    "children": []
+  },
+  {
+    "id": "‘op-eigen-benen-staan’",
+    "name": "‘op eigen benen staan’",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "opdringerig",
+    "name": "opdringerig",
+    "level": 1,
+    "quotes": [
+      205
+    ],
+    "children": []
+  },
+  {
+    "id": "‘op-maat’",
+    "name": "‘op maat’",
+    "level": 1,
+    "quotes": [
+      206,
+      207
+    ],
+    "children": [
+      {
+        "id": "behandelen",
+        "name": "behandelen",
+        "level": 2,
+        "quotes": [
+          208,
+          13,
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "orde",
+    "name": "orde",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "ordenen-1",
+    "name": "ordenen",
+    "level": 1,
+    "quotes": [
+      52,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "organiseren",
+    "name": "organiseren",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "organisatorische-aspecten-van",
+    "name": "organisatorische aspecten van",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "communicatie-2",
+        "name": "communicatie",
+        "level": 2,
+        "quotes": [
+          209
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "overgangen-maken",
+    "name": "overgangen maken",
+    "level": 1,
+    "quotes": [
+      210
+    ],
+    "children": []
+  },
+  {
+    "id": "overgevoeligheid",
+    "name": "overgevoeligheid",
+    "level": 1,
+    "quotes": [
+      157,
+      158,
+      159
+    ],
+    "children": []
+  },
+  {
+    "id": "overprikkeling",
+    "name": "overprikkeling",
+    "level": 1,
+    "quotes": [
+      157
+    ],
+    "children": []
+  },
+  {
+    "id": "overschakelingskosten",
+    "name": "overschakelingskosten",
+    "level": 1,
+    "quotes": [
+      210,
+      211,
+      212
+    ],
+    "children": []
+  },
+  {
+    "id": "overschatting",
+    "name": "overschatting",
+    "level": 1,
+    "quotes": [
+      213,
+      185,
+      186,
+      107,
+      187
+    ],
+    "children": [
+      {
+        "id": "door-anderen-1",
+        "name": "door anderen",
+        "level": 2,
+        "quotes": [
+          25,
+          25,
+          214,
+          215
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "overselectiviteit",
+    "name": "overselectiviteit",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "overspannen-geraken",
+    "name": "overspannen geraken",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "door-emoties-1",
+        "name": "door emoties",
+        "level": 2,
+        "quotes": [
+          110,
+          141,
+          36,
+          13,
+          216,
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "overzicht",
+    "name": "overzicht",
+    "level": 1,
+    "quotes": [
+      217
+    ],
+    "children": []
+  },
+  {
+    "id": "overzichtelijkheid",
+    "name": "overzichtelijkheid",
+    "level": 1,
+    "quotes": [
+      218,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "pedant",
+    "name": "pedant",
+    "level": 1,
+    "quotes": [
+      219,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "performantiedeficit",
+    "name": "performantiedeficit",
+    "level": 1,
+    "quotes": [
+      20,
+      220,
+      221
+    ],
+    "children": []
+  },
+  {
+    "id": "‘performantie-deficit’",
+    "name": "‘performantie-deficit’",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "perseveratie",
+    "name": "perseveratie",
+    "level": 1,
+    "quotes": [
+      53
+    ],
+    "children": []
+  },
+  {
+    "id": "persoonlijkheid",
+    "name": "persoonlijkheid",
+    "level": 1,
+    "quotes": [
+      222,
+      25
+    ],
+    "children": [
+      {
+        "id": "tweede-orde",
+        "name": "tweede orde",
+        "level": 2,
+        "quotes": [
+          223
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "piekvaardigheden",
+    "name": "piekvaardigheden",
+    "level": 1,
+    "quotes": [
+      25,
+      25,
+      215
+    ],
+    "children": []
+  },
+  {
+    "id": "pijn",
+    "name": "pijn",
+    "level": 1,
+    "quotes": [
+      136
+    ],
+    "children": [
+      {
+        "id": "ondraaglijk-lijden",
+        "name": "ondraaglijk lijden",
+        "level": 2,
+        "quotes": [
+          224
+        ],
+        "children": []
+      },
+      {
+        "id": "zintuiglijke-overgevoeligheid",
+        "name": "zintuiglijke overgevoeligheid",
+        "level": 2,
+        "quotes": [
+          158
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "planning",
+    "name": "planning",
+    "level": 1,
+    "quotes": [
+      225
+    ],
+    "children": []
+  },
+  {
+    "id": "positieve-atmosfeer",
+    "name": "positieve atmosfeer",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "pragmatiek",
+    "name": "pragmatiek",
+    "level": 1,
+    "quotes": [
+      226,
+      227,
+      228
+    ],
+    "children": []
+  },
+  {
+    "id": "praten",
+    "name": "praten",
+    "level": 1,
+    "quotes": [
+      130
+    ],
+    "children": []
+  },
+  {
+    "id": "preoccupaties",
+    "name": "preoccupaties",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "indeling-patienten-per",
+        "name": "indeling patienten per",
+        "level": 2,
+        "quotes": [
+          229,
+          13,
+          230
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "psychiatrische-testen",
+    "name": "psychiatrische testen",
+    "level": 1,
+    "quotes": [
+      25,
+      231,
+      107
+    ],
+    "children": []
+  },
+  {
+    "id": "psychische-structuurvastheid",
+    "name": "psychische structuurvastheid",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "psycho-educatie",
+    "name": "psycho-educatie",
+    "level": 1,
+    "quotes": [
+      232
+    ],
+    "children": []
+  },
+  {
+    "id": "psychologische-begeleiding",
+    "name": "psychologische begeleiding",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "psychopathie",
+    "name": "psychopathie",
+    "level": 1,
+    "quotes": [
+      233,
+      234
+    ],
+    "children": []
+  },
+  {
+    "id": "psychose",
+    "name": "psychose",
+    "level": 1,
+    "quotes": [
+      66,
+      235,
+      231
+    ],
+    "children": []
+  },
+  {
+    "id": "psychotherapie",
+    "name": "psychotherapie",
+    "level": 1,
+    "quotes": [
+      236
+    ],
+    "children": [
+      {
+        "id": "concretiseren-en-visualiseren---meer-tonen-dan-praten-–-al-doende-praat-men",
+        "name": "concretiseren en visualiseren \\- meer tonen dan praten – al doende praat men",
+        "level": 2,
+        "quotes": [
+          237
+        ],
+        "children": []
+      },
+      {
+        "id": "depressie-1",
+        "name": "depressie",
+        "level": 2,
+        "quotes": [
+          105
+        ],
+        "children": []
+      },
+      {
+        "id": "factoren-die-doeltreffendheid/succes-bepalen",
+        "name": "factoren die doeltreffendheid/succes bepalen",
+        "level": 2,
+        "quotes": [
+          238
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "publieke-referentie",
+    "name": "publieke referentie",
+    "level": 1,
+    "quotes": [
+      147
+    ],
+    "children": []
+  },
+  {
+    "id": "realisme",
+    "name": "realisme",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "sociale-verbeelding",
+        "name": "sociale verbeelding",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "rechterhemisfeerdeficit",
+    "name": "rechterhemisfeerdeficit",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "‘rechttoe-rechtaan’",
+    "name": "‘rechttoe rechtaan’",
+    "level": 1,
+    "quotes": [
+      239
+    ],
+    "children": []
+  },
+  {
+    "id": "relaties",
+    "name": "relaties",
+    "level": 1,
+    "quotes": [
+      240,
+      241,
+      242,
+      243,
+      244
+    ],
+    "children": []
+  },
+  {
+    "id": "relativeren",
+    "name": "relativeren",
+    "level": 1,
+    "quotes": [
+      110,
+      36
+    ],
+    "children": []
+  },
+  {
+    "id": "relevante-informatie-van-irrelevante-informatie-onderscheiden",
+    "name": "relevante informatie van irrelevante informatie onderscheiden",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "gedachten-2",
+        "name": "gedachten",
+        "level": 2,
+        "quotes": [
+          245
+        ],
+        "children": []
+      },
+      {
+        "id": "gedragingen",
+        "name": "gedragingen",
+        "level": 2,
+        "quotes": [
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "rigiditeit",
+    "name": "rigiditeit",
+    "level": 1,
+    "quotes": [
+      25,
+      25,
+      176
+    ],
+    "children": []
+  },
+  {
+    "id": "routines-/-rituelen",
+    "name": "routines / rituelen",
+    "level": 1,
+    "quotes": [
+      25,
+      176
+    ],
+    "children": []
+  },
+  {
+    "id": "samenhang",
+    "name": "samenhang",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "schoolloopbaan",
+    "name": "schoolloopbaan",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "schriftelijk-communiceren",
+    "name": "schriftelijk communiceren",
+    "level": 1,
+    "quotes": [
+      93
+    ],
+    "children": []
+  },
+  {
+    "id": "scripts-/-scenario’s",
+    "name": "scripts / scenario’s",
+    "level": 1,
+    "quotes": [
+      246,
+      25,
+      247
+    ],
+    "children": []
+  },
+  {
+    "id": "seksualiteit-2",
+    "name": "seksualiteit",
+    "level": 1,
+    "quotes": [
+      54
+    ],
+    "children": [
+      {
+        "id": "experimenteren",
+        "name": "experimenteren",
+        "level": 2,
+        "quotes": [
+          248
+        ],
+        "children": []
+      },
+      {
+        "id": "misbruik",
+        "name": "misbruik",
+        "level": 2,
+        "quotes": [
+          249
+        ],
+        "children": []
+      },
+      {
+        "id": "moeilijkheden",
+        "name": "moeilijkheden",
+        "level": 2,
+        "quotes": [
+          250,
+          251,
+          252,
+          253,
+          254,
+          25,
+          25
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "sensoriële-hypersensitiviteit",
+    "name": "sensoriële hypersensitiviteit",
+    "level": 1,
+    "quotes": [
+      255,
+      256,
+      257
+    ],
+    "children": []
+  },
+  {
+    "id": "serieel-denken",
+    "name": "serieel denken",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘slechte’-bedoelingen",
+    "name": "‘slechte’ bedoelingen",
+    "level": 1,
+    "quotes": [
+      172,
+      171
+    ],
+    "children": []
+  },
+  {
+    "id": "snelheid",
+    "name": "snelheid",
+    "level": 1,
+    "quotes": [
+      15,
+      258,
+      16,
+      259,
+      17,
+      37,
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "sociaal-netwerk",
+    "name": "sociaal netwerk",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "sociale-intelligentie",
+    "name": "sociale intelligentie",
+    "level": 1,
+    "quotes": [
+      18,
+      19,
+      20
+    ],
+    "children": []
+  },
+  {
+    "id": "sociale-interactie",
+    "name": "sociale interactie",
+    "level": 1,
+    "quotes": [
+      260
+    ],
+    "children": [
+      {
+        "id": "interpersoonlijke-problemen",
+        "name": "interpersoonlijke problemen",
+        "level": 2,
+        "quotes": [
+          261
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "sociale-naïviteit-1",
+    "name": "sociale naïviteit",
+    "level": 1,
+    "quotes": [
+      262
+    ],
+    "children": [
+      {
+        "id": "‘slechte’-bedoelingen-1",
+        "name": "‘slechte’ bedoelingen",
+        "level": 2,
+        "quotes": [
+          175,
+          172
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "sociale-relaties",
+    "name": "sociale relaties",
+    "level": 1,
+    "quotes": [
+      261
+    ],
+    "children": []
+  },
+  {
+    "id": "sociale-vaardigheden",
+    "name": "sociale vaardigheden",
+    "level": 1,
+    "quotes": [
+      263
+    ],
+    "children": [
+      {
+        "id": "de-sociale-aspecten-van-taal",
+        "name": "de sociale aspecten van taal",
+        "level": 2,
+        "quotes": [
+          25,
+          242,
+          243,
+          244,
+          264
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "sociale-verbeelding-1",
+    "name": "sociale verbeelding",
+    "level": 1,
+    "quotes": [
+      178
+    ],
+    "children": []
+  },
+  {
+    "id": "spel",
+    "name": "spel",
+    "level": 1,
+    "quotes": [
+      265,
+      266,
+      267,
+      268,
+      269,
+      270,
+      271,
+      272
+    ],
+    "children": [
+      {
+        "id": "stereotiep-spel",
+        "name": "stereotiep spel",
+        "level": 2,
+        "quotes": [
+          273
+        ],
+        "children": []
+      },
+      {
+        "id": "spel-van-de-communicatie",
+        "name": "spel van de communicatie",
+        "level": 2,
+        "quotes": [
+          274
+        ],
+        "children": []
+      },
+      {
+        "id": "het-sociale-spel",
+        "name": "het sociale spel",
+        "level": 2,
+        "quotes": [
+          275,
+          276
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "spontaan-ageren/reageren,-spontaan-zijn",
+    "name": "spontaan ageren/reageren, spontaan zijn",
+    "level": 1,
+    "quotes": [
+      277
+    ],
+    "children": []
+  },
+  {
+    "id": "stereotiepe-interesses",
+    "name": "stereotiepe interesses",
+    "level": 1,
+    "quotes": [
+      25,
+      278
+    ],
+    "children": []
+  },
+  {
+    "id": "stereotypieën",
+    "name": "Stereotypieën",
+    "level": 1,
+    "quotes": [
+      279
+    ],
+    "children": []
+  },
+  {
+    "id": "stijl-van-communiceren",
+    "name": "stijl van communiceren",
+    "level": 1,
+    "quotes": [
+      25,
+      280
+    ],
+    "children": []
+  },
+  {
+    "id": "stoornis-in-de-communicatie",
+    "name": "stoornis in de communicatie",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "stoornis-in-de-(sociale)-verbeelding",
+    "name": "stoornis in de (sociale) verbeelding",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": [
+      {
+        "id": "‘stop’-zeggen",
+        "name": "‘stop’ zeggen",
+        "level": 7,
+        "quotes": [
+          210
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "stress",
+    "name": "stress",
+    "level": 1,
+    "quotes": [
+      151,
+      43,
+      281
+    ],
+    "children": []
+  },
+  {
+    "id": "testings",
+    "name": "testings",
+    "level": 1,
+    "quotes": [
+      25,
+      282,
+      178,
+      262
+    ],
+    "children": []
+  },
+  {
+    "id": "theory-of-mind",
+    "name": "theory of mind",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "therapie",
+    "name": "therapie",
+    "level": 1,
+    "quotes": [
+      232
+    ],
+    "children": []
+  },
+  {
+    "id": "timing",
+    "name": "timing",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "tijd-geven",
+    "name": "tijd geven",
+    "level": 1,
+    "quotes": [
+      283,
+      25,
+      284,
+      285,
+      128,
+      286
+    ],
+    "children": []
+  },
+  {
+    "id": "traagheid",
+    "name": "traagheid",
+    "level": 1,
+    "quotes": [
+      25,
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "transferproblemen",
+    "name": "transferproblemen",
+    "level": 1,
+    "quotes": [
+      287,
+      288,
+      289,
+      169
+    ],
+    "children": []
+  },
+  {
+    "id": "trauma---traumatisering",
+    "name": "trauma \\- traumatisering",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "triade-van-stoornissen-1",
+    "name": "triade van stoornissen",
+    "level": 1,
+    "quotes": [
+      170
+    ],
+    "children": []
+  },
+  {
+    "id": "tweede-orde-perspectiefneming",
+    "name": "tweede orde perspectiefneming",
+    "level": 1,
+    "quotes": [
+      290
+    ],
+    "children": []
+  },
+  {
+    "id": "uitdrukken",
+    "name": "uitdrukken",
+    "level": 1,
+    "quotes": [
+      25,
+      122
+    ],
+    "children": []
+  },
+  {
+    "id": "uiten",
+    "name": "uiten",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "uitgestelde",
+    "name": "uitgestelde",
+    "level": 1,
+    "quotes": [
+      291
+    ],
+    "children": [
+      {
+        "id": "reactie-1",
+        "name": "reactie",
+        "level": 2,
+        "quotes": [
+          292
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "uitputtend",
+    "name": "uitputtend",
+    "level": 1,
+    "quotes": [
+      62,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "vaag-woordgebruik",
+    "name": "vaag woordgebruik",
+    "level": 1,
+    "quotes": [
+      293,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "vaste-regels",
+    "name": "vaste regels",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "geborgenheid-–-zekerheid-–-voorspelbaarheid-–-overzichtelijkheid---duidelijkheid",
+        "name": "geborgenheid – zekerheid – voorspelbaarheid – overzichtelijkheid \\- duidelijkheid",
+        "level": 2,
+        "quotes": [
+          294,
+          295
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "verbaliseren",
+    "name": "verbaliseren",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "verbeelding",
+    "name": "verbeelding",
+    "level": 1,
+    "quotes": [
+      178
+    ],
+    "children": []
+  },
+  {
+    "id": "verbergen---verborgen-houden",
+    "name": "verbergen \\- verborgen houden",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "vergeetachtigheid",
+    "name": "vergeetachtigheid",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "verheldering",
+    "name": "verheldering",
+    "level": 1,
+    "quotes": [
+      296
+    ],
+    "children": []
+  },
+  {
+    "id": "verhoren",
+    "name": "verhoren",
+    "level": 1,
+    "quotes": [
+      297,
+      298,
+      239
+    ],
+    "children": []
+  },
+  {
+    "id": "verkeerd-begrijpen",
+    "name": "verkeerd begrijpen",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "vertrouwenspersoon",
+    "name": "vertrouwenspersoon",
+    "level": 1,
+    "quotes": [
+      169
+    ],
+    "children": []
+  },
+  {
+    "id": "verwachtingen",
+    "name": "verwachtingen",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "van-anderen-1",
+        "name": "van anderen",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "uitdrukken-1",
+        "name": "uitdrukken",
+        "level": 2,
+        "quotes": [
+          299,
+          25,
+          300,
+          301,
+          25,
+          25,
+          302
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "visueel-3",
+    "name": "visueel",
+    "level": 1,
+    "quotes": [
+      303
+    ],
+    "children": [
+      {
+        "id": "communiceren-5",
+        "name": "communiceren",
+        "level": 2,
+        "quotes": [
+          25,
+          25,
+          304
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "voelen",
+    "name": "voelen",
+    "level": 1,
+    "quotes": [
+      102,
+      103,
+      35,
+      36
+    ],
+    "children": []
+  },
+  {
+    "id": "voorbereiding",
+    "name": "voorbereiding",
+    "level": 1,
+    "quotes": [],
+    "children": [
+      {
+        "id": "voorbereiding-maken",
+        "name": "voorbereiding maken",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "voorspelbaarheid",
+    "name": "voorspelbaarheid",
+    "level": 1,
+    "quotes": [
+      305
+    ],
+    "children": [
+      {
+        "id": "elke-dag-hetzelfde",
+        "name": "elke dag hetzelfde",
+        "level": 2,
+        "quotes": [
+          25,
+          306
+        ],
+        "children": []
+      },
+      {
+        "id": "nood-aan-1",
+        "name": "nood aan",
+        "level": 2,
+        "quotes": [],
+        "children": []
+      },
+      {
+        "id": "sensoriële-hypersensitiviteit-/-zintuiglijke-overgevoeligheid",
+        "name": "sensoriële hypersensitiviteit / zintuiglijke overgevoeligheid",
+        "level": 2,
+        "quotes": [
+          159
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "‘vooruitgang’",
+    "name": "‘vooruitgang’",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "vormgeven",
+    "name": "vormgeven",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "vragen-om-iets",
+    "name": "vragen om iets",
+    "level": 1,
+    "quotes": [
+      62
+    ],
+    "children": []
+  },
+  {
+    "id": "vrijheid",
+    "name": "vrijheid",
+    "level": 1,
+    "quotes": [
+      307
+    ],
+    "children": []
+  },
+  {
+    "id": "waarneming",
+    "name": "waarneming",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "‘wat-niet-gezegd-wordt’",
+    "name": "‘wat niet gezegd wordt’",
+    "level": 1,
+    "quotes": [],
+    "children": []
+  },
+  {
+    "id": "wederkerigheid",
+    "name": "wederkerigheid",
+    "level": 1,
+    "quotes": [
+      308
+    ],
+    "children": []
+  },
+  {
+    "id": "weerstand-tegen-verandering-1",
+    "name": "weerstand tegen verandering",
+    "level": 1,
+    "quotes": [
+      25,
+      309,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "werkelijkheid-achter-de-werkelijkheid",
+    "name": "werkelijkheid achter de werkelijkheid",
+    "level": 1,
+    "quotes": [
+      25,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "wisselen-van-aandacht",
+    "name": "wisselen van aandacht",
+    "level": 1,
+    "quotes": [
+      310
+    ],
+    "children": []
+  },
+  {
+    "id": "woordvindingsproblemen-1",
+    "name": "woordvindingsproblemen",
+    "level": 1,
+    "quotes": [
+      311,
+      312,
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "zekerheid",
+    "name": "zekerheid",
+    "level": 1,
+    "quotes": [
+      294,
+      313
+    ],
+    "children": []
+  },
+  {
+    "id": "zelf-kiezen",
+    "name": "zelf kiezen",
+    "level": 1,
+    "quotes": [
+      25
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfbeschikkingsrecht",
+    "name": "zelfbeschikkingsrecht",
+    "level": 1,
+    "quotes": [
+      307
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfbeeld",
+    "name": "zelfbeeld",
+    "level": 1,
+    "quotes": [
+      213,
+      185,
+      186,
+      107,
+      187
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfbewustzijn",
+    "name": "zelfbewustzijn",
+    "level": 1,
+    "quotes": [
+      136
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfevaluatie",
+    "name": "zelfevaluatie",
+    "level": 1,
+    "quotes": [
+      221
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfoverschatting-2",
+    "name": "zelfoverschatting",
+    "level": 1,
+    "quotes": [
+      213,
+      185,
+      186,
+      107,
+      187
+    ],
+    "children": []
+  },
+  {
+    "id": "zelfrapportage",
+    "name": "zelfrapportage",
+    "level": 1,
+    "quotes": [
+      261,
+      213,
+      185,
+      186,
+      107,
+      187
+    ],
+    "children": [
+      {
+        "id": "depressie-2",
+        "name": "depressie",
+        "level": 2,
+        "quotes": [
+          314
+        ],
+        "children": []
+      }
+    ]
+  },
+  {
+    "id": "zelfreflectie",
+    "name": "zelfreflectie",
+    "level": 1,
+    "quotes": [
+      213,
+      185,
+      186,
+      107,
+      187
+    ],
+    "children": []
+  },
+  {
+    "id": "zintuiglijke-overgevoeligheid-1",
+    "name": "zintuiglijke overgevoeligheid",
+    "level": 1,
+    "quotes": [
+      158,
+      159
+    ],
+    "children": []
+  }
+]
