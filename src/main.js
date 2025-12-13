@@ -28,7 +28,7 @@ async function init() {
 
 // --- Rendering Logic ---
 function renderPage() {
-    const termId = window.location.hash.substring(1);
+    const termId = decodeURIComponent(window.location.hash.substring(1));
 
     app.innerHTML = `
         <header>
