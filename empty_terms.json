@@ -1,0 +1,306 @@
+[
+  {
+    "id": "aanpassen",
+    "name": "aanpassen"
+  },
+  {
+    "id": "administratie",
+    "name": "administratie"
+  },
+  {
+    "id": "afgeleid-worden",
+    "name": "afgeleid worden"
+  },
+  {
+    "id": "‘alles’-of-‘niets’",
+    "name": "‘alles’ of ‘niets’"
+  },
+  {
+    "id": "interpreteren",
+    "name": "interpreteren"
+  },
+  {
+    "id": "expressie",
+    "name": "expressie"
+  },
+  {
+    "id": "inschatten",
+    "name": "inschatten"
+  },
+  {
+    "id": "arrogant",
+    "name": "arrogant"
+  },
+  {
+    "id": "‘autistische’-logica",
+    "name": "‘autistische’ logica"
+  },
+  {
+    "id": "‘betekenis-achter-de-betekenis’",
+    "name": "‘betekenis achter de betekenis’"
+  },
+  {
+    "id": "betekenisverlening",
+    "name": "betekenisverlening"
+  },
+  {
+    "id": "beurtrolneming",
+    "name": "beurtrolneming"
+  },
+  {
+    "id": "concreet",
+    "name": "concreet"
+  },
+  {
+    "id": "contextblindheid",
+    "name": "contextblindheid"
+  },
+  {
+    "id": "detaildenken",
+    "name": "detaildenken"
+  },
+  {
+    "id": "associatief-1",
+    "name": "associatief"
+  },
+  {
+    "id": "visueel-2",
+    "name": "visueel"
+  },
+  {
+    "id": "eigen-emoties",
+    "name": "eigen emoties"
+  },
+  {
+    "id": "eigen-keuzes",
+    "name": "eigen keuzes"
+  },
+  {
+    "id": "emoties",
+    "name": "emoties"
+  },
+  {
+    "id": "enthousiasmes",
+    "name": "enthousiasmes"
+  },
+  {
+    "id": "expressie-2",
+    "name": "expressie"
+  },
+  {
+    "id": "figuurlijk-taalgebruik",
+    "name": "figuurlijk taalgebruik"
+  },
+  {
+    "id": "waarnemen",
+    "name": "waarnemen"
+  },
+  {
+    "id": "gefragmenteerde-beleving,-informatieverwerking",
+    "name": "gefragmenteerde beleving, informatieverwerking"
+  },
+  {
+    "id": "geheugen-2",
+    "name": "geheugen"
+  },
+  {
+    "id": "‘slecht-geheugen’",
+    "name": "‘slecht geheugen’"
+  },
+  {
+    "id": "gelijktijdig",
+    "name": "gelijktijdig"
+  },
+  {
+    "id": "gepest-worden",
+    "name": "gepest worden"
+  },
+  {
+    "id": "‘rechttoe-rechtaan’-/-duidelijkheid-/-eenduidigheid-/-letterlijk-/-ondubbelzinnigheid-1",
+    "name": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid"
+  },
+  {
+    "id": "alles-of-niets",
+    "name": "alles of niets"
+  },
+  {
+    "id": "reguleren",
+    "name": "reguleren"
+  },
+  {
+    "id": "geen-volumeknop",
+    "name": "geen volumeknop"
+  },
+  {
+    "id": "goed-gevoel",
+    "name": "goed gevoel"
+  },
+  {
+    "id": "‘grotere-plaatje’",
+    "name": "‘grotere plaatje’"
+  },
+  {
+    "id": "hautain",
+    "name": "hautain"
+  },
+  {
+    "id": "herhaling",
+    "name": "herhaling"
+  },
+  {
+    "id": "hersenprocessen",
+    "name": "hersenprocessen"
+  },
+  {
+    "id": "hypochondrie",
+    "name": "hypochondrie"
+  },
+  {
+    "id": "integratieve-intelligentie",
+    "name": "integratieve intelligentie"
+  },
+  {
+    "id": "kanaliseren",
+    "name": "kanaliseren"
+  },
+  {
+    "id": "kort-lontje",
+    "name": "kort lontje"
+  },
+  {
+    "id": "leren-1",
+    "name": "leren"
+  },
+  {
+    "id": "nld",
+    "name": "NLD"
+  },
+  {
+    "id": "logica",
+    "name": "logica"
+  },
+  {
+    "id": "metavisie",
+    "name": "metavisie"
+  },
+  {
+    "id": "netwerk",
+    "name": "netwerk"
+  },
+  {
+    "id": "hypochondrie-1",
+    "name": "hypochondrie"
+  },
+  {
+    "id": "‘op-eigen-benen-staan’",
+    "name": "‘op eigen benen staan’"
+  },
+  {
+    "id": "organiseren",
+    "name": "organiseren"
+  },
+  {
+    "id": "organisatorische-aspecten-van",
+    "name": "organisatorische aspecten van"
+  },
+  {
+    "id": "overspannen-geraken",
+    "name": "overspannen geraken"
+  },
+  {
+    "id": "‘performantie-deficit’",
+    "name": "‘performantie-deficit’"
+  },
+  {
+    "id": "preoccupaties",
+    "name": "preoccupaties"
+  },
+  {
+    "id": "psychische-structuurvastheid",
+    "name": "psychische structuurvastheid"
+  },
+  {
+    "id": "psychologische-begeleiding",
+    "name": "psychologische begeleiding"
+  },
+  {
+    "id": "realisme",
+    "name": "realisme"
+  },
+  {
+    "id": "sociale-verbeelding",
+    "name": "sociale verbeelding"
+  },
+  {
+    "id": "relevante-informatie-van-irrelevante-informatie-onderscheiden",
+    "name": "relevante informatie van irrelevante informatie onderscheiden"
+  },
+  {
+    "id": "serieel-denken",
+    "name": "serieel denken"
+  },
+  {
+    "id": "sociaal-netwerk",
+    "name": "sociaal netwerk"
+  },
+  {
+    "id": "stoornis-in-de-communicatie",
+    "name": "stoornis in de communicatie"
+  },
+  {
+    "id": "timing",
+    "name": "timing"
+  },
+  {
+    "id": "trauma---traumatisering",
+    "name": "trauma \\- traumatisering"
+  },
+  {
+    "id": "uiten",
+    "name": "uiten"
+  },
+  {
+    "id": "vaste-regels",
+    "name": "vaste regels"
+  },
+  {
+    "id": "verbergen---verborgen-houden",
+    "name": "verbergen \\- verborgen houden"
+  },
+  {
+    "id": "vergeetachtigheid",
+    "name": "vergeetachtigheid"
+  },
+  {
+    "id": "verkeerd-begrijpen",
+    "name": "verkeerd begrijpen"
+  },
+  {
+    "id": "verwachtingen",
+    "name": "verwachtingen"
+  },
+  {
+    "id": "van-anderen-1",
+    "name": "van anderen"
+  },
+  {
+    "id": "voorbereiding",
+    "name": "voorbereiding"
+  },
+  {
+    "id": "voorbereiding-maken",
+    "name": "voorbereiding maken"
+  },
+  {
+    "id": "nood-aan-1",
+    "name": "nood aan"
+  },
+  {
+    "id": "waarneming",
+    "name": "waarneming"
+  },
+  {
+    "id": "‘wat-niet-gezegd-wordt’",
+    "name": "‘wat niet gezegd wordt’"
+  }
+]
