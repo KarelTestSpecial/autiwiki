@@ -10,19 +10,19 @@
         <h2>Welkom</h2>
         <p>Dit is een interactieve woordenlijst gebaseerd op het "Werkboek rond Autisme".</p>
         <p>Kies een term uit het menu om de beschrijving en bijbehorende citaten te bekijken.</p>
-    `}function y(t,e){const i=p(c,e.id).map(s=>`<a href="#${s.id}">${s.name}</a>`).join(" / ");let n="";const r=f[e.id];if(e.quotes&&e.quotes.length>0){n+='<h3>Citaten</h3><div class="quotes-list">';for(const s of e.quotes){const a=u[s];a&&(n+=`
-                    <blockquote class="quote-card">
-                        <p>${a.text.replace(/\n/g,"<br>")}</p>
-                        <footer>— ${a.source}</footer>
-                    </blockquote>
-                `)}n+="</div>"}else r?n+=`
+    `}function y(t,e){const i=p(c,e.id).map(s=>`<a href="#${s.id}">${s.name}</a>`).join(" / ");let n="";const r=f[e.id];if(r&&(n+=`
             <h3>Verheldering</h3>
             <div class="quotes-list">
                 <blockquote class="quote-card">
                     <p>${r}</p>
                 </blockquote>
             </div>
-        `:n+="<p>Geen citaten of verhelderende tekst gevonden voor deze term.</p>";t.innerHTML=`
+        `),e.quotes&&e.quotes.length>0){n+='<h3>Citaten</h3><div class="quotes-list">';for(const s of e.quotes){const a=u[s];a&&(n+=`
+                    <blockquote class="quote-card">
+                        <p>${a.text.replace(/\n/g,"<br>")}</p>
+                        <footer>— ${a.source}</footer>
+                    </blockquote>
+                `)}n+="</div>"}!r&&(!e.quotes||e.quotes.length===0)&&(n+="<p>Geen citaten of verhelderende tekst gevonden voor deze term.</p>"),t.innerHTML=`
         <div id="breadcrumbs">${i}</div>
         <h2>${e.name}</h2>
         <div class="term-content">
