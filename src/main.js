@@ -1,16 +1,26 @@
 
 import './style.css';
-import glossaryData from './glossary.json';
-import quotesData from './quotes.json';
 
 const app = document.getElementById('app');
 let glossary = [];
 let quotes = {};
 
-// --- Initialization ---
-function init() {
-    window.addEventListener('hashchange', renderPage);
-    renderPage(); // Initial render
+// --- Data Fetching and Initialization ---
+async function init() {
+    try {
+        const [glossaryRes, quotesRes] = await Promise.all([
+            fetch('glossary.json'), // Relative path
+            fetch('quotes.json')  // Relative path
+        ]);
+        glossary = await glossaryRes.json();
+        quotes = await quotesRes.json();
+
+        window.addEventListener('hashchange', renderPage);
+        renderPage(); // Initial render
+    } catch (error) {
+        console.error("Failed to load data:", error);
+        app.innerHTML = `<p>Error: Kon de benodigde data niet laden. Probeer het later opnieuw.</p>`;
+    }
 }
 
 // --- Rendering Logic ---
