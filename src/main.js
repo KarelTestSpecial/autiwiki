@@ -12,24 +12,24 @@ async function init() {
         const [glossaryRes, quotesRes, explanationsRes] = await Promise.all([
             fetch('glossary.json'),
             fetch('quotes.json'),
-            fetch('explanations.json') // Load the new explanations
+            fetch('explanations.json')
         ]);
         glossary = await glossaryRes.json();
         quotes = await quotesRes.json();
         explanations = await explanationsRes.json();
 
-        window.addEventListener('hashchange', renderPage);
-        renderPage(); // Initial render
+        renderLayout();
+
+        window.addEventListener('hashchange', renderContent);
+        renderContent();
     } catch (error) {
         console.error("Failed to load data:", error);
         app.innerHTML = `<p>Error: Kon de benodigde data niet laden. Probeer het later opnieuw.</p>`;
     }
 }
 
-// --- Rendering Logic ---
-function renderPage() {
-    const termId = decodeURIComponent(window.location.hash.substring(1));
-
+// --- Layout and Content Rendering ---
+function renderLayout() {
     app.innerHTML = `
         <header>
             <h1><a href="#">AutiWiki</a></h1>
@@ -39,11 +39,18 @@ function renderPage() {
             <main id="content"></main>
         </div>
     `;
-
     const sidebar = document.getElementById('sidebar');
+    sidebar.innerHTML = createNavHtml(glossary);
+}
+
+function renderContent() {
+    const termId = decodeURIComponent(window.location.hash.substring(1));
     const content = document.getElementById('content');
 
-    sidebar.innerHTML = createNavHtml(glossary);
+    if (!content) return;
+
+    // Update active link in the sidebar
+    updateActiveLink(termId);
 
     const term = findTermById(glossary, termId);
 
@@ -52,7 +59,7 @@ function renderPage() {
     } else {
         renderHomePage(content);
         if (termId) {
-            window.location.hash = '';
+           window.location.hash = '';
         }
     }
 }
@@ -87,7 +94,6 @@ function renderTermDetail(contentElement, term) {
         }
         contentHtml += '</div>';
     } else if (explanation) {
-        // If no quotes, show the explanation
         contentHtml += `
             <h3>Verheldering</h3>
             <p class="explanation-text">${explanation}</p>
@@ -104,6 +110,27 @@ function renderTermDetail(contentElement, term) {
         </div>
     `;
 }
+
+// --- UI Logic ---
+function updateActiveLink(termId) {
+    const sidebar = document.getElementById('sidebar');
+    if (!sidebar) return;
+
+    // Remove 'active' class from any previously active link
+    const currentActive = sidebar.querySelector('a.active');
+    if (currentActive) {
+        currentActive.classList.remove('active');
+    }
+
+    // Add 'active' class to the new current link
+    if (termId) {
+        const newActive = sidebar.querySelector(`a[href="#${termId}"]`);
+        if (newActive) {
+            newActive.classList.add('active');
+        }
+    }
+}
+
 
 // --- HTML Generation ---
 function createNavHtml(terms) {
