@@ -33,6 +33,14 @@ a {
   text-decoration: none;
 }
 
+#sidebar a.active {
+  color: #0056b3;
+  font-weight: 600;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  padding-left: 0.5rem; /* Add some padding to align with hover */
+}
+
 a:hover {
   text-decoration: underline;
 }
