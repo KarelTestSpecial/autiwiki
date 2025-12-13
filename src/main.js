@@ -94,9 +94,14 @@ function renderTermDetail(contentElement, term) {
         }
         contentHtml += '</div>';
     } else if (explanation) {
+        // Wrap explanation in a quote-card for visual consistency
         contentHtml += `
             <h3>Verheldering</h3>
-            <p class="explanation-text">${explanation}</p>
+            <div class="quotes-list">
+                <blockquote class="quote-card">
+                    <p>${explanation}</p>
+                </blockquote>
+            </div>
         `;
     } else {
         contentHtml += '<p>Geen citaten of verhelderende tekst gevonden voor deze term.</p>';
