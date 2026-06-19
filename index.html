@@ -7,129 +7,978 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-5LCSBW7WSV');
   </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <title>AutiWiki</title>
+  <title>AutiWiki - Interactieve Gids over Autisme</title>
+  
+  <!-- Google Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-accent: rgba(30, 41, 59, 0.7);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --border-color: rgba(255, 255, 255, 0.1);
+      --font-family: 'Outfit', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
       margin: 0;
-      padding: 20px;
-      background: #f9f9f9;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      height: 100vh;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
     }
 
-    .header {
+    /* Layout structure */
+    .app-container {
+      display: grid;
+      grid-template-columns: 420px 1fr;
+      flex: 1;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      background-color: var(--bg-secondary);
+      border-right: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .sidebar-header {
+      padding: 24px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .brand {
       display: flex;
       align-items: center;
-      gap: 16px;
-      flex-wrap: wrap;
-      margin-bottom: 20px;
+      gap: 12px;
     }
 
-    .header h1 {
-      margin: 0;
-      font-size: 1.8em;
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      background: var(--accent-gradient);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: white;
+      font-size: 1.2em;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .language-buttons {
+      display: flex;
+      gap: 8px;
+      background: rgba(0, 0, 0, 0.2);
+      padding: 4px;
+      border-radius: 8px;
     }
 
     .language-buttons button {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
       padding: 6px 12px;
-      font-size: 1em;
+      font-size: 0.9em;
+      font-weight: 500;
       cursor: pointer;
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      font-family: var(--font-family);
     }
 
-    .pdf-container {
+    .language-buttons button.active {
+      background: var(--bg-primary);
+      color: var(--text-main);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    /* Tabs navigation */
+    .tabs-nav {
+      display: flex;
+      border-bottom: 1px solid var(--border-color);
+      padding: 0 16px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 14px 8px;
+      font-size: 0.9em;
+      font-weight: 500;
+      cursor: pointer;
+      position: relative;
+      transition: color 0.2s;
+      font-family: var(--font-family);
+    }
+
+    .tab-btn:hover {
+      color: var(--text-main);
+    }
+
+    .tab-btn.active {
+      color: var(--accent-blue);
+    }
+
+    .tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent-blue);
+    }
+
+    /* Scrollable Tab Content */
+    .sidebar-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 24px;
+    }
+
+    .tab-pane {
+      display: none;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    .tab-pane h2 {
+      font-size: 1.2rem;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .tab-pane p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    /* SEO & Intro styling */
+    .intro-card {
+      background: var(--bg-accent);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .partner-info {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 16px;
+    }
+
+    /* Search & Index styling */
+    .search-wrapper {
+      position: relative;
+      margin-bottom: 16px;
+    }
+
+    .search-input {
       width: 100%;
-      height: calc(100vh - 170px); /* Berekende hoogte om footer omhoog te halen */
-      border: 1px solid #ccc;
-      background: white;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.9em;
+      outline: none;
+      transition: border-color 0.2s;
+      font-family: var(--font-family);
     }
 
-    .footer {
+    .search-input:focus {
+      border-color: var(--accent-blue);
+    }
+
+    .index-list {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 400px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    /* Custom scrollbar for list */
+    .index-list::-webkit-scrollbar, .sidebar-content::-webkit-scrollbar {
+      width: 6px;
+    }
+    .index-list::-webkit-scrollbar-thumb, .sidebar-content::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.1);
+      border-radius: 3px;
+    }
+
+    .index-item {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 6px;
+      padding: 10px 12px;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 10px;
-      padding: 10px 0;
-      border-top: 1px solid #ddd;
+      transition: all 0.2s ease;
+      font-size: 0.9em;
     }
 
-    .copyright {
+    .index-item:hover {
+      background: var(--bg-accent);
+      border-color: var(--accent-blue);
+      transform: translateX(4px);
+    }
+
+    .index-item-page {
+      font-size: 0.8em;
+      color: var(--accent-blue);
+      background: rgba(59, 130, 246, 0.1);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+
+    /* PDF Viewer Area */
+    .pdf-viewer-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      background: #1e1e24;
+      overflow: hidden;
+    }
+
+    .pdf-toolbar {
+      height: 56px;
+      background: var(--bg-secondary);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
+      user-select: none;
+    }
+
+    .toolbar-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .toolbar-divider {
+      height: 20px;
+      width: 1px;
+      background: var(--border-color);
+      margin: 0 4px;
+    }
+
+    .toolbar-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1em;
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .toolbar-btn:hover {
+      background: rgba(255,255,255,0.05);
+      color: var(--text-main);
+    }
+
+    .toolbar-btn:active {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .toolbar-input {
+      width: 48px;
+      height: 32px;
+      background: rgba(0, 0, 0, 0.2);
+      border: 1px solid var(--border-color);
+      color: var(--text-main);
+      text-align: center;
+      border-radius: 6px;
       font-size: 0.9em;
-      color: #666;
+      outline: none;
+      font-family: var(--font-family);
+    }
+
+    .toolbar-input::-webkit-inner-spin-button,
+    .toolbar-input::-webkit-outer-spin-button {
+      -webkit-appearance: none;
       margin: 0;
     }
 
-    .cta-container {
+    .toolbar-text {
+      font-size: 0.9em;
+      color: var(--text-muted);
+    }
+
+    .pdf-container {
+      flex: 1;
+      background: #141419;
+      overflow-y: auto;
       display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 10px;
-      color: #e67e22; /* Opvallende kleur voor de CTA */
-      font-weight: bold;
-      margin-right: 80px; /* Ruimte maken voor de chatbot icoon */
+      gap: 24px;
+      padding: 24px;
+      scroll-behavior: smooth;
     }
 
-    .arrow {
-      font-size: 1.5em;
+    .pdf-page-wrapper {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      background: white;
       display: inline-block;
-      animation: bounceRight 1s infinite alternate ease-in-out;
+      border-radius: 4px;
+      overflow: hidden;
     }
 
-    @keyframes bounceRight {
-      from { transform: translateX(0); }
-      to { transform: translateX(10px); }
+    .pdf-page-wrapper canvas {
+      display: block;
+      max-width: 100%;
+      height: auto;
     }
 
-    /* Mobiele weergave: stapel de elementen */
-    @media (max-width: 768px) {
-      .footer {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
+    .loading, .error {
+      color: var(--text-muted);
+      font-size: 1.1em;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .error {
+      color: #ef4444;
+    }
+
+    /* Print protection */
+    @media print {
+      body {
+        display: none !important;
       }
-      .cta-container {
-        margin-right: 0;
-        margin-bottom: 60px; /* Ruimte boven de zwevende chatbot icoon op mobiel */
+    }
+
+    /* Footer styling */
+    .sidebar-footer {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border-color);
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .app-container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+      .sidebar {
+        height: auto;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .pdf-container {
+        height: 60vh;
       }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <h1>AutiWiki</h1>
-    <div class="language-buttons">
-      <button onclick="loadPdf('autiwiki-nl.pdf')">NL</button>
-      <button onclick="loadPdf('autiwiki-en.pdf')">EN</button>
-      <button onclick="loadPdf('autiwiki-fr.pdf')">FR</button>
-    </div>
+
+  <div class="app-container">
+    
+    <!-- Left Sidebar: Info, FAQ and Term Index -->
+    <aside class="sidebar">
+      
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-logo">A</div>
+          <h1>AutiWiki</h1>
+        </div>
+        <div class="language-buttons">
+          <button onclick="changeLang('nl')" id="lang-nl" class="active">NL</button>
+          <button onclick="changeLang('en')" id="lang-en">EN</button>
+          <button onclick="changeLang('fr')" id="lang-fr">FR</button>
+        </div>
+      </div>
+
+      <!-- Navigation tabs -->
+      <nav class="tabs-nav">
+        <button class="tab-btn active" onclick="switchTab('about')" id="tab-about-btn">Project</button>
+        <button class="tab-btn" onclick="switchTab('index')" id="tab-index-btn">Index</button>
+        <button class="tab-btn" onclick="switchTab('chat')" id="tab-chat-btn">AI-Assistent</button>
+      </nav>
+
+      <!-- Scrollable content area -->
+      <div class="sidebar-content">
+        
+        <!-- Tab 1: Project Information (SEO friendly) -->
+        <div class="tab-pane active" id="tab-about">
+          <div class="intro-card">
+            <h2 id="about-title">Over AutiWiki</h2>
+            <p id="about-p1">
+              AutiWiki is een interactief en visueel werkboek ontworpen om normaal tot hoogbegaafde personen met autisme een concrete houvast te bieden in hun communicatie met hun omgeving. Het helpt om aan anderen uit te leggen wat autisme voor hen in de praktijk betekent.
+            </p>
+            <p id="about-p2">
+              Dit unieke platform combineert een digitaal beveiligd werkboek met een krachtige AI-chatbot. De chatbot stelt bezoekers en professionals in staat om direct vragen te stellen over autisme en onmiddellijk betrouwbare, wetenschappelijk onderbouwde antwoorden te krijgen.
+            </p>
+          </div>
+          
+          <div class="partner-info">
+            <h3 style="font-size: 1em; font-weight: 600;" id="partner-title">Samenwerking & Partners</h3>
+            <p style="font-size: 0.9em; margin-bottom: 0;" id="partner-p">
+              Dit project is een samenwerking tussen dr. Peter Vermeulen (expert in autisme), Sterkmakers in autisme (VZW) en softwareontwikkelaar Karel Decherf.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Interactive A-Z Term Index -->
+        <div class="tab-pane" id="tab-index">
+          <h2 id="index-title">Snelzoeker & Index</h2>
+          <p id="index-p">Zoek en selecteer een begrip om direct naar de juiste pagina in het beveiligde werkboek te springen.</p>
+          
+          <div class="search-wrapper">
+            <input type="text" id="searchInput" class="search-input" placeholder="Zoek op begrip..." onkeyup="filterIndex()">
+          </div>
+
+          <div class="index-list" id="indexList">
+            <!-- Dynamic Index Items will be injected here -->
+          </div>
+        </div>
+
+        <!-- Tab 3: AI Chatbot Guide -->
+        <div class="tab-pane" id="tab-chat">
+          <h2 id="chat-title">Onze AI-Expert</h2>
+          <p id="chat-p1">
+            Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.
+          </p>
+          <p id="chat-p2">
+            <strong>Stel gerust vragen zoals:</strong><br>
+            • "Wat is contextblindheid?"<br>
+            • "Hoe ga ik om met overprikkeling?"<br>
+            • "Wat is het verschil tussen denken en voelen?"
+          </p>
+          <p style="font-size: 0.9em; font-style: italic;" id="chat-p3">
+            De chatbot werkt volledig in het Nederlands, Engels en Frans.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Footer Info -->
+      <footer class="sidebar-footer">
+        <p class="copyright">
+          Copyright © Sterkmakers in autisme, dr. Peter Vermeulen, Karel Decherf.<br>
+          Alle rechten voorbehouden.
+        </p>
+      </footer>
+
+    </aside>
+
+    <!-- Right Side: PDF Viewer -->
+    <main class="pdf-viewer-wrapper">
+      
+      <!-- Custom PDF Control Toolbar -->
+      <div class="pdf-toolbar">
+        <div class="toolbar-section">
+          <button id="prevPageBtn" class="toolbar-btn" title="Vorige pagina">◀</button>
+          <input type="number" id="pageInput" class="toolbar-input" min="1" value="1">
+          <span id="pageCount" class="toolbar-text">/ 0</span>
+          <button id="nextPageBtn" class="toolbar-btn" title="Volgende pagina">▶</button>
+        </div>
+        <div class="toolbar-divider"></div>
+        <div class="toolbar-section">
+          <button id="zoomOutBtn" class="toolbar-btn" title="Uitzoomen">➖</button>
+          <span id="zoomPercent" class="toolbar-text">100%</span>
+          <button id="zoomInBtn" class="toolbar-btn" title="Inzoomen">➕</button>
+        </div>
+      </div>
+
+      <!-- Scrollable PDF Container -->
+      <div id="pdfContainer" class="pdf-container">
+        <div class="loading">Laden...</div>
+      </div>
+
+    </main>
+
   </div>
 
-  <embed id="pdfViewer" src="autiwiki-nl.pdf" type="application/pdf" class="pdf-container" />
+  <!-- BotPress Chatbot Scripts -->
+  <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+  <script src="https://files.bpcontent.cloud/2025/08/13/16/20250813160706-I4RPYOII.js" defer></script>
+  
+  <!-- PDF.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
-  <footer class="footer">
-    <p class="copyright">Copyright © Sterkmakers in autisme , Peter Vermeulen , Karel Decherf</p>
-    <div class="cta-container">
-      Vraag het aan onze AI-expert! <span class="arrow">➔</span>
-    </div>
-  </footer>
-
-  <!-- BotPress Chatbot -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2025/08/13/16/20250813160706-I4RPYOII.js" defer></script>
-    
-
-  <!-- PDF wissel-functie -->
   <script>
-    function loadPdf(filename) {
-      const viewer = document.getElementById('pdfViewer');
-      if (viewer) viewer.src = filename;
+    // Set up PDF.js global worker
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
+
+    // Global App State
+    let currentPdf = null;
+    let currentFilename = 'autiwiki-nl.pdf';
+    let baseWidth = 800;
+    let zoomLevel = 1.0;
+    let isScrollingToPage = false;
+    let currentLang = 'nl';
+
+    // Translation Data
+    const translations = {
+      nl: {
+        aboutTitle: "Over AutiWiki",
+        aboutP1: "AutiWiki is een interactief en visueel werkboek ontworpen om normaal tot hoogbegaafde personen met autisme een concrete houvast te bieden in hun communicatie met hun omgeving. Het helpt om aan anderen uit te leggen wat autisme voor hen in de praktijk betekent.",
+        aboutP2: "Dit platform combineert een digitaal beveiligd werkboek met een krachtige AI-chatbot. De chatbot stelt bezoekers en professionals in staat om direct vragen te stellen en onmiddellijk betrouwbare, wetenschappelijk onderbouwde antwoorden te krijgen.",
+        partnerTitle: "Samenwerking & Partners",
+        partnerP: "Dit project is een samenwerking tussen dr. Peter Vermeulen (expert in autisme), Sterkmakers in autisme (VZW) en softwareontwikkelaar Karel Decherf.",
+        indexTitle: "Snelzoeker & Index",
+        indexP: "Zoek en selecteer een begrip om direct naar de juiste pagina in het werkboek te springen.",
+        searchPlaceholder: "Zoek op begrip...",
+        chatTitle: "Onze AI-Expert",
+        chatP1: "Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.",
+        chatP2: "<strong>Stel gerust vragen zoals:</strong><br>• \"Wat is contextblindheid?\"<br>• \"Hoe ga ik om met overprikkeling?\"<br>• \"Wat is het verschil tussen denken en voelen?\"",
+        chatP3: "De chatbot werkt volledig in het Nederlands, Engels en Frans.",
+        tabAbout: "Project",
+        tabIndex: "Index",
+        tabChat: "AI-Assistent",
+        toolbarPrev: "Vorige pagina",
+        toolbarNext: "Volgende pagina",
+        toolbarZoomIn: "Inzoomen",
+        toolbarZoomOut: "Uitzoomen",
+        loadingText: "Laden..."
+      },
+      en: {
+        aboutTitle: "About AutiWiki",
+        aboutP1: "AutiWiki is an interactive and visual workbook designed to offer autistic individuals of average to high intelligence a concrete guide for communicating with their environment. It helps them explain what autism means to them in practice.",
+        aboutP2: "This platform combines a digitally protected workbook with a powerful AI chatbot. The chatbot allows visitors and professionals to ask questions directly and receive immediate, scientifically supported answers.",
+        partnerTitle: "Collaboration & Partners",
+        partnerP: "This project is a collaboration between dr. Peter Vermeulen (autism expert), Sterkmakers in autisme (NGO), and software developer Karel Decherf.",
+        indexTitle: "Term Finder & Index",
+        indexP: "Search and select a term to jump directly to the correct page in the protected workbook.",
+        searchPlaceholder: "Search for a term...",
+        chatTitle: "Our AI Expert",
+        chatP1: "At the bottom right of your screen, you can see our AI chatbot icon. This intelligent assistant is specifically trained on the content of AutiWiki and the expertise of dr. Peter Vermeulen.",
+        chatP2: "<strong>Feel free to ask questions like:</strong><br>• \"What is context blindness?\"<br>• \"How do I cope with overstimulation?\"<br>• \"What is the difference between thinking and feeling?\"",
+        chatP3: "The chatbot works completely in Dutch, English, and French.",
+        tabAbout: "Project",
+        tabIndex: "Index",
+        tabChat: "AI-Assistant",
+        toolbarPrev: "Previous page",
+        toolbarNext: "Next page",
+        toolbarZoomIn: "Zoom In",
+        toolbarZoomOut: "Zoom Out",
+        loadingText: "Loading..."
+      },
+      fr: {
+        aboutTitle: "À propos d'AutiWiki",
+        aboutP1: "AutiWiki is un manuel interactif et visuel conçu pour offrir aux personnes autistes d'intelligence moyenne à supérieure un guide concret pour communiquer avec leur entourage. Il les aide à expliquer ce que l'autisme signifie pour elles dans la pratique.",
+        aboutP2: "Cette plateforme combine un manuel sécurisé numériquement et un chatbot IA performant. Le chatbot permet aux visiteurs et aux professionnels de poser des questions directement et de recevoir immédiatement des réponses scientifiquement fondées.",
+        partnerTitle: "Collaboration et Partenaires",
+        partnerP: "Ce projet est une collaboration entre le dr. Peter Vermeulen (expert en autisme), Sterkmakers in autisme (ASBL) et le développeur de logiciels Karel Decherf.",
+        indexTitle: "Recherche et Index",
+        indexP: "Recherchez et sélectionnez un terme pour accéder directement à la page correspondante du manuel.",
+        searchPlaceholder: "Rechercher un terme...",
+        chatTitle: "Notre Expert IA",
+        chatP1: "En bas à droite de votre écran, vous pouvez voir notre icône de chatbot. Cet assistant intelligent est spécifiquement formé sur le contenu d'AutiWiki et l'expertise du dr. Peter Vermeulen.",
+        chatP2: "<strong>N'hésitez pas à poser des questions comme:</strong><br>• \"Qu'est-ce que la cécité contextuelle ?\"<br>• \"Comment gérer la surstimulation ?\"<br>• \"Quelle est la différence entre penser et ressentir ?\"",
+        chatP3: "Le chatbot fonctionne en néerlandais, anglais et français.",
+        tabAbout: "Projet",
+        tabIndex: "Index",
+        tabChat: "Assistant IA",
+        toolbarPrev: "Page précédente",
+        toolbarNext: "Page suivante",
+        toolbarZoomIn: "Zoomer",
+        toolbarZoomOut: "Dézoomer",
+        loadingText: "Chargement..."
+      }
+    };
+
+    // Curated terms index with mapped pages (NL, EN, FR)
+    const termsData = {
+      nl: [
+        { term: "Inleiding", page: 12 },
+        { term: "Zorgvraag & Nood", page: 14 },
+        { term: "Visualiseren en concretiseren", page: 14 },
+        { term: "Weerstand tegen verandering", page: 15 },
+        { term: "Aandacht", page: 16 },
+        { term: "Aanleren of Afleren", page: 17 },
+        { term: "Aanpassen", page: 19 },
+        { term: "Absolute denkers", page: 28 },
+        { term: "Abstract vs Concreet", page: 28 },
+        { term: "Administratie", page: 30 },
+        { term: "Agressie", page: 31 },
+        { term: "Alles of niets (emoties)", page: 32 },
+        { term: "Associatief denken", page: 35 },
+        { term: "Autistische logica", page: 36 },
+        { term: "Betekenisverlening", page: 41 },
+        { term: "Centrale coherentie", page: 42 },
+        { term: "Communicatie", page: 43 },
+        { term: "Contextblindheid", page: 57 },
+        { term: "Detaildenken", page: 59 },
+        { term: "Emotionele onrijpheid", page: 66 },
+        { term: "Empathie", page: 66 },
+        { term: "Energiekost", page: 67 },
+        { term: "Executive function", page: 67 },
+        { term: "Geheugen", page: 75 },
+        { term: "Rigiditeit", page: 145 }
+      ],
+      en: [
+        { term: "Introduction", page: 12 },
+        { term: "Needs & Care", page: 14 },
+        { term: "Visualisation", page: 14 },
+        { term: "Resistance to change", page: 15 },
+        { term: "Attention", page: 16 },
+        { term: "Learning / Unlearning", page: 17 },
+        { term: "Adapting", page: 19 },
+        { term: "Absolute thinking", page: 28 },
+        { term: "Abstract vs Concrete", page: 28 },
+        { term: "Administration", page: 30 },
+        { term: "Aggression", page: 31 },
+        { term: "All or nothing (feelings)", page: 32 },
+        { term: "Associative thinking", page: 35 },
+        { term: "Autistic logic", page: 36 },
+        { term: "Meaning-making", page: 41 },
+        { term: "Central coherence", page: 42 },
+        { term: "Communication", page: 43 },
+        { term: "Context blindness", page: 57 },
+        { term: "Detail thinking", page: 59 },
+        { term: "Emotional immaturity", page: 66 },
+        { term: "Empathy", page: 66 },
+        { term: "Energy cost", page: 67 },
+        { term: "Executive function", page: 67 },
+        { term: "Memory", page: 75 },
+        { term: "Rigidity", page: 145 }
+      ],
+      fr: [
+        { term: "Introduction", page: 12 },
+        { term: "Besoins d'accompagnement", page: 14 },
+        { term: "Visualisation", page: 14 },
+        { term: "Résistance au changement", page: 15 },
+        { term: "Attention", page: 16 },
+        { term: "Apprentissage", page: 17 },
+        { term: "Adaptation", page: 19 },
+        { term: "Pensée absolue", page: 28 },
+        { term: "Abstrait vs Concret", page: 28 },
+        { term: "Administration", page: 30 },
+        { term: "Agression", page: 31 },
+        { term: "Tout ou rien (émotions)", page: 32 },
+        { term: "Pensée associative", page: 35 },
+        { term: "Logique autistique", page: 36 },
+        { term: "Attribution de sens", page: 41 },
+        { term: "Cohérence centrale", page: 42 },
+        { term: "Communication", page: 43 },
+        { term: "Cécité contextuelle", page: 57 },
+        { term: "Pensée de détail", page: 59 },
+        { term: "Immaturité émotionnelle", page: 66 },
+        { term: "Empathie", page: 66 },
+        { term: "Coût énergétique", page: 67 },
+        { term: "Fonction exécutive", page: 67 },
+        { term: "Mémoire", page: 75 },
+        { term: "Rigidité", page: 145 }
+      ]
+    };
+
+    // DOM Elements
+    const container = document.getElementById('pdfContainer');
+    const pageInput = document.getElementById('pageInput');
+    const pageCount = document.getElementById('pageCount');
+    const prevPageBtn = document.getElementById('prevPageBtn');
+    const nextPageBtn = document.getElementById('nextPageBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const zoomPercent = document.getElementById('zoomPercent');
+    const indexList = document.getElementById('indexList');
+
+    // UI Translation trigger
+    function updateUITranslations() {
+      const data = translations[currentLang];
+      
+      document.getElementById('tab-about-btn').textContent = data.tabAbout;
+      document.getElementById('tab-index-btn').textContent = data.tabIndex;
+      document.getElementById('tab-chat-btn').textContent = data.tabChat;
+
+      document.getElementById('about-title').textContent = data.aboutTitle;
+      document.getElementById('about-p1').textContent = data.aboutP1;
+      document.getElementById('about-p2').textContent = data.aboutP2;
+      document.getElementById('partner-title').textContent = data.partnerTitle;
+      document.getElementById('partner-p').textContent = data.partnerP;
+
+      document.getElementById('index-title').textContent = data.indexTitle;
+      document.getElementById('index-p').textContent = data.indexP;
+      document.getElementById('searchInput').placeholder = data.searchPlaceholder;
+
+      document.getElementById('chat-title').textContent = data.chatTitle;
+      document.getElementById('chat-p1').textContent = data.chatP1;
+      document.getElementById('chat-p2').innerHTML = data.chatP2;
+      document.getElementById('chat-p3').textContent = data.chatP3;
+
+      prevPageBtn.title = data.toolbarPrev;
+      nextPageBtn.title = data.toolbarNext;
+      zoomInBtn.title = data.toolbarZoomIn;
+      zoomOutBtn.title = data.toolbarZoomOut;
     }
+
+    // Build interactive A-Z terms list
+    function renderTermsList() {
+      indexList.innerHTML = '';
+      const list = termsData[currentLang];
+      
+      list.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'index-item';
+        div.onclick = () => scrollToPage(item.page);
+        
+        div.innerHTML = `
+          <span>${item.term}</span>
+          <span class="index-item-page">p. ${item.page}</span>
+        `;
+        indexList.appendChild(div);
+      });
+    }
+
+    // Filter index search
+    function filterIndex() {
+      const query = document.getElementById('searchInput').value.toLowerCase();
+      const items = indexList.getElementsByClassName('index-item');
+      
+      Array.from(items).forEach(item => {
+        const text = item.querySelector('span').textContent.toLowerCase();
+        if (text.includes(query)) {
+          item.style.display = 'flex';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Switch tabs
+    window.switchTab = function(tabId) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      
+      document.getElementById(`tab-${tabId}`).classList.add('active');
+      document.getElementById(`tab-${tabId}-btn`).classList.add('active');
+    };
+
+    // Change Language
+    window.changeLang = function(langCode) {
+      if (langCode === currentLang) return;
+      currentLang = langCode;
+
+      // Update button visual active state
+      document.querySelectorAll('.language-buttons button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`lang-${langCode}`).classList.add('active');
+
+      // Update UI translations and regenerate Index
+      updateUITranslations();
+      renderTermsList();
+
+      // Load matching PDF
+      loadPdf(`autiwiki-${langCode}.pdf`);
+    };
+
+    // Load PDF using PDF.js
+    function loadPdf(filename) {
+      currentFilename = filename;
+      container.innerHTML = `<div class="loading">${translations[currentLang].loadingText}</div>`;
+      
+      pdfjsLib.getDocument(filename).promise.then(pdf => {
+        currentPdf = pdf;
+        pageCount.textContent = '/ ' + pdf.numPages;
+        pageInput.max = pdf.numPages;
+        pageInput.value = 1;
+        renderPdf();
+      }).catch(err => {
+        container.innerHTML = '<div class="error">Fout bij het laden van het document: ' + err.message + '</div>';
+      });
+    }
+
+    // Render all PDF pages
+    function renderPdf() {
+      if (!currentPdf) return;
+      container.innerHTML = '';
+      
+      const containerWidth = container.clientWidth;
+      const desiredWidth = Math.min(containerWidth - 48, baseWidth * zoomLevel);
+      zoomPercent.textContent = Math.round(zoomLevel * 100) + '%';
+      
+      for (let pageNum = 1; pageNum <= currentPdf.numPages; pageNum++) {
+        const pageWrapper = document.createElement('div');
+        pageWrapper.className = 'pdf-page-wrapper';
+        pageWrapper.id = 'page-' + pageNum;
+        
+        const canvas = document.createElement('canvas');
+        pageWrapper.appendChild(canvas);
+        container.appendChild(pageWrapper);
+        
+        currentPdf.getPage(pageNum).then(page => {
+          const unscaledViewport = page.getViewport({ scale: 1 });
+          const scale = desiredWidth / unscaledViewport.width;
+          const viewport = page.getViewport({ scale: scale });
+          
+          const context = canvas.getContext('2d');
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+          
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+          page.render(renderContext);
+        });
+      }
+      
+      setTimeout(setupObserver, 500);
+    }
+
+    // Scroll container to target page wrapper
+    function scrollToPage(num) {
+      if (!currentPdf || num < 1 || num > currentPdf.numPages) return;
+      const targetPage = document.getElementById('page-' + num);
+      if (targetPage) {
+        isScrollingToPage = true;
+        targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        pageInput.value = num;
+        
+        setTimeout(() => {
+          isScrollingToPage = false;
+        }, 800);
+      }
+    }
+
+    // Navigation Event Listeners
+    prevPageBtn.addEventListener('click', () => {
+      const currentVal = parseInt(pageInput.value);
+      if (currentVal > 1) scrollToPage(currentVal - 1);
+    });
+
+    nextPageBtn.addEventListener('click', () => {
+      const currentVal = parseInt(pageInput.value);
+      if (currentPdf && currentVal < currentPdf.numPages) scrollToPage(currentVal + 1);
+    });
+
+    pageInput.addEventListener('change', () => {
+      let num = parseInt(pageInput.value);
+      if (isNaN(num)) return;
+      if (num < 1) num = 1;
+      if (currentPdf && num > currentPdf.numPages) num = currentPdf.numPages;
+      scrollToPage(num);
+    });
+
+    // Zoom Event Listeners
+    zoomInBtn.addEventListener('click', () => {
+      if (zoomLevel < 2.5) {
+        zoomLevel += 0.15;
+        renderPdf();
+      }
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+      if (zoomLevel > 0.5) {
+        zoomLevel -= 0.15;
+        renderPdf();
+      }
+    });
+
+    // IntersectionObserver to sync page counter input while scrolling
+    let observer = null;
+    function setupObserver() {
+      if (observer) observer.disconnect();
+      
+      const options = {
+        root: container,
+        rootMargin: '-10% 0px -60% 0px',
+        threshold: 0
+      };
+      
+      observer = new IntersectionObserver((entries) => {
+        if (isScrollingToPage) return;
+        
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const pageId = entry.target.id;
+            const pageNum = parseInt(pageId.replace('page-', ''));
+            if (!isNaN(pageNum)) {
+              pageInput.value = pageNum;
+            }
+          }
+        });
+      }, options);
+      
+      document.querySelectorAll('.pdf-page-wrapper').forEach(wrapper => {
+        observer.observe(wrapper);
+      });
+    }
+
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(renderPdf, 250);
+    });
+
+    // Startup Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+      updateUITranslations();
+      renderTermsList();
+      loadPdf('autiwiki-nl.pdf');
+    });
   </script>
 </body>
 </html>
