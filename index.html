@@ -17,22 +17,25 @@
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <title>AutiWiki - Interactieve Gids over Autisme</title>
   
-  <!-- Google Fonts & Icons -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-primary: #0f172a;
-      --bg-secondary: #1e293b;
-      --bg-accent: rgba(30, 41, 59, 0.7);
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --bg-base: #060913;
+      --bg-surface: #0b0f19;
+      --bg-card: #151b2c;
+      --bg-card-hover: #1e253a;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-color-hover: rgba(59, 130, 246, 0.4);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
       --accent-blue: #3b82f6;
       --accent-purple: #8b5cf6;
-      --accent-gradient: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      --border-color: rgba(255, 255, 255, 0.1);
+      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --gradient-glow: 0 4px 20px rgba(59, 130, 246, 0.25);
       --font-family: 'Outfit', sans-serif;
     }
 
@@ -44,15 +47,15 @@
 
     body {
       font-family: var(--font-family);
-      background-color: var(--bg-primary);
-      color: var(--text-main);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
       height: 100vh;
       overflow: hidden;
       display: flex;
       flex-direction: column;
     }
 
-    /* Layout structure */
+    /* App Container Layout */
     .app-container {
       display: grid;
       grid-template-columns: 420px 1fr;
@@ -61,103 +64,114 @@
       overflow: hidden;
     }
 
-    /* Left Sidebar */
+    /* Sidebar Styles */
     .sidebar {
-      background-color: var(--bg-secondary);
+      background-color: var(--bg-surface);
       border-right: 1px solid var(--border-color);
       display: flex;
       flex-direction: column;
       height: 100%;
       overflow: hidden;
+      box-shadow: 4px 0 24px rgba(0, 0, 0, 0.3);
+      z-index: 10;
     }
 
     .sidebar-header {
-      padding: 24px;
-      border-bottom: 1px solid var(--border-color);
+      padding: 28px 24px 20px 24px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 20px;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.3) 0%, transparent 100%);
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 14px;
     }
 
     .brand-logo {
-      width: 32px;
-      height: 32px;
-      background: var(--accent-gradient);
-      border-radius: 8px;
+      width: 38px;
+      height: 38px;
+      background: var(--gradient-accent);
+      border-radius: 10px;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 700;
-      color: white;
-      font-size: 1.2em;
-      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+      color: #ffffff;
+      font-size: 1.3em;
+      box-shadow: var(--gradient-glow);
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
 
     .brand h1 {
-      font-size: 1.5rem;
+      font-size: 1.65rem;
       font-weight: 700;
-      background: var(--accent-gradient);
+      background: var(--gradient-accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
     }
 
     .language-buttons {
       display: flex;
       gap: 8px;
-      background: rgba(0, 0, 0, 0.2);
-      padding: 4px;
-      border-radius: 8px;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 5px;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
     }
 
     .language-buttons button {
       flex: 1;
       background: transparent;
       border: none;
-      color: var(--text-muted);
-      padding: 6px 12px;
+      color: var(--text-secondary);
+      padding: 8px 12px;
       font-size: 0.9em;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
-      border-radius: 6px;
-      transition: all 0.2s ease;
+      border-radius: 7px;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
       font-family: var(--font-family);
     }
 
-    .language-buttons button.active {
-      background: var(--bg-primary);
-      color: var(--text-main);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    .language-buttons button:hover {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.03);
     }
 
-    /* Tabs navigation */
+    .language-buttons button.active {
+      background: var(--gradient-accent);
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Navigation Tabs */
     .tabs-nav {
       display: flex;
       border-bottom: 1px solid var(--border-color);
       padding: 0 16px;
+      background: rgba(0, 0, 0, 0.1);
     }
 
     .tab-btn {
       flex: 1;
       background: transparent;
       border: none;
-      color: var(--text-muted);
-      padding: 14px 8px;
+      color: var(--text-secondary);
+      padding: 16px 8px;
       font-size: 0.9em;
-      font-weight: 500;
+      font-weight: 600;
       cursor: pointer;
       position: relative;
-      transition: color 0.2s;
+      transition: all 0.2s ease;
       font-family: var(--font-family);
     }
 
     .tab-btn:hover {
-      color: var(--text-main);
+      color: var(--text-primary);
     }
 
     .tab-btn.active {
@@ -170,57 +184,78 @@
       bottom: -1px;
       left: 0;
       right: 0;
-      height: 2px;
-      background: var(--accent-blue);
+      height: 3px;
+      background: var(--gradient-accent);
+      border-radius: 3px 3px 0 0;
+      box-shadow: 0 -2px 10px rgba(59, 130, 246, 0.5);
     }
 
-    /* Scrollable Tab Content */
+    /* Sidebar Content */
     .sidebar-content {
       flex: 1;
       overflow-y: auto;
       padding: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
     }
 
     .tab-pane {
       display: none;
+      height: 100%;
     }
 
     .tab-pane.active {
-      display: block;
+      display: flex;
+      flex-direction: column;
     }
 
     .tab-pane h2 {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 14px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
     }
 
     .tab-pane p {
       font-size: 0.95rem;
-      color: var(--text-muted);
+      color: var(--text-secondary);
       line-height: 1.6;
       margin-bottom: 16px;
     }
 
-    /* SEO & Intro styling */
-    .intro-card {
-      background: var(--bg-accent);
+    /* Cards Styling */
+    .card {
+      background: var(--bg-card);
       border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 20px;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-color-hover);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+      transform: translateY(-2px);
     }
 
     .partner-info {
       display: flex;
       flex-direction: column;
       gap: 12px;
-      margin-top: 16px;
+      margin-top: 8px;
       border-top: 1px solid var(--border-color);
-      padding-top: 16px;
+      padding-top: 20px;
     }
 
-    /* Search & Index styling */
+    .partner-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Search & Index */
     .search-wrapper {
       position: relative;
       margin-bottom: 16px;
@@ -228,218 +263,162 @@
 
     .search-input {
       width: 100%;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid var(--border-color);
-      color: var(--text-main);
-      padding: 10px 14px;
-      border-radius: 8px;
-      font-size: 0.9em;
+      color: var(--text-primary);
+      padding: 12px 16px 12px 42px;
+      border-radius: 10px;
+      font-size: 0.92em;
       outline: none;
-      transition: border-color 0.2s;
+      transition: all 0.25s ease;
       font-family: var(--font-family);
     }
 
     .search-input:focus {
       border-color: var(--accent-blue);
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+    }
+
+    .search-icon-svg {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 18px;
+      height: 18px;
+      fill: var(--text-secondary);
+      pointer-events: none;
+      transition: fill 0.25s;
+    }
+
+    .search-input:focus + .search-icon-svg {
+      fill: var(--accent-blue);
     }
 
     .index-list {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      max-height: 400px;
+      gap: 8px;
+      flex: 1;
       overflow-y: auto;
-      padding-right: 4px;
+      padding-right: 6px;
     }
 
-    /* Custom scrollbar for list */
+    /* Custom scrollbars */
     .index-list::-webkit-scrollbar, .sidebar-content::-webkit-scrollbar {
-      width: 6px;
+      width: 8px;
     }
     .index-list::-webkit-scrollbar-thumb, .sidebar-content::-webkit-scrollbar-thumb {
-      background: rgba(255,255,255,0.1);
-      border-radius: 3px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+    }
+    .index-list::-webkit-scrollbar-thumb:hover, .sidebar-content::-webkit-scrollbar-thumb:hover {
+      background: rgba(255, 255, 255, 0.15);
     }
 
     .index-item {
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      border-radius: 6px;
-      padding: 10px 12px;
+      border: 1px solid rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      padding: 12px 14px;
       cursor: pointer;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      transition: all 0.2s ease;
-      font-size: 0.9em;
+      gap: 12px;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .index-item:hover {
-      background: var(--bg-accent);
-      border-color: var(--accent-blue);
+      background: var(--bg-card-hover);
+      border-color: var(--border-color-hover);
       transform: translateX(4px);
+    }
+
+    .index-item-text {
+      font-size: 0.92em;
+      line-height: 1.4;
+      font-weight: 500;
+      color: var(--text-primary);
     }
 
     .index-item-page {
       font-size: 0.8em;
       color: var(--accent-blue);
-      background: rgba(59, 130, 246, 0.1);
-      padding: 2px 6px;
-      border-radius: 4px;
-      font-weight: 600;
+      background: rgba(59, 130, 246, 0.12);
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.2s;
     }
 
-    /* PDF Viewer Area */
-    .pdf-viewer-wrapper {
+    .index-item:hover .index-item-page {
+      background: var(--gradient-accent);
+      color: #ffffff;
+      box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+    }
+
+    .no-results {
+      color: var(--text-secondary);
+      text-align: center;
+      padding: 32px 16px;
+      font-size: 0.95em;
+      display: none;
+    }
+
+    /* Right PDF Viewport Area */
+    .pdf-viewport {
       display: flex;
       flex-direction: column;
       height: 100%;
-      background: #1e1e24;
+      background: #0f121d;
       overflow: hidden;
+      position: relative;
     }
 
-    .pdf-toolbar {
-      height: 56px;
-      background: var(--bg-secondary);
-      border-bottom: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0 24px;
-      user-select: none;
-    }
-
-    .toolbar-section {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .toolbar-divider {
-      height: 20px;
-      width: 1px;
-      background: var(--border-color);
-      margin: 0 4px;
-    }
-
-    .toolbar-btn {
-      background: transparent;
+    .pdf-frame {
+      width: 100%;
+      height: 100%;
       border: none;
-      color: var(--text-muted);
-      font-size: 1.1em;
-      width: 36px;
-      height: 36px;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .toolbar-btn:hover {
-      background: rgba(255,255,255,0.05);
-      color: var(--text-main);
-    }
-
-    .toolbar-btn:active {
-      background: rgba(255,255,255,0.1);
-    }
-
-    .toolbar-input {
-      width: 48px;
-      height: 32px;
-      background: rgba(0, 0, 0, 0.2);
-      border: 1px solid var(--border-color);
-      color: var(--text-main);
-      text-align: center;
-      border-radius: 6px;
-      font-size: 0.9em;
-      outline: none;
-      font-family: var(--font-family);
-    }
-
-    .toolbar-input::-webkit-inner-spin-button,
-    .toolbar-input::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    .toolbar-text {
-      font-size: 0.9em;
-      color: var(--text-muted);
-    }
-
-    .pdf-container {
-      flex: 1;
-      background: #141419;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 24px;
-      padding: 24px;
-      scroll-behavior: smooth;
-    }
-
-    .pdf-page-wrapper {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      background: white;
-      display: inline-block;
-      border-radius: 4px;
-      overflow: hidden;
-    }
-
-    .pdf-page-wrapper canvas {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .loading, .error {
-      color: var(--text-muted);
-      font-size: 1.1em;
-      text-align: center;
-      padding: 40px;
-    }
-
-    .error {
-      color: #ef4444;
-    }
-
-    /* Print protection */
-    @media print {
-      body {
-        display: none !important;
-      }
+      background: #0f121d;
+      z-index: 1;
     }
 
     /* Footer styling */
     .sidebar-footer {
       padding: 20px 24px;
       border-top: 1px solid var(--border-color);
-      background: rgba(0, 0, 0, 0.1);
+      background: rgba(0, 0, 0, 0.2);
     }
 
     .copyright {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      line-height: 1.4;
+      font-size: 0.78rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
     }
 
-    /* Responsive adjustments */
+    /* Print Protection */
+    @media print {
+      body {
+        display: none !important;
+      }
+    }
+
+    /* Responsive Adjustments */
     @media (max-width: 900px) {
       .app-container {
         grid-template-columns: 1fr;
         grid-template-rows: auto 1fr;
       }
       .sidebar {
-        height: auto;
+        height: 50vh;
         border-right: none;
         border-bottom: 1px solid var(--border-color);
       }
-      .pdf-container {
-        height: 60vh;
+      .pdf-viewport {
+        height: 50vh;
       }
     }
   </style>
@@ -448,7 +427,7 @@
 
   <div class="app-container">
     
-    <!-- Left Sidebar: Info, FAQ and Term Index -->
+    <!-- Left Sidebar: Brand, Langs, Tabs, and Lists -->
     <aside class="sidebar">
       
       <div class="sidebar-header">
@@ -463,19 +442,19 @@
         </div>
       </div>
 
-      <!-- Navigation tabs -->
+      <!-- Navigation Tabs -->
       <nav class="tabs-nav">
         <button class="tab-btn active" onclick="switchTab('about')" id="tab-about-btn">Project</button>
         <button class="tab-btn" onclick="switchTab('index')" id="tab-index-btn">Index</button>
         <button class="tab-btn" onclick="switchTab('chat')" id="tab-chat-btn">AI-Assistent</button>
       </nav>
 
-      <!-- Scrollable content area -->
+      <!-- Scrollable Tab Panes Container -->
       <div class="sidebar-content">
         
-        <!-- Tab 1: Project Information (SEO friendly) -->
+        <!-- Tab 1: Project Information -->
         <div class="tab-pane active" id="tab-about">
-          <div class="intro-card">
+          <div class="card">
             <h2 id="about-title">Over AutiWiki</h2>
             <p id="about-p1">
               AutiWiki is een interactief en visueel werkboek ontworpen om normaal tot hoogbegaafde personen met autisme een concrete houvast te bieden in hun communicatie met hun omgeving. Het helpt om aan anderen uit te leggen wat autisme voor hen in de praktijk betekent.
@@ -485,43 +464,49 @@
             </p>
           </div>
           
-          <div class="partner-info">
-            <h3 style="font-size: 1em; font-weight: 600;" id="partner-title">Samenwerking & Partners</h3>
+          <div class="card partner-info">
+            <h3 class="partner-title" id="partner-title">Samenwerking & Partners</h3>
             <p style="font-size: 0.9em; margin-bottom: 0;" id="partner-p">
               Dit project is een samenwerking tussen dr. Peter Vermeulen (expert in autisme), Sterkmakers in autisme (VZW) en softwareontwikkelaar Karel Decherf.
             </p>
           </div>
         </div>
 
-        <!-- Tab 2: Interactive A-Z Term Index -->
+        <!-- Tab 2: Searchable Term Index -->
         <div class="tab-pane" id="tab-index">
           <h2 id="index-title">Snelzoeker & Index</h2>
           <p id="index-p">Zoek en selecteer een begrip om direct naar de juiste pagina in het beveiligde werkboek te springen.</p>
           
           <div class="search-wrapper">
             <input type="text" id="searchInput" class="search-input" placeholder="Zoek op begrip..." onkeyup="filterIndex()">
+            <svg class="search-icon-svg" viewBox="0 0 24 24">
+              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+            </svg>
           </div>
 
           <div class="index-list" id="indexList">
             <!-- Dynamic Index Items will be injected here -->
           </div>
+          <div class="no-results" id="noResults">Geen resultaten gevonden.</div>
         </div>
 
-        <!-- Tab 3: AI Chatbot Guide -->
+        <!-- Tab 3: AI Chatbot Description -->
         <div class="tab-pane" id="tab-chat">
-          <h2 id="chat-title">Onze AI-Expert</h2>
-          <p id="chat-p1">
-            Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.
-          </p>
-          <p id="chat-p2">
-            <strong>Stel gerust vragen zoals:</strong><br>
-            • "Wat is contextblindheid?"<br>
-            • "Hoe ga ik om met overprikkeling?"<br>
-            • "Wat is het verschil tussen denken en voelen?"
-          </p>
-          <p style="font-size: 0.9em; font-style: italic;" id="chat-p3">
-            De chatbot werkt volledig in het Nederlands, Engels en Frans.
-          </p>
+          <div class="card">
+            <h2 id="chat-title">Onze AI-Expert</h2>
+            <p id="chat-p1">
+              Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.
+            </p>
+            <p id="chat-p2">
+              <strong>Stel gerust vragen zoals:</strong><br>
+              • "Wat is contextblindheid?"<br>
+              • "Hoe ga ik om met overprikkeling?"<br>
+              • "Wat is het verschil tussen denken en voelen?"
+            </p>
+            <p style="font-size: 0.9em; font-style: italic; margin-bottom: 0;" id="chat-p3">
+              De chatbot werkt volledig in het Nederlands, Engels en Frans.
+            </p>
+          </div>
         </div>
 
       </div>
@@ -536,30 +521,9 @@
 
     </aside>
 
-    <!-- Right Side: PDF Viewer -->
-    <main class="pdf-viewer-wrapper">
-      
-      <!-- Custom PDF Control Toolbar -->
-      <div class="pdf-toolbar">
-        <div class="toolbar-section">
-          <button id="prevPageBtn" class="toolbar-btn" title="Vorige pagina">◀</button>
-          <input type="number" id="pageInput" class="toolbar-input" min="1" value="1">
-          <span id="pageCount" class="toolbar-text">/ 0</span>
-          <button id="nextPageBtn" class="toolbar-btn" title="Volgende pagina">▶</button>
-        </div>
-        <div class="toolbar-divider"></div>
-        <div class="toolbar-section">
-          <button id="zoomOutBtn" class="toolbar-btn" title="Uitzoomen">➖</button>
-          <span id="zoomPercent" class="toolbar-text">100%</span>
-          <button id="zoomInBtn" class="toolbar-btn" title="Inzoomen">➕</button>
-        </div>
-      </div>
-
-      <!-- Scrollable PDF Container -->
-      <div id="pdfContainer" class="pdf-container">
-        <div class="loading">Laden...</div>
-      </div>
-
+    <!-- Right Side: Native PDF Viewport -->
+    <main class="pdf-viewport">
+      <iframe id="pdfViewer" src="autiwiki-nl.pdf" class="pdf-frame"></iframe>
     </main>
 
   </div>
@@ -567,20 +531,10 @@
   <!-- BotPress Chatbot Scripts -->
   <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
   <script src="https://files.bpcontent.cloud/2025/08/13/16/20250813160706-I4RPYOII.js" defer></script>
-  
-  <!-- PDF.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 
   <script>
-    // Set up PDF.js global worker
-    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
     // Global App State
-    let currentPdf = null;
     let currentFilename = 'autiwiki-nl.pdf';
-    let baseWidth = 800;
-    let zoomLevel = 1.0;
-    let isScrollingToPage = false;
     let currentLang = 'nl';
 
     // Translation Data
@@ -601,11 +555,7 @@
         tabAbout: "Project",
         tabIndex: "Index",
         tabChat: "AI-Assistent",
-        toolbarPrev: "Vorige pagina",
-        toolbarNext: "Volgende pagina",
-        toolbarZoomIn: "Inzoomen",
-        toolbarZoomOut: "Uitzoomen",
-        loadingText: "Laden..."
+        noResults: "Geen resultaten gevonden."
       },
       en: {
         aboutTitle: "About AutiWiki",
@@ -623,15 +573,11 @@
         tabAbout: "Project",
         tabIndex: "Index",
         tabChat: "AI-Assistant",
-        toolbarPrev: "Previous page",
-        toolbarNext: "Next page",
-        toolbarZoomIn: "Zoom In",
-        toolbarZoomOut: "Zoom Out",
-        loadingText: "Loading..."
+        noResults: "No results found."
       },
       fr: {
         aboutTitle: "À propos d'AutiWiki",
-        aboutP1: "AutiWiki is un manuel interactif et visuel conçu pour offrir aux personnes autistes d'intelligence moyenne à supérieure un guide concret pour communiquer avec leur entourage. Il les aide à expliquer ce que l'autisme signifie pour elles dans la pratique.",
+        aboutP1: "AutiWiki est un manuel interactif et visuel conçu pour offrir aux personnes autistes d'intelligence moyenne à supérieure un guide concret pour communiquer avec leur entourage. Il les aide à expliquer ce que l'autisme signifie pour elles dans la pratique.",
         aboutP2: "Cette plateforme combine un manuel sécurisé numériquement et un chatbot IA performant. Le chatbot permet aux visiteurs et aux professionnels de poser des questions directement et de recevoir immédiatement des réponses scientifiquement fondées.",
         partnerTitle: "Collaboration et Partenaires",
         partnerP: "Ce projet est une collaboration entre le dr. Peter Vermeulen (expert en autisme), Sterkmakers in autisme (ASBL) et le développeur de logiciels Karel Decherf.",
@@ -645,109 +591,5914 @@
         tabAbout: "Projet",
         tabIndex: "Index",
         tabChat: "Assistant IA",
-        toolbarPrev: "Page précédente",
-        toolbarNext: "Page suivante",
-        toolbarZoomIn: "Zoomer",
-        toolbarZoomOut: "Dézoomer",
-        loadingText: "Chargement..."
+        noResults: "Aucun résultat trouvé."
       }
     };
 
-    // Curated terms index with mapped pages (NL, EN, FR)
-    const termsData = {
-      nl: [
-        { term: "Inleiding", page: 12 },
-        { term: "Zorgvraag & Nood", page: 14 },
-        { term: "Visualiseren en concretiseren", page: 14 },
-        { term: "Weerstand tegen verandering", page: 15 },
-        { term: "Aandacht", page: 16 },
-        { term: "Aanleren of Afleren", page: 17 },
-        { term: "Aanpassen", page: 19 },
-        { term: "Absolute denkers", page: 28 },
-        { term: "Abstract vs Concreet", page: 28 },
-        { term: "Administratie", page: 30 },
-        { term: "Agressie", page: 31 },
-        { term: "Alles of niets (emoties)", page: 32 },
-        { term: "Associatief denken", page: 35 },
-        { term: "Autistische logica", page: 36 },
-        { term: "Betekenisverlening", page: 41 },
-        { term: "Centrale coherentie", page: 42 },
-        { term: "Communicatie", page: 43 },
-        { term: "Contextblindheid", page: 57 },
-        { term: "Detaildenken", page: 59 },
-        { term: "Emotionele onrijpheid", page: 66 },
-        { term: "Empathie", page: 66 },
-        { term: "Energiekost", page: 67 },
-        { term: "Executive function", page: 67 },
-        { term: "Geheugen", page: 75 },
-        { term: "Rigiditeit", page: 145 }
+    // Index terms ( NL, EN, FR )
+        const termsData = {
+      "nl": [
+            {
+                  "term": "aandacht",
+                  "page": 16
+            },
+            {
+                  "term": "aandachtsstoornis",
+                  "page": 16
+            },
+            {
+                  "term": "aanleren",
+                  "page": 17
+            },
+            {
+                  "term": "‘aanleren’ of ‘afleren’",
+                  "page": 17
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 19
+            },
+            {
+                  "term": "aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "‘hen’ aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "mensen met autisme ondersteunen door ons gedrag en onze communicatie aan te passen aan hun beperking",
+                  "page": 19
+            },
+            {
+                  "term": "moeite met aanpassen aan",
+                  "page": 23
+            },
+            {
+                  "term": "aan anderen",
+                  "page": 23
+            },
+            {
+                  "term": "aan communicatienood ontvanger",
+                  "page": 25
+            },
+            {
+                  "term": "aan omgeving",
+                  "page": 25
+            },
+            {
+                  "term": "moeite met aanpassen van",
+                  "page": 25
+            },
+            {
+                  "term": "communicatiestijl",
+                  "page": 25
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 26
+            },
+            {
+                  "term": "waarom?",
+                  "page": 26
+            },
+            {
+                  "term": "hoe?",
+                  "page": 26
+            },
+            {
+                  "term": "enkele praktische tips",
+                  "page": 27
+            },
+            {
+                  "term": "‘absolute’ denkers",
+                  "page": 28
+            },
+            {
+                  "term": "abstract",
+                  "page": 28
+            },
+            {
+                  "term": "vs. concreet",
+                  "page": 28
+            },
+            {
+                  "term": "‘achteraf’",
+                  "page": 29
+            },
+            {
+                  "term": "verwerken / reageren",
+                  "page": 29
+            },
+            {
+                  "term": "antwoorden",
+                  "page": 30
+            },
+            {
+                  "term": "ad rem",
+                  "page": 30
+            },
+            {
+                  "term": "administratie",
+                  "page": 30
+            },
+            {
+                  "term": "moeite met",
+                  "page": 30
+            },
+            {
+                  "term": "afbouwen van ondersteuning",
+                  "page": 30
+            },
+            {
+                  "term": "afgeleid worden",
+                  "page": 30
+            },
+            {
+                  "term": "agenda",
+                  "page": 30
+            },
+            {
+                  "term": "opstellen",
+                  "page": 30
+            },
+            {
+                  "term": "agressie",
+                  "page": 31
+            },
+            {
+                  "term": "‘alles’ of ‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 32
+            },
+            {
+                  "term": "‘alles’",
+                  "page": 32
+            },
+            {
+                  "term": "‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "andere manier van",
+                  "page": 32
+            },
+            {
+                  "term": "luisteren",
+                  "page": 32
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 33
+            },
+            {
+                  "term": "interpreteren",
+                  "page": 34
+            },
+            {
+                  "term": "communiceren",
+                  "page": 34
+            },
+            {
+                  "term": "expressie",
+                  "page": 34
+            },
+            {
+                  "term": "anderen",
+                  "page": 34
+            },
+            {
+                  "term": "inschatten",
+                  "page": 34
+            },
+            {
+                  "term": "invloed op",
+                  "page": 34
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 35
+            },
+            {
+                  "term": "leren",
+                  "page": 35
+            },
+            {
+                  "term": "angst",
+                  "page": 35
+            },
+            {
+                  "term": "arrogant",
+                  "page": 35
+            },
+            {
+                  "term": "‘asociaal’",
+                  "page": 35
+            },
+            {
+                  "term": "associatief",
+                  "page": 35
+            },
+            {
+                  "term": "denken",
+                  "page": 35
+            },
+            {
+                  "term": "geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "‘attention shifting’",
+                  "page": 36
+            },
+            {
+                  "term": "‘autistische’ logica",
+                  "page": 36
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 36
+            },
+            {
+                  "term": "enthousiasmes / stereotiepe of obsessieve interesses",
+                  "page": 36
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 36
+            },
+            {
+                  "term": "autobiografisch geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "autonomie",
+                  "page": 37
+            },
+            {
+                  "term": "begrijpen",
+                  "page": 37
+            },
+            {
+                  "term": "behandelen van autisme in de praktijk",
+                  "page": 37
+            },
+            {
+                  "term": "belonen",
+                  "page": 38
+            },
+            {
+                  "term": "belonen vs. bestraffen",
+                  "page": 38
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 39
+            },
+            {
+                  "term": "beredeneren",
+                  "page": 40
+            },
+            {
+                  "term": "berekenen",
+                  "page": 40
+            },
+            {
+                  "term": "bestraffen",
+                  "page": 40
+            },
+            {
+                  "term": "‘betekenis achter de betekenis’",
+                  "page": 41
+            },
+            {
+                  "term": "betekenisverlening",
+                  "page": 41
+            },
+            {
+                  "term": "fouten in",
+                  "page": 41
+            },
+            {
+                  "term": "bewaken eigen grenzen",
+                  "page": 41
+            },
+            {
+                  "term": "‘boodschap achter de boodschap’",
+                  "page": 41
+            },
+            {
+                  "term": "camoufleren",
+                  "page": 42
+            },
+            {
+                  "term": "catatonie",
+                  "page": 42
+            },
+            {
+                  "term": "centrale coherentie",
+                  "page": 42
+            },
+            {
+                  "term": "chaos",
+                  "page": 42
+            },
+            {
+                  "term": "communicatie",
+                  "page": 43
+            },
+            {
+                  "term": "anders",
+                  "page": 43
+            },
+            {
+                  "term": "beperkingen bij hoog en normaal begaafden",
+                  "page": 43
+            },
+            {
+                  "term": "beurtrolneming",
+                  "page": 48
+            },
+            {
+                  "term": "concreet en visueel",
+                  "page": 48
+            },
+            {
+                  "term": "couperen",
+                  "page": 49
+            },
+            {
+                  "term": "emotioneel incorrect",
+                  "page": 49
+            },
+            {
+                  "term": "≠expressie",
+                  "page": 49
+            },
+            {
+                  "term": "pedant, formeel, stijf, houterig, harkerig",
+                  "page": 50
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 50
+            },
+            {
+                  "term": "traag",
+                  "page": 51
+            },
+            {
+                  "term": "uitputtend, veel energie vragen",
+                  "page": 51
+            },
+            {
+                  "term": "visueel",
+                  "page": 52
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 52
+            },
+            {
+                  "term": "schriftelijk",
+                  "page": 52
+            },
+            {
+                  "term": "communicatienood",
+                  "page": 52
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijl van televisieprogramma’s imiteren",
+                  "page": 54
+            },
+            {
+                  "term": "compenseren",
+                  "page": 54
+            },
+            {
+                  "term": "concentratieproblemen",
+                  "page": 54
+            },
+            {
+                  "term": "concreet",
+                  "page": 55
+            },
+            {
+                  "term": "vs. abstract",
+                  "page": 55
+            },
+            {
+                  "term": "visueel",
+                  "page": 55
+            },
+            {
+                  "term": "concretiseren",
+                  "page": 55
+            },
+            {
+                  "term": "contextblindheid",
+                  "page": 57
+            },
+            {
+                  "term": "contextongevoeligheid",
+                  "page": 57
+            },
+            {
+                  "term": "corrigeren",
+                  "page": 57
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 57
+            },
+            {
+                  "term": "serieel",
+                  "page": 57
+            },
+            {
+                  "term": "associatief",
+                  "page": 57
+            },
+            {
+                  "term": "traag",
+                  "page": 57
+            },
+            {
+                  "term": "visueel",
+                  "page": 57
+            },
+            {
+                  "term": "couperen",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken dat de ander al weet wat jij weet / denkt’",
+                  "page": 58
+            },
+            {
+                  "term": "depressie",
+                  "page": 59
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 59
+            },
+            {
+                  "term": "diagnosestelling",
+                  "page": 59
+            },
+            {
+                  "term": "disharmonisch ontwikkelingsprofiel",
+                  "page": 60
+            },
+            {
+                  "term": "distantie",
+                  "page": 61
+            },
+            {
+                  "term": "driftbuien",
+                  "page": 61
+            },
+            {
+                  "term": "dubbelzinnigheid, dubbelzinnig taalgebruik",
+                  "page": 61
+            },
+            {
+                  "term": "echolalie",
+                  "page": 62
+            },
+            {
+                  "term": "egocentrisch",
+                  "page": 63
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 65
+            },
+            {
+                  "term": "eigen keuzes",
+                  "page": 65
+            },
+            {
+                  "term": "maken",
+                  "page": 65
+            },
+            {
+                  "term": "ondersteunen",
+                  "page": 65
+            },
+            {
+                  "term": "eisend zijn / klinken",
+                  "page": 65
+            },
+            {
+                  "term": "emoties",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele intelligentie",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele onrijpheid",
+                  "page": 66
+            },
+            {
+                  "term": "empathie",
+                  "page": 66
+            },
+            {
+                  "term": "energiekost",
+                  "page": 67
+            },
+            {
+                  "term": "hoog",
+                  "page": 67
+            },
+            {
+                  "term": "enthousiasmes",
+                  "page": 67
+            },
+            {
+                  "term": "episodisch geheugen",
+                  "page": 67
+            },
+            {
+                  "term": "‘executive function’",
+                  "page": 67
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 68
+            },
+            {
+                  "term": "expliciteren",
+                  "page": 69
+            },
+            {
+                  "term": "explosieve",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 69
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 70
+            },
+            {
+                  "term": "≠communicatie",
+                  "page": 70
+            },
+            {
+                  "term": "externaliseren",
+                  "page": 70
+            },
+            {
+                  "term": "extreme",
+                  "page": 70
+            },
+            {
+                  "term": "gevoelsexpressie",
+                  "page": 70
+            },
+            {
+                  "term": "emotie",
+                  "page": 71
+            },
+            {
+                  "term": "figuurlijk taalgebruik",
+                  "page": 71
+            },
+            {
+                  "term": "flexibiliteit",
+                  "page": 71
+            },
+            {
+                  "term": "fragmentarisch / fragmentair",
+                  "page": 72
+            },
+            {
+                  "term": "beleven \\- informatieverwerking",
+                  "page": 72
+            },
+            {
+                  "term": "communiceren",
+                  "page": 72
+            },
+            {
+                  "term": "geheugen",
+                  "page": 73
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 73
+            },
+            {
+                  "term": "waarnemen",
+                  "page": 73
+            },
+            {
+                  "term": "gebrek",
+                  "page": 73
+            },
+            {
+                  "term": "aan communicatie",
+                  "page": 73
+            },
+            {
+                  "term": "gedachten",
+                  "page": 74
+            },
+            {
+                  "term": "ordenen",
+                  "page": 74
+            },
+            {
+                  "term": "repetitief",
+                  "page": 74
+            },
+            {
+                  "term": "geen twee dingen tegelijk kunnen doen",
+                  "page": 74
+            },
+            {
+                  "term": "‘gedeelde’ aandacht",
+                  "page": 74
+            },
+            {
+                  "term": "gedrag",
+                  "page": 75
+            },
+            {
+                  "term": "gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "autisme is geen gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "gefragmenteerde beleving, informatieverwerking",
+                  "page": 75
+            },
+            {
+                  "term": "geheugen",
+                  "page": 75
+            },
+            {
+                  "term": "autobiografisch",
+                  "page": 75
+            },
+            {
+                  "term": "episodisch",
+                  "page": 75
+            },
+            {
+                  "term": "fragmentarisch",
+                  "page": 75
+            },
+            {
+                  "term": "‘slecht geheugen’",
+                  "page": 75
+            },
+            {
+                  "term": "gelijktijdig",
+                  "page": 75
+            },
+            {
+                  "term": "twee dingen",
+                  "page": 75
+            },
+            {
+                  "term": "denken en voelen",
+                  "page": 75
+            },
+            {
+                  "term": "‘gepakt’ worden",
+                  "page": 76
+            },
+            {
+                  "term": "in snelheid",
+                  "page": 76
+            },
+            {
+                  "term": "door emoties",
+                  "page": 77
+            },
+            {
+                  "term": "gepest worden",
+                  "page": 77
+            },
+            {
+                  "term": "gesprekken",
+                  "page": 77
+            },
+            {
+                  "term": "voeren",
+                  "page": 77
+            },
+            {
+                  "term": "volgen",
+                  "page": 79
+            },
+            {
+                  "term": "met meerdere personen",
+                  "page": 79
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 79
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 79
+            },
+            {
+                  "term": "alles of niets",
+                  "page": 79
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 79
+            },
+            {
+                  "term": "communicatie van emoties",
+                  "page": 82
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 82
+            },
+            {
+                  "term": "beleven",
+                  "page": 82
+            },
+            {
+                  "term": "herkennen",
+                  "page": 83
+            },
+            {
+                  "term": "uitdrukken / verwoorden",
+                  "page": 83
+            },
+            {
+                  "term": "explosief",
+                  "page": 84
+            },
+            {
+                  "term": "herkennen",
+                  "page": 85
+            },
+            {
+                  "term": "hevig",
+                  "page": 85
+            },
+            {
+                  "term": "moduleren en reguleren",
+                  "page": 86
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 87
+            },
+            {
+                  "term": "onaangepast",
+                  "page": 87
+            },
+            {
+                  "term": "praten over",
+                  "page": 87
+            },
+            {
+                  "term": "reguleren",
+                  "page": 87
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 88
+            },
+            {
+                  "term": "geen volumeknop",
+                  "page": 88
+            },
+            {
+                  "term": "van anderen",
+                  "page": 88
+            },
+            {
+                  "term": "verkeerd uiten",
+                  "page": 89
+            },
+            {
+                  "term": "negatieve",
+                  "page": 91
+            },
+            {
+                  "term": "goed gevoel",
+                  "page": 91
+            },
+            {
+                  "term": "goede sfeer",
+                  "page": 91
+            },
+            {
+                  "term": "goede verstandhouding",
+                  "page": 91
+            },
+            {
+                  "term": "‘grote’ meisjes",
+                  "page": 91
+            },
+            {
+                  "term": "‘grotere plaatje’",
+                  "page": 91
+            },
+            {
+                  "term": "‘hak op de tak’",
+                  "page": 91
+            },
+            {
+                  "term": "hautain",
+                  "page": 92
+            },
+            {
+                  "term": "herhaling",
+                  "page": 92
+            },
+            {
+                  "term": "hersenprocessen",
+                  "page": 92
+            },
+            {
+                  "term": "coördinatie",
+                  "page": 92
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 92
+            },
+            {
+                  "term": "humor",
+                  "page": 94
+            },
+            {
+                  "term": "hyperrealisme",
+                  "page": 94
+            },
+            {
+                  "term": "hypersensitiviteit",
+                  "page": 94
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 95
+            },
+            {
+                  "term": "idiosyncratisch",
+                  "page": 95
+            },
+            {
+                  "term": "taalgebruik",
+                  "page": 95
+            },
+            {
+                  "term": "communiceren",
+                  "page": 96
+            },
+            {
+                  "term": "iets vragen",
+                  "page": 96
+            },
+            {
+                  "term": "ik-ander differentiatie",
+                  "page": 96
+            },
+            {
+                  "term": "impulscontrole",
+                  "page": 98
+            },
+            {
+                  "term": "‘in snelheid gepakt’ worden",
+                  "page": 98
+            },
+            {
+                  "term": "individuele begeleiding",
+                  "page": 98
+            },
+            {
+                  "term": "informatienood",
+                  "page": 98
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 98
+            },
+            {
+                  "term": "informatieoverlast",
+                  "page": 98
+            },
+            {
+                  "term": "initiatief nemen / initiëren van contact",
+                  "page": 98
+            },
+            {
+                  "term": "inlevingsvermogen",
+                  "page": 99
+            },
+            {
+                  "term": "integratieve intelligentie",
+                  "page": 99
+            },
+            {
+                  "term": "kanaliseren",
+                  "page": 99
+            },
+            {
+                  "term": "kernsymptomen",
+                  "page": 99
+            },
+            {
+                  "term": "van autisme",
+                  "page": 99
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 99
+            },
+            {
+                  "term": "klungeligheid",
+                  "page": 100
+            },
+            {
+                  "term": "kort lontje",
+                  "page": 100
+            },
+            {
+                  "term": "‘kwade’ bedoelingen",
+                  "page": 100
+            },
+            {
+                  "term": "leren",
+                  "page": 101
+            },
+            {
+                  "term": "anders leren",
+                  "page": 101
+            },
+            {
+                  "term": "NLD",
+                  "page": 101
+            },
+            {
+                  "term": "letterlijk begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "lijstjes",
+                  "page": 101
+            },
+            {
+                  "term": "logica",
+                  "page": 101
+            },
+            {
+                  "term": "autistische logica",
+                  "page": 101
+            },
+            {
+                  "term": "luisteren",
+                  "page": 101
+            },
+            {
+                  "term": "anders luisteren om mensen met autisme te begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "manipulatie",
+                  "page": 102
+            },
+            {
+                  "term": "door anderen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale rituelen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale weerstand",
+                  "page": 102
+            },
+            {
+                  "term": "metavisie",
+                  "page": 103
+            },
+            {
+                  "term": "miscommuniceren",
+                  "page": 103
+            },
+            {
+                  "term": "misdiagnose",
+                  "page": 103
+            },
+            {
+                  "term": "misinterpreteren",
+                  "page": 104
+            },
+            {
+                  "term": "misverstanden",
+                  "page": 104
+            },
+            {
+                  "term": "moeilijkheden met communicatie",
+                  "page": 105
+            },
+            {
+                  "term": "naïviteit",
+                  "page": 105
+            },
+            {
+                  "term": "narcisme",
+                  "page": 106
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 108
+            },
+            {
+                  "term": "‘neen’ zeggen",
+                  "page": 109
+            },
+            {
+                  "term": "negatieve gevoelens",
+                  "page": 109
+            },
+            {
+                  "term": "neologisme",
+                  "page": 109
+            },
+            {
+                  "term": "netwerk",
+                  "page": 109
+            },
+            {
+                  "term": "sociaal netwerk opbouwen en onderhouden",
+                  "page": 109
+            },
+            {
+                  "term": "neurotypische projecties",
+                  "page": 109
+            },
+            {
+                  "term": "niet begrepen voelen",
+                  "page": 110
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 110
+            },
+            {
+                  "term": "‘niet kunnen’ vs. ‘niet willen’",
+                  "page": 111
+            },
+            {
+                  "term": "nld",
+                  "page": 112
+            },
+            {
+                  "term": "non-verbaal",
+                  "page": 113
+            },
+            {
+                  "term": "nuance",
+                  "page": 113
+            },
+            {
+                  "term": "obsessieve interesses",
+                  "page": 114
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 114
+            },
+            {
+                  "term": "omgeving aanpassen",
+                  "page": 114
+            },
+            {
+                  "term": "omgaan met autisme als begeleider / verzorger / therapeut",
+                  "page": 114
+            },
+            {
+                  "term": "omkering van persoonlijke voornaamwoorden",
+                  "page": 116
+            },
+            {
+                  "term": "onaangepaste",
+                  "page": 116
+            },
+            {
+                  "term": "communicatie",
+                  "page": 116
+            },
+            {
+                  "term": "emotie",
+                  "page": 116
+            },
+            {
+                  "term": "expressie",
+                  "page": 119
+            },
+            {
+                  "term": "gedrag",
+                  "page": 119
+            },
+            {
+                  "term": "reactie",
+                  "page": 120
+            },
+            {
+                  "term": "ondervragingen",
+                  "page": 120
+            },
+            {
+                  "term": "onlogische angsten",
+                  "page": 120
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 121
+            },
+            {
+                  "term": "onrijpheid",
+                  "page": 121
+            },
+            {
+                  "term": "emotioneel",
+                  "page": 121
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 121
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 121
+            },
+            {
+                  "term": "ontvangstpatroon opleggen",
+                  "page": 122
+            },
+            {
+                  "term": "‘op eigen benen staan’",
+                  "page": 123
+            },
+            {
+                  "term": "opdringerig",
+                  "page": 123
+            },
+            {
+                  "term": "‘op maat’",
+                  "page": 123
+            },
+            {
+                  "term": "communiceren",
+                  "page": 123
+            },
+            {
+                  "term": "behandelen",
+                  "page": 123
+            },
+            {
+                  "term": "orde",
+                  "page": 124
+            },
+            {
+                  "term": "ordenen",
+                  "page": 124
+            },
+            {
+                  "term": "gedachten",
+                  "page": 124
+            },
+            {
+                  "term": "organiseren",
+                  "page": 124
+            },
+            {
+                  "term": "organisatorische aspecten van",
+                  "page": 125
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 125
+            },
+            {
+                  "term": "communicatie",
+                  "page": 125
+            },
+            {
+                  "term": "overgangen maken",
+                  "page": 125
+            },
+            {
+                  "term": "overgevoeligheid",
+                  "page": 125
+            },
+            {
+                  "term": "overprikkeling",
+                  "page": 126
+            },
+            {
+                  "term": "overschakelingskosten",
+                  "page": 126
+            },
+            {
+                  "term": "overschatting",
+                  "page": 127
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 127
+            },
+            {
+                  "term": "door anderen",
+                  "page": 128
+            },
+            {
+                  "term": "overselectiviteit",
+                  "page": 128
+            },
+            {
+                  "term": "overspannen geraken",
+                  "page": 128
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 128
+            },
+            {
+                  "term": "door emoties",
+                  "page": 128
+            },
+            {
+                  "term": "overzicht",
+                  "page": 129
+            },
+            {
+                  "term": "nood aan",
+                  "page": 129
+            },
+            {
+                  "term": "overzichtelijkheid",
+                  "page": 130
+            },
+            {
+                  "term": "pedant",
+                  "page": 130
+            },
+            {
+                  "term": "performantiedeficit",
+                  "page": 130
+            },
+            {
+                  "term": "‘performantie-deficit’",
+                  "page": 131
+            },
+            {
+                  "term": "perseveratie",
+                  "page": 132
+            },
+            {
+                  "term": "persoonlijkheid",
+                  "page": 132
+            },
+            {
+                  "term": "perspectiefneming",
+                  "page": 132
+            },
+            {
+                  "term": "tweede orde",
+                  "page": 132
+            },
+            {
+                  "term": "piekvaardigheden",
+                  "page": 133
+            },
+            {
+                  "term": "pijn",
+                  "page": 133
+            },
+            {
+                  "term": "emotioneel lijden",
+                  "page": 133
+            },
+            {
+                  "term": "ondraaglijk lijden",
+                  "page": 133
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 134
+            },
+            {
+                  "term": "planning",
+                  "page": 134
+            },
+            {
+                  "term": "positieve atmosfeer",
+                  "page": 134
+            },
+            {
+                  "term": "pragmatiek",
+                  "page": 134
+            },
+            {
+                  "term": "praten",
+                  "page": 135
+            },
+            {
+                  "term": "preoccupaties",
+                  "page": 135
+            },
+            {
+                  "term": "prikkelgevoeligheid",
+                  "page": 135
+            },
+            {
+                  "term": "indeling patienten per",
+                  "page": 135
+            },
+            {
+                  "term": "projectie",
+                  "page": 135
+            },
+            {
+                  "term": "psychiatrische testen",
+                  "page": 136
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 136
+            },
+            {
+                  "term": "psychische structuurvastheid",
+                  "page": 137
+            },
+            {
+                  "term": "psycho-educatie",
+                  "page": 137
+            },
+            {
+                  "term": "psychologische begeleiding",
+                  "page": 138
+            },
+            {
+                  "term": "psychopathie",
+                  "page": 138
+            },
+            {
+                  "term": "psychose",
+                  "page": 139
+            },
+            {
+                  "term": "psychotherapie",
+                  "page": 139
+            },
+            {
+                  "term": "concretiseren en visualiseren \\- meer tonen dan praten – al doende praat men",
+                  "page": 140
+            },
+            {
+                  "term": "depressie",
+                  "page": 142
+            },
+            {
+                  "term": "factoren die doeltreffendheid/succes bepalen",
+                  "page": 142
+            },
+            {
+                  "term": "publieke referentie",
+                  "page": 142
+            },
+            {
+                  "term": "realisme",
+                  "page": 143
+            },
+            {
+                  "term": "sociaal inlevingsvermogen",
+                  "page": 143
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 143
+            },
+            {
+                  "term": "rechterhemisfeerdeficit",
+                  "page": 143
+            },
+            {
+                  "term": "‘rechttoe rechtaan’",
+                  "page": 143
+            },
+            {
+                  "term": "rechtvaardigheidsgevoel",
+                  "page": 143
+            },
+            {
+                  "term": "relaties",
+                  "page": 143
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 143
+            },
+            {
+                  "term": "relativeren",
+                  "page": 144
+            },
+            {
+                  "term": "relevante informatie van irrelevante informatie onderscheiden",
+                  "page": 144
+            },
+            {
+                  "term": "repetitieve",
+                  "page": 144
+            },
+            {
+                  "term": "gedachten",
+                  "page": 144
+            },
+            {
+                  "term": "gedragingen",
+                  "page": 145
+            },
+            {
+                  "term": "rigiditeit",
+                  "page": 145
+            },
+            {
+                  "term": "routines / rituelen",
+                  "page": 145
+            },
+            {
+                  "term": "samenhang",
+                  "page": 146
+            },
+            {
+                  "term": "gebrek aan",
+                  "page": 146
+            },
+            {
+                  "term": "schoolloopbaan",
+                  "page": 146
+            },
+            {
+                  "term": "schriftelijk communiceren",
+                  "page": 146
+            },
+            {
+                  "term": "scripts / scenario’s",
+                  "page": 146
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 147
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 147
+            },
+            {
+                  "term": "experimenteren",
+                  "page": 147
+            },
+            {
+                  "term": "misbruik",
+                  "page": 147
+            },
+            {
+                  "term": "moeilijkheden",
+                  "page": 147
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit",
+                  "page": 148
+            },
+            {
+                  "term": "serieel denken",
+                  "page": 148
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 148
+            },
+            {
+                  "term": "snelheid",
+                  "page": 149
+            },
+            {
+                  "term": "sociaal netwerk",
+                  "page": 150
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 150
+            },
+            {
+                  "term": "sociale intelligentie",
+                  "page": 150
+            },
+            {
+                  "term": "sociale interactie",
+                  "page": 151
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 152
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 152
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale relaties",
+                  "page": 153
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale vaardigheden",
+                  "page": 153
+            },
+            {
+                  "term": "de sociale aspecten van taal",
+                  "page": 154
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 154
+            },
+            {
+                  "term": "spel",
+                  "page": 154
+            },
+            {
+                  "term": "symbolisch spel",
+                  "page": 154
+            },
+            {
+                  "term": "stereotiep spel",
+                  "page": 157
+            },
+            {
+                  "term": "spel van de communicatie",
+                  "page": 157
+            },
+            {
+                  "term": "het sociale spel",
+                  "page": 157
+            },
+            {
+                  "term": "spontaan ageren/reageren, spontaan zijn",
+                  "page": 157
+            },
+            {
+                  "term": "stereotiepe interesses",
+                  "page": 158
+            },
+            {
+                  "term": "Stereotypieën",
+                  "page": 158
+            },
+            {
+                  "term": "Motorische stereotiepieën",
+                  "page": 158
+            },
+            {
+                  "term": "stijl van communiceren",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de communicatie",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de sociale omgang",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de (sociale) verbeelding",
+                  "page": 158
+            },
+            {
+                  "term": "stoorzender",
+                  "page": 158
+            },
+            {
+                  "term": "‘stop’ zeggen",
+                  "page": 159
+            },
+            {
+                  "term": "stress",
+                  "page": 159
+            },
+            {
+                  "term": "testings",
+                  "page": 159
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 159
+            },
+            {
+                  "term": "theory of mind",
+                  "page": 160
+            },
+            {
+                  "term": "theory of own mind",
+                  "page": 160
+            },
+            {
+                  "term": "therapie",
+                  "page": 160
+            },
+            {
+                  "term": "timing",
+                  "page": 161
+            },
+            {
+                  "term": "tijd geven",
+                  "page": 161
+            },
+            {
+                  "term": "traagheid",
+                  "page": 162
+            },
+            {
+                  "term": "transferproblemen",
+                  "page": 162
+            },
+            {
+                  "term": "trauma \\- traumatisering",
+                  "page": 162
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 163
+            },
+            {
+                  "term": "tweede orde perspectiefneming",
+                  "page": 163
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 164
+            },
+            {
+                  "term": "eigen gevoel",
+                  "page": 164
+            },
+            {
+                  "term": "uiten",
+                  "page": 164
+            },
+            {
+                  "term": "emoties",
+                  "page": 164
+            },
+            {
+                  "term": "uitgestelde",
+                  "page": 164
+            },
+            {
+                  "term": "emotie",
+                  "page": 164
+            },
+            {
+                  "term": "reactie",
+                  "page": 164
+            },
+            {
+                  "term": "verwerking",
+                  "page": 164
+            },
+            {
+                  "term": "uitputtend",
+                  "page": 165
+            },
+            {
+                  "term": "vaag woordgebruik",
+                  "page": 165
+            },
+            {
+                  "term": "vaste regels",
+                  "page": 165
+            },
+            {
+                  "term": "veiligheid",
+                  "page": 165
+            },
+            {
+                  "term": "geborgenheid – zekerheid – voorspelbaarheid – overzichtelijkheid \\- duidelijkheid",
+                  "page": 165
+            },
+            {
+                  "term": "verbaliseren",
+                  "page": 167
+            },
+            {
+                  "term": "verbeelding",
+                  "page": 167
+            },
+            {
+                  "term": "sociale",
+                  "page": 167
+            },
+            {
+                  "term": "verbergen \\- verborgen houden",
+                  "page": 167
+            },
+            {
+                  "term": "vergeetachtigheid",
+                  "page": 167
+            },
+            {
+                  "term": "verheldering",
+                  "page": 167
+            },
+            {
+                  "term": "verhoren",
+                  "page": 167
+            },
+            {
+                  "term": "politieverhoren etc.",
+                  "page": 167
+            },
+            {
+                  "term": "verkeerd begrijpen",
+                  "page": 169
+            },
+            {
+                  "term": "verkeerd communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "vertrouwenspersoon",
+                  "page": 169
+            },
+            {
+                  "term": "verwachtingen",
+                  "page": 169
+            },
+            {
+                  "term": "communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "van anderen",
+                  "page": 169
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 169
+            },
+            {
+                  "term": "visualiseren",
+                  "page": 169
+            },
+            {
+                  "term": "visueel",
+                  "page": 172
+            },
+            {
+                  "term": "denken",
+                  "page": 172
+            },
+            {
+                  "term": "communiceren",
+                  "page": 172
+            },
+            {
+                  "term": "voelen",
+                  "page": 173
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 173
+            },
+            {
+                  "term": "voorbereiding",
+                  "page": 174
+            },
+            {
+                  "term": "voorbereiding maken",
+                  "page": 174
+            },
+            {
+                  "term": "voorspelbaarheid",
+                  "page": 174
+            },
+            {
+                  "term": "elke dag hetzelfde",
+                  "page": 174
+            },
+            {
+                  "term": "nood aan",
+                  "page": 175
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit / zintuiglijke overgevoeligheid",
+                  "page": 175
+            },
+            {
+                  "term": "‘vooruitgang’",
+                  "page": 176
+            },
+            {
+                  "term": "vormgeven",
+                  "page": 176
+            },
+            {
+                  "term": "communicatie . boodschap",
+                  "page": 176
+            },
+            {
+                  "term": "vragen om iets",
+                  "page": 176
+            },
+            {
+                  "term": "vrijheid",
+                  "page": 176
+            },
+            {
+                  "term": "eigen keuzes maken",
+                  "page": 176
+            },
+            {
+                  "term": "waarneming",
+                  "page": 176
+            },
+            {
+                  "term": "anders",
+                  "page": 176
+            },
+            {
+                  "term": "‘wat niet gezegd wordt’",
+                  "page": 176
+            },
+            {
+                  "term": "wederkerigheid",
+                  "page": 176
+            },
+            {
+                  "term": "in de sociale interactie",
+                  "page": 176
+            },
+            {
+                  "term": "weerstand tegen verandering",
+                  "page": 176
+            },
+            {
+                  "term": "Moeite om taken los te laten eens ik er mee begonnen ben",
+                  "page": 176
+            },
+            {
+                  "term": "werkelijkheid achter de werkelijkheid",
+                  "page": 177
+            },
+            {
+                  "term": "wisselen van aandacht",
+                  "page": 177
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 177
+            },
+            {
+                  "term": "zekerheid",
+                  "page": 178
+            },
+            {
+                  "term": "zelf kiezen",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeschikkingsrecht",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeeld",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbewustzijn",
+                  "page": 180
+            },
+            {
+                  "term": "zelfevaluatie",
+                  "page": 180
+            },
+            {
+                  "term": "zelfinzicht",
+                  "page": 180
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 180
+            },
+            {
+                  "term": "zelfrapportage",
+                  "page": 181
+            },
+            {
+                  "term": "depressie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfreflectie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfstandigheid",
+                  "page": 183
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 184
+            }
       ],
-      en: [
-        { term: "Introduction", page: 12 },
-        { term: "Needs & Care", page: 14 },
-        { term: "Visualisation", page: 14 },
-        { term: "Resistance to change", page: 15 },
-        { term: "Attention", page: 16 },
-        { term: "Learning / Unlearning", page: 17 },
-        { term: "Adapting", page: 19 },
-        { term: "Absolute thinking", page: 28 },
-        { term: "Abstract vs Concrete", page: 28 },
-        { term: "Administration", page: 30 },
-        { term: "Aggression", page: 31 },
-        { term: "All or nothing (feelings)", page: 32 },
-        { term: "Associative thinking", page: 35 },
-        { term: "Autistic logic", page: 36 },
-        { term: "Meaning-making", page: 41 },
-        { term: "Central coherence", page: 42 },
-        { term: "Communication", page: 43 },
-        { term: "Context blindness", page: 57 },
-        { term: "Detail thinking", page: 59 },
-        { term: "Emotional immaturity", page: 66 },
-        { term: "Empathy", page: 66 },
-        { term: "Energy cost", page: 67 },
-        { term: "Executive function", page: 67 },
-        { term: "Memory", page: 75 },
-        { term: "Rigidity", page: 145 }
+      "en": [
+            {
+                  "term": "aandacht",
+                  "page": 16
+            },
+            {
+                  "term": "aandachtsstoornis",
+                  "page": 16
+            },
+            {
+                  "term": "aanleren",
+                  "page": 17
+            },
+            {
+                  "term": "‘aanleren’ of ‘afleren’",
+                  "page": 17
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 19
+            },
+            {
+                  "term": "aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "‘hen’ aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "mensen met autisme ondersteunen door ons gedrag en onze communicatie aan te passen aan hun beperking",
+                  "page": 19
+            },
+            {
+                  "term": "moeite met aanpassen aan",
+                  "page": 23
+            },
+            {
+                  "term": "aan anderen",
+                  "page": 23
+            },
+            {
+                  "term": "aan communicatienood ontvanger",
+                  "page": 25
+            },
+            {
+                  "term": "aan omgeving",
+                  "page": 25
+            },
+            {
+                  "term": "moeite met aanpassen van",
+                  "page": 25
+            },
+            {
+                  "term": "communicatiestijl",
+                  "page": 25
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 26
+            },
+            {
+                  "term": "waarom?",
+                  "page": 26
+            },
+            {
+                  "term": "hoe?",
+                  "page": 26
+            },
+            {
+                  "term": "enkele praktische tips",
+                  "page": 27
+            },
+            {
+                  "term": "‘absolute’ denkers",
+                  "page": 28
+            },
+            {
+                  "term": "abstract",
+                  "page": 28
+            },
+            {
+                  "term": "vs. concreet",
+                  "page": 28
+            },
+            {
+                  "term": "‘achteraf’",
+                  "page": 29
+            },
+            {
+                  "term": "verwerken / reageren",
+                  "page": 29
+            },
+            {
+                  "term": "antwoorden",
+                  "page": 30
+            },
+            {
+                  "term": "ad rem",
+                  "page": 30
+            },
+            {
+                  "term": "administratie",
+                  "page": 30
+            },
+            {
+                  "term": "moeite met",
+                  "page": 30
+            },
+            {
+                  "term": "afbouwen van ondersteuning",
+                  "page": 30
+            },
+            {
+                  "term": "afgeleid worden",
+                  "page": 30
+            },
+            {
+                  "term": "agenda",
+                  "page": 30
+            },
+            {
+                  "term": "opstellen",
+                  "page": 30
+            },
+            {
+                  "term": "agressie",
+                  "page": 31
+            },
+            {
+                  "term": "‘alles’ of ‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 32
+            },
+            {
+                  "term": "‘alles’",
+                  "page": 32
+            },
+            {
+                  "term": "‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "andere manier van",
+                  "page": 32
+            },
+            {
+                  "term": "luisteren",
+                  "page": 32
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 33
+            },
+            {
+                  "term": "interpreteren",
+                  "page": 34
+            },
+            {
+                  "term": "communiceren",
+                  "page": 34
+            },
+            {
+                  "term": "expressie",
+                  "page": 34
+            },
+            {
+                  "term": "anderen",
+                  "page": 34
+            },
+            {
+                  "term": "inschatten",
+                  "page": 34
+            },
+            {
+                  "term": "invloed op",
+                  "page": 34
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 35
+            },
+            {
+                  "term": "leren",
+                  "page": 35
+            },
+            {
+                  "term": "angst",
+                  "page": 35
+            },
+            {
+                  "term": "arrogant",
+                  "page": 35
+            },
+            {
+                  "term": "‘asociaal’",
+                  "page": 35
+            },
+            {
+                  "term": "associatief",
+                  "page": 35
+            },
+            {
+                  "term": "denken",
+                  "page": 35
+            },
+            {
+                  "term": "geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "‘attention shifting’",
+                  "page": 36
+            },
+            {
+                  "term": "‘autistische’ logica",
+                  "page": 36
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 36
+            },
+            {
+                  "term": "enthousiasmes / stereotiepe of obsessieve interesses",
+                  "page": 36
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 36
+            },
+            {
+                  "term": "autobiografisch geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "autonomie",
+                  "page": 37
+            },
+            {
+                  "term": "begrijpen",
+                  "page": 37
+            },
+            {
+                  "term": "behandelen van autisme in de praktijk",
+                  "page": 37
+            },
+            {
+                  "term": "belonen",
+                  "page": 38
+            },
+            {
+                  "term": "belonen vs. bestraffen",
+                  "page": 38
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 39
+            },
+            {
+                  "term": "beredeneren",
+                  "page": 40
+            },
+            {
+                  "term": "berekenen",
+                  "page": 40
+            },
+            {
+                  "term": "bestraffen",
+                  "page": 40
+            },
+            {
+                  "term": "‘betekenis achter de betekenis’",
+                  "page": 41
+            },
+            {
+                  "term": "betekenisverlening",
+                  "page": 41
+            },
+            {
+                  "term": "fouten in",
+                  "page": 41
+            },
+            {
+                  "term": "bewaken eigen grenzen",
+                  "page": 41
+            },
+            {
+                  "term": "‘boodschap achter de boodschap’",
+                  "page": 41
+            },
+            {
+                  "term": "camoufleren",
+                  "page": 42
+            },
+            {
+                  "term": "catatonie",
+                  "page": 42
+            },
+            {
+                  "term": "centrale coherentie",
+                  "page": 42
+            },
+            {
+                  "term": "chaos",
+                  "page": 42
+            },
+            {
+                  "term": "communicatie",
+                  "page": 43
+            },
+            {
+                  "term": "anders",
+                  "page": 43
+            },
+            {
+                  "term": "beperkingen bij hoog en normaal begaafden",
+                  "page": 43
+            },
+            {
+                  "term": "beurtrolneming",
+                  "page": 48
+            },
+            {
+                  "term": "concreet en visueel",
+                  "page": 48
+            },
+            {
+                  "term": "couperen",
+                  "page": 49
+            },
+            {
+                  "term": "emotioneel incorrect",
+                  "page": 49
+            },
+            {
+                  "term": "≠expressie",
+                  "page": 49
+            },
+            {
+                  "term": "pedant, formeel, stijf, houterig, harkerig",
+                  "page": 50
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 50
+            },
+            {
+                  "term": "traag",
+                  "page": 51
+            },
+            {
+                  "term": "uitputtend, veel energie vragen",
+                  "page": 51
+            },
+            {
+                  "term": "visueel",
+                  "page": 52
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 52
+            },
+            {
+                  "term": "schriftelijk",
+                  "page": 52
+            },
+            {
+                  "term": "communicatienood",
+                  "page": 52
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijl van televisieprogramma’s imiteren",
+                  "page": 54
+            },
+            {
+                  "term": "compenseren",
+                  "page": 54
+            },
+            {
+                  "term": "concentratieproblemen",
+                  "page": 54
+            },
+            {
+                  "term": "concreet",
+                  "page": 55
+            },
+            {
+                  "term": "vs. abstract",
+                  "page": 55
+            },
+            {
+                  "term": "visueel",
+                  "page": 55
+            },
+            {
+                  "term": "concretiseren",
+                  "page": 55
+            },
+            {
+                  "term": "contextblindheid",
+                  "page": 57
+            },
+            {
+                  "term": "contextongevoeligheid",
+                  "page": 57
+            },
+            {
+                  "term": "corrigeren",
+                  "page": 57
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 57
+            },
+            {
+                  "term": "serieel",
+                  "page": 57
+            },
+            {
+                  "term": "associatief",
+                  "page": 57
+            },
+            {
+                  "term": "traag",
+                  "page": 57
+            },
+            {
+                  "term": "visueel",
+                  "page": 57
+            },
+            {
+                  "term": "couperen",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken dat de ander al weet wat jij weet / denkt’",
+                  "page": 58
+            },
+            {
+                  "term": "depressie",
+                  "page": 59
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 59
+            },
+            {
+                  "term": "diagnosestelling",
+                  "page": 59
+            },
+            {
+                  "term": "disharmonisch ontwikkelingsprofiel",
+                  "page": 60
+            },
+            {
+                  "term": "distantie",
+                  "page": 61
+            },
+            {
+                  "term": "driftbuien",
+                  "page": 61
+            },
+            {
+                  "term": "dubbelzinnigheid, dubbelzinnig taalgebruik",
+                  "page": 61
+            },
+            {
+                  "term": "echolalie",
+                  "page": 62
+            },
+            {
+                  "term": "egocentrisch",
+                  "page": 63
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 65
+            },
+            {
+                  "term": "eigen keuzes",
+                  "page": 65
+            },
+            {
+                  "term": "maken",
+                  "page": 65
+            },
+            {
+                  "term": "ondersteunen",
+                  "page": 65
+            },
+            {
+                  "term": "eisend zijn / klinken",
+                  "page": 65
+            },
+            {
+                  "term": "emoties",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele intelligentie",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele onrijpheid",
+                  "page": 66
+            },
+            {
+                  "term": "empathie",
+                  "page": 66
+            },
+            {
+                  "term": "energiekost",
+                  "page": 67
+            },
+            {
+                  "term": "hoog",
+                  "page": 67
+            },
+            {
+                  "term": "enthousiasmes",
+                  "page": 67
+            },
+            {
+                  "term": "episodisch geheugen",
+                  "page": 67
+            },
+            {
+                  "term": "‘executive function’",
+                  "page": 67
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 68
+            },
+            {
+                  "term": "expliciteren",
+                  "page": 69
+            },
+            {
+                  "term": "explosieve",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 69
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 70
+            },
+            {
+                  "term": "≠communicatie",
+                  "page": 70
+            },
+            {
+                  "term": "externaliseren",
+                  "page": 70
+            },
+            {
+                  "term": "extreme",
+                  "page": 70
+            },
+            {
+                  "term": "gevoelsexpressie",
+                  "page": 70
+            },
+            {
+                  "term": "emotie",
+                  "page": 71
+            },
+            {
+                  "term": "figuurlijk taalgebruik",
+                  "page": 71
+            },
+            {
+                  "term": "flexibiliteit",
+                  "page": 71
+            },
+            {
+                  "term": "fragmentarisch / fragmentair",
+                  "page": 72
+            },
+            {
+                  "term": "beleven \\- informatieverwerking",
+                  "page": 72
+            },
+            {
+                  "term": "communiceren",
+                  "page": 72
+            },
+            {
+                  "term": "geheugen",
+                  "page": 73
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 73
+            },
+            {
+                  "term": "waarnemen",
+                  "page": 73
+            },
+            {
+                  "term": "gebrek",
+                  "page": 73
+            },
+            {
+                  "term": "aan communicatie",
+                  "page": 73
+            },
+            {
+                  "term": "gedachten",
+                  "page": 74
+            },
+            {
+                  "term": "ordenen",
+                  "page": 74
+            },
+            {
+                  "term": "repetitief",
+                  "page": 74
+            },
+            {
+                  "term": "geen twee dingen tegelijk kunnen doen",
+                  "page": 74
+            },
+            {
+                  "term": "‘gedeelde’ aandacht",
+                  "page": 74
+            },
+            {
+                  "term": "gedrag",
+                  "page": 75
+            },
+            {
+                  "term": "gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "autisme is geen gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "gefragmenteerde beleving, informatieverwerking",
+                  "page": 75
+            },
+            {
+                  "term": "geheugen",
+                  "page": 75
+            },
+            {
+                  "term": "autobiografisch",
+                  "page": 75
+            },
+            {
+                  "term": "episodisch",
+                  "page": 75
+            },
+            {
+                  "term": "fragmentarisch",
+                  "page": 75
+            },
+            {
+                  "term": "‘slecht geheugen’",
+                  "page": 75
+            },
+            {
+                  "term": "gelijktijdig",
+                  "page": 75
+            },
+            {
+                  "term": "twee dingen",
+                  "page": 75
+            },
+            {
+                  "term": "denken en voelen",
+                  "page": 75
+            },
+            {
+                  "term": "‘gepakt’ worden",
+                  "page": 76
+            },
+            {
+                  "term": "in snelheid",
+                  "page": 76
+            },
+            {
+                  "term": "door emoties",
+                  "page": 77
+            },
+            {
+                  "term": "gepest worden",
+                  "page": 77
+            },
+            {
+                  "term": "gesprekken",
+                  "page": 77
+            },
+            {
+                  "term": "voeren",
+                  "page": 77
+            },
+            {
+                  "term": "volgen",
+                  "page": 79
+            },
+            {
+                  "term": "met meerdere personen",
+                  "page": 79
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 79
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 79
+            },
+            {
+                  "term": "alles of niets",
+                  "page": 79
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 79
+            },
+            {
+                  "term": "communicatie van emoties",
+                  "page": 82
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 82
+            },
+            {
+                  "term": "beleven",
+                  "page": 82
+            },
+            {
+                  "term": "herkennen",
+                  "page": 83
+            },
+            {
+                  "term": "uitdrukken / verwoorden",
+                  "page": 83
+            },
+            {
+                  "term": "explosief",
+                  "page": 84
+            },
+            {
+                  "term": "herkennen",
+                  "page": 85
+            },
+            {
+                  "term": "hevig",
+                  "page": 85
+            },
+            {
+                  "term": "moduleren en reguleren",
+                  "page": 86
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 87
+            },
+            {
+                  "term": "onaangepast",
+                  "page": 87
+            },
+            {
+                  "term": "praten over",
+                  "page": 87
+            },
+            {
+                  "term": "reguleren",
+                  "page": 87
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 88
+            },
+            {
+                  "term": "geen volumeknop",
+                  "page": 88
+            },
+            {
+                  "term": "van anderen",
+                  "page": 88
+            },
+            {
+                  "term": "verkeerd uiten",
+                  "page": 89
+            },
+            {
+                  "term": "negatieve",
+                  "page": 91
+            },
+            {
+                  "term": "goed gevoel",
+                  "page": 91
+            },
+            {
+                  "term": "goede sfeer",
+                  "page": 91
+            },
+            {
+                  "term": "goede verstandhouding",
+                  "page": 91
+            },
+            {
+                  "term": "‘grote’ meisjes",
+                  "page": 91
+            },
+            {
+                  "term": "‘grotere plaatje’",
+                  "page": 91
+            },
+            {
+                  "term": "‘hak op de tak’",
+                  "page": 91
+            },
+            {
+                  "term": "hautain",
+                  "page": 92
+            },
+            {
+                  "term": "herhaling",
+                  "page": 92
+            },
+            {
+                  "term": "hersenprocessen",
+                  "page": 92
+            },
+            {
+                  "term": "coördinatie",
+                  "page": 92
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 92
+            },
+            {
+                  "term": "humor",
+                  "page": 94
+            },
+            {
+                  "term": "hyperrealisme",
+                  "page": 94
+            },
+            {
+                  "term": "hypersensitiviteit",
+                  "page": 94
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 95
+            },
+            {
+                  "term": "idiosyncratisch",
+                  "page": 95
+            },
+            {
+                  "term": "taalgebruik",
+                  "page": 95
+            },
+            {
+                  "term": "communiceren",
+                  "page": 96
+            },
+            {
+                  "term": "iets vragen",
+                  "page": 96
+            },
+            {
+                  "term": "ik-ander differentiatie",
+                  "page": 96
+            },
+            {
+                  "term": "impulscontrole",
+                  "page": 98
+            },
+            {
+                  "term": "‘in snelheid gepakt’ worden",
+                  "page": 98
+            },
+            {
+                  "term": "individuele begeleiding",
+                  "page": 98
+            },
+            {
+                  "term": "informatienood",
+                  "page": 98
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 98
+            },
+            {
+                  "term": "informatieoverlast",
+                  "page": 98
+            },
+            {
+                  "term": "initiatief nemen / initiëren van contact",
+                  "page": 98
+            },
+            {
+                  "term": "inlevingsvermogen",
+                  "page": 99
+            },
+            {
+                  "term": "integratieve intelligentie",
+                  "page": 99
+            },
+            {
+                  "term": "kanaliseren",
+                  "page": 99
+            },
+            {
+                  "term": "kernsymptomen",
+                  "page": 99
+            },
+            {
+                  "term": "van autisme",
+                  "page": 99
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 99
+            },
+            {
+                  "term": "klungeligheid",
+                  "page": 100
+            },
+            {
+                  "term": "kort lontje",
+                  "page": 100
+            },
+            {
+                  "term": "‘kwade’ bedoelingen",
+                  "page": 100
+            },
+            {
+                  "term": "leren",
+                  "page": 101
+            },
+            {
+                  "term": "anders leren",
+                  "page": 101
+            },
+            {
+                  "term": "NLD",
+                  "page": 101
+            },
+            {
+                  "term": "letterlijk begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "lijstjes",
+                  "page": 101
+            },
+            {
+                  "term": "logica",
+                  "page": 101
+            },
+            {
+                  "term": "autistische logica",
+                  "page": 101
+            },
+            {
+                  "term": "luisteren",
+                  "page": 101
+            },
+            {
+                  "term": "anders luisteren om mensen met autisme te begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "manipulatie",
+                  "page": 102
+            },
+            {
+                  "term": "door anderen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale rituelen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale weerstand",
+                  "page": 102
+            },
+            {
+                  "term": "metavisie",
+                  "page": 103
+            },
+            {
+                  "term": "miscommuniceren",
+                  "page": 103
+            },
+            {
+                  "term": "misdiagnose",
+                  "page": 103
+            },
+            {
+                  "term": "misinterpreteren",
+                  "page": 104
+            },
+            {
+                  "term": "misverstanden",
+                  "page": 104
+            },
+            {
+                  "term": "moeilijkheden met communicatie",
+                  "page": 105
+            },
+            {
+                  "term": "naïviteit",
+                  "page": 105
+            },
+            {
+                  "term": "narcisme",
+                  "page": 106
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 108
+            },
+            {
+                  "term": "‘neen’ zeggen",
+                  "page": 109
+            },
+            {
+                  "term": "negatieve gevoelens",
+                  "page": 109
+            },
+            {
+                  "term": "neologisme",
+                  "page": 109
+            },
+            {
+                  "term": "netwerk",
+                  "page": 109
+            },
+            {
+                  "term": "sociaal netwerk opbouwen en onderhouden",
+                  "page": 109
+            },
+            {
+                  "term": "neurotypische projecties",
+                  "page": 109
+            },
+            {
+                  "term": "niet begrepen voelen",
+                  "page": 110
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 110
+            },
+            {
+                  "term": "‘niet kunnen’ vs. ‘niet willen’",
+                  "page": 111
+            },
+            {
+                  "term": "nld",
+                  "page": 112
+            },
+            {
+                  "term": "non-verbaal",
+                  "page": 113
+            },
+            {
+                  "term": "nuance",
+                  "page": 113
+            },
+            {
+                  "term": "obsessieve interesses",
+                  "page": 114
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 114
+            },
+            {
+                  "term": "omgeving aanpassen",
+                  "page": 114
+            },
+            {
+                  "term": "omgaan met autisme als begeleider / verzorger / therapeut",
+                  "page": 114
+            },
+            {
+                  "term": "omkering van persoonlijke voornaamwoorden",
+                  "page": 116
+            },
+            {
+                  "term": "onaangepaste",
+                  "page": 116
+            },
+            {
+                  "term": "communicatie",
+                  "page": 116
+            },
+            {
+                  "term": "emotie",
+                  "page": 116
+            },
+            {
+                  "term": "expressie",
+                  "page": 119
+            },
+            {
+                  "term": "gedrag",
+                  "page": 119
+            },
+            {
+                  "term": "reactie",
+                  "page": 120
+            },
+            {
+                  "term": "ondervragingen",
+                  "page": 120
+            },
+            {
+                  "term": "onlogische angsten",
+                  "page": 120
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 121
+            },
+            {
+                  "term": "onrijpheid",
+                  "page": 121
+            },
+            {
+                  "term": "emotioneel",
+                  "page": 121
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 121
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 121
+            },
+            {
+                  "term": "ontvangstpatroon opleggen",
+                  "page": 122
+            },
+            {
+                  "term": "‘op eigen benen staan’",
+                  "page": 123
+            },
+            {
+                  "term": "opdringerig",
+                  "page": 123
+            },
+            {
+                  "term": "‘op maat’",
+                  "page": 123
+            },
+            {
+                  "term": "communiceren",
+                  "page": 123
+            },
+            {
+                  "term": "behandelen",
+                  "page": 123
+            },
+            {
+                  "term": "orde",
+                  "page": 124
+            },
+            {
+                  "term": "ordenen",
+                  "page": 124
+            },
+            {
+                  "term": "gedachten",
+                  "page": 124
+            },
+            {
+                  "term": "organiseren",
+                  "page": 124
+            },
+            {
+                  "term": "organisatorische aspecten van",
+                  "page": 125
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 125
+            },
+            {
+                  "term": "communicatie",
+                  "page": 125
+            },
+            {
+                  "term": "overgangen maken",
+                  "page": 125
+            },
+            {
+                  "term": "overgevoeligheid",
+                  "page": 125
+            },
+            {
+                  "term": "overprikkeling",
+                  "page": 126
+            },
+            {
+                  "term": "overschakelingskosten",
+                  "page": 126
+            },
+            {
+                  "term": "overschatting",
+                  "page": 127
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 127
+            },
+            {
+                  "term": "door anderen",
+                  "page": 128
+            },
+            {
+                  "term": "overselectiviteit",
+                  "page": 128
+            },
+            {
+                  "term": "overspannen geraken",
+                  "page": 128
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 128
+            },
+            {
+                  "term": "door emoties",
+                  "page": 128
+            },
+            {
+                  "term": "overzicht",
+                  "page": 129
+            },
+            {
+                  "term": "nood aan",
+                  "page": 129
+            },
+            {
+                  "term": "overzichtelijkheid",
+                  "page": 130
+            },
+            {
+                  "term": "pedant",
+                  "page": 130
+            },
+            {
+                  "term": "performantiedeficit",
+                  "page": 130
+            },
+            {
+                  "term": "‘performantie-deficit’",
+                  "page": 131
+            },
+            {
+                  "term": "perseveratie",
+                  "page": 132
+            },
+            {
+                  "term": "persoonlijkheid",
+                  "page": 132
+            },
+            {
+                  "term": "perspectiefneming",
+                  "page": 132
+            },
+            {
+                  "term": "tweede orde",
+                  "page": 132
+            },
+            {
+                  "term": "piekvaardigheden",
+                  "page": 133
+            },
+            {
+                  "term": "pijn",
+                  "page": 133
+            },
+            {
+                  "term": "emotioneel lijden",
+                  "page": 133
+            },
+            {
+                  "term": "ondraaglijk lijden",
+                  "page": 133
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 134
+            },
+            {
+                  "term": "planning",
+                  "page": 134
+            },
+            {
+                  "term": "positieve atmosfeer",
+                  "page": 134
+            },
+            {
+                  "term": "pragmatiek",
+                  "page": 134
+            },
+            {
+                  "term": "praten",
+                  "page": 135
+            },
+            {
+                  "term": "preoccupaties",
+                  "page": 135
+            },
+            {
+                  "term": "prikkelgevoeligheid",
+                  "page": 135
+            },
+            {
+                  "term": "indeling patienten per",
+                  "page": 135
+            },
+            {
+                  "term": "projectie",
+                  "page": 135
+            },
+            {
+                  "term": "psychiatrische testen",
+                  "page": 136
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 136
+            },
+            {
+                  "term": "psychische structuurvastheid",
+                  "page": 137
+            },
+            {
+                  "term": "psycho-educatie",
+                  "page": 137
+            },
+            {
+                  "term": "psychologische begeleiding",
+                  "page": 138
+            },
+            {
+                  "term": "psychopathie",
+                  "page": 138
+            },
+            {
+                  "term": "psychose",
+                  "page": 139
+            },
+            {
+                  "term": "psychotherapie",
+                  "page": 139
+            },
+            {
+                  "term": "concretiseren en visualiseren \\- meer tonen dan praten – al doende praat men",
+                  "page": 140
+            },
+            {
+                  "term": "depressie",
+                  "page": 142
+            },
+            {
+                  "term": "factoren die doeltreffendheid/succes bepalen",
+                  "page": 142
+            },
+            {
+                  "term": "publieke referentie",
+                  "page": 142
+            },
+            {
+                  "term": "realisme",
+                  "page": 143
+            },
+            {
+                  "term": "sociaal inlevingsvermogen",
+                  "page": 143
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 143
+            },
+            {
+                  "term": "rechterhemisfeerdeficit",
+                  "page": 143
+            },
+            {
+                  "term": "‘rechttoe rechtaan’",
+                  "page": 143
+            },
+            {
+                  "term": "rechtvaardigheidsgevoel",
+                  "page": 143
+            },
+            {
+                  "term": "relaties",
+                  "page": 143
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 143
+            },
+            {
+                  "term": "relativeren",
+                  "page": 144
+            },
+            {
+                  "term": "relevante informatie van irrelevante informatie onderscheiden",
+                  "page": 144
+            },
+            {
+                  "term": "repetitieve",
+                  "page": 144
+            },
+            {
+                  "term": "gedachten",
+                  "page": 144
+            },
+            {
+                  "term": "gedragingen",
+                  "page": 145
+            },
+            {
+                  "term": "rigiditeit",
+                  "page": 145
+            },
+            {
+                  "term": "routines / rituelen",
+                  "page": 145
+            },
+            {
+                  "term": "samenhang",
+                  "page": 146
+            },
+            {
+                  "term": "gebrek aan",
+                  "page": 146
+            },
+            {
+                  "term": "schoolloopbaan",
+                  "page": 146
+            },
+            {
+                  "term": "schriftelijk communiceren",
+                  "page": 146
+            },
+            {
+                  "term": "scripts / scenario’s",
+                  "page": 146
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 147
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 147
+            },
+            {
+                  "term": "experimenteren",
+                  "page": 147
+            },
+            {
+                  "term": "misbruik",
+                  "page": 147
+            },
+            {
+                  "term": "moeilijkheden",
+                  "page": 147
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit",
+                  "page": 148
+            },
+            {
+                  "term": "serieel denken",
+                  "page": 148
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 148
+            },
+            {
+                  "term": "snelheid",
+                  "page": 149
+            },
+            {
+                  "term": "sociaal netwerk",
+                  "page": 150
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 150
+            },
+            {
+                  "term": "sociale intelligentie",
+                  "page": 150
+            },
+            {
+                  "term": "sociale interactie",
+                  "page": 151
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 152
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 152
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale relaties",
+                  "page": 153
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale vaardigheden",
+                  "page": 153
+            },
+            {
+                  "term": "de sociale aspecten van taal",
+                  "page": 154
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 154
+            },
+            {
+                  "term": "spel",
+                  "page": 154
+            },
+            {
+                  "term": "symbolisch spel",
+                  "page": 154
+            },
+            {
+                  "term": "stereotiep spel",
+                  "page": 157
+            },
+            {
+                  "term": "spel van de communicatie",
+                  "page": 157
+            },
+            {
+                  "term": "het sociale spel",
+                  "page": 157
+            },
+            {
+                  "term": "spontaan ageren/reageren, spontaan zijn",
+                  "page": 157
+            },
+            {
+                  "term": "stereotiepe interesses",
+                  "page": 158
+            },
+            {
+                  "term": "Stereotypieën",
+                  "page": 158
+            },
+            {
+                  "term": "Motorische stereotiepieën",
+                  "page": 158
+            },
+            {
+                  "term": "stijl van communiceren",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de communicatie",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de sociale omgang",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de (sociale) verbeelding",
+                  "page": 158
+            },
+            {
+                  "term": "stoorzender",
+                  "page": 158
+            },
+            {
+                  "term": "‘stop’ zeggen",
+                  "page": 159
+            },
+            {
+                  "term": "stress",
+                  "page": 159
+            },
+            {
+                  "term": "testings",
+                  "page": 159
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 159
+            },
+            {
+                  "term": "theory of mind",
+                  "page": 160
+            },
+            {
+                  "term": "theory of own mind",
+                  "page": 160
+            },
+            {
+                  "term": "therapie",
+                  "page": 160
+            },
+            {
+                  "term": "timing",
+                  "page": 161
+            },
+            {
+                  "term": "tijd geven",
+                  "page": 161
+            },
+            {
+                  "term": "traagheid",
+                  "page": 162
+            },
+            {
+                  "term": "transferproblemen",
+                  "page": 162
+            },
+            {
+                  "term": "trauma \\- traumatisering",
+                  "page": 162
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 163
+            },
+            {
+                  "term": "tweede orde perspectiefneming",
+                  "page": 163
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 164
+            },
+            {
+                  "term": "eigen gevoel",
+                  "page": 164
+            },
+            {
+                  "term": "uiten",
+                  "page": 164
+            },
+            {
+                  "term": "emoties",
+                  "page": 164
+            },
+            {
+                  "term": "uitgestelde",
+                  "page": 164
+            },
+            {
+                  "term": "emotie",
+                  "page": 164
+            },
+            {
+                  "term": "reactie",
+                  "page": 164
+            },
+            {
+                  "term": "verwerking",
+                  "page": 164
+            },
+            {
+                  "term": "uitputtend",
+                  "page": 165
+            },
+            {
+                  "term": "vaag woordgebruik",
+                  "page": 165
+            },
+            {
+                  "term": "vaste regels",
+                  "page": 165
+            },
+            {
+                  "term": "veiligheid",
+                  "page": 165
+            },
+            {
+                  "term": "geborgenheid – zekerheid – voorspelbaarheid – overzichtelijkheid \\- duidelijkheid",
+                  "page": 165
+            },
+            {
+                  "term": "verbaliseren",
+                  "page": 167
+            },
+            {
+                  "term": "verbeelding",
+                  "page": 167
+            },
+            {
+                  "term": "sociale",
+                  "page": 167
+            },
+            {
+                  "term": "verbergen \\- verborgen houden",
+                  "page": 167
+            },
+            {
+                  "term": "vergeetachtigheid",
+                  "page": 167
+            },
+            {
+                  "term": "verheldering",
+                  "page": 167
+            },
+            {
+                  "term": "verhoren",
+                  "page": 167
+            },
+            {
+                  "term": "politieverhoren etc.",
+                  "page": 167
+            },
+            {
+                  "term": "verkeerd begrijpen",
+                  "page": 169
+            },
+            {
+                  "term": "verkeerd communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "vertrouwenspersoon",
+                  "page": 169
+            },
+            {
+                  "term": "verwachtingen",
+                  "page": 169
+            },
+            {
+                  "term": "communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "van anderen",
+                  "page": 169
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 169
+            },
+            {
+                  "term": "visualiseren",
+                  "page": 169
+            },
+            {
+                  "term": "visueel",
+                  "page": 172
+            },
+            {
+                  "term": "denken",
+                  "page": 172
+            },
+            {
+                  "term": "communiceren",
+                  "page": 172
+            },
+            {
+                  "term": "voelen",
+                  "page": 173
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 173
+            },
+            {
+                  "term": "voorbereiding",
+                  "page": 174
+            },
+            {
+                  "term": "voorbereiding maken",
+                  "page": 174
+            },
+            {
+                  "term": "voorspelbaarheid",
+                  "page": 174
+            },
+            {
+                  "term": "elke dag hetzelfde",
+                  "page": 174
+            },
+            {
+                  "term": "nood aan",
+                  "page": 175
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit / zintuiglijke overgevoeligheid",
+                  "page": 175
+            },
+            {
+                  "term": "‘vooruitgang’",
+                  "page": 176
+            },
+            {
+                  "term": "vormgeven",
+                  "page": 176
+            },
+            {
+                  "term": "communicatie . boodschap",
+                  "page": 176
+            },
+            {
+                  "term": "vragen om iets",
+                  "page": 176
+            },
+            {
+                  "term": "vrijheid",
+                  "page": 176
+            },
+            {
+                  "term": "eigen keuzes maken",
+                  "page": 176
+            },
+            {
+                  "term": "waarneming",
+                  "page": 176
+            },
+            {
+                  "term": "anders",
+                  "page": 176
+            },
+            {
+                  "term": "‘wat niet gezegd wordt’",
+                  "page": 176
+            },
+            {
+                  "term": "wederkerigheid",
+                  "page": 176
+            },
+            {
+                  "term": "in de sociale interactie",
+                  "page": 176
+            },
+            {
+                  "term": "weerstand tegen verandering",
+                  "page": 176
+            },
+            {
+                  "term": "Moeite om taken los te laten eens ik er mee begonnen ben",
+                  "page": 176
+            },
+            {
+                  "term": "werkelijkheid achter de werkelijkheid",
+                  "page": 177
+            },
+            {
+                  "term": "wisselen van aandacht",
+                  "page": 177
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 177
+            },
+            {
+                  "term": "zekerheid",
+                  "page": 178
+            },
+            {
+                  "term": "zelf kiezen",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeschikkingsrecht",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeeld",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbewustzijn",
+                  "page": 180
+            },
+            {
+                  "term": "zelfevaluatie",
+                  "page": 180
+            },
+            {
+                  "term": "zelfinzicht",
+                  "page": 180
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 180
+            },
+            {
+                  "term": "zelfrapportage",
+                  "page": 181
+            },
+            {
+                  "term": "depressie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfreflectie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfstandigheid",
+                  "page": 183
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 184
+            }
       ],
-      fr: [
-        { term: "Introduction", page: 12 },
-        { term: "Besoins d'accompagnement", page: 14 },
-        { term: "Visualisation", page: 14 },
-        { term: "Résistance au changement", page: 15 },
-        { term: "Attention", page: 16 },
-        { term: "Apprentissage", page: 17 },
-        { term: "Adaptation", page: 19 },
-        { term: "Pensée absolue", page: 28 },
-        { term: "Abstrait vs Concret", page: 28 },
-        { term: "Administration", page: 30 },
-        { term: "Agression", page: 31 },
-        { term: "Tout ou rien (émotions)", page: 32 },
-        { term: "Pensée associative", page: 35 },
-        { term: "Logique autistique", page: 36 },
-        { term: "Attribution de sens", page: 41 },
-        { term: "Cohérence centrale", page: 42 },
-        { term: "Communication", page: 43 },
-        { term: "Cécité contextuelle", page: 57 },
-        { term: "Pensée de détail", page: 59 },
-        { term: "Immaturité émotionnelle", page: 66 },
-        { term: "Empathie", page: 66 },
-        { term: "Coût énergétique", page: 67 },
-        { term: "Fonction exécutive", page: 67 },
-        { term: "Mémoire", page: 75 },
-        { term: "Rigidité", page: 145 }
+      "fr": [
+            {
+                  "term": "aandacht",
+                  "page": 16
+            },
+            {
+                  "term": "aandachtsstoornis",
+                  "page": 16
+            },
+            {
+                  "term": "aanleren",
+                  "page": 17
+            },
+            {
+                  "term": "‘aanleren’ of ‘afleren’",
+                  "page": 17
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 19
+            },
+            {
+                  "term": "aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "‘hen’ aanpassen",
+                  "page": 19
+            },
+            {
+                  "term": "mensen met autisme ondersteunen door ons gedrag en onze communicatie aan te passen aan hun beperking",
+                  "page": 19
+            },
+            {
+                  "term": "moeite met aanpassen aan",
+                  "page": 23
+            },
+            {
+                  "term": "aan anderen",
+                  "page": 23
+            },
+            {
+                  "term": "aan communicatienood ontvanger",
+                  "page": 25
+            },
+            {
+                  "term": "aan omgeving",
+                  "page": 25
+            },
+            {
+                  "term": "moeite met aanpassen van",
+                  "page": 25
+            },
+            {
+                  "term": "communicatiestijl",
+                  "page": 25
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 26
+            },
+            {
+                  "term": "waarom?",
+                  "page": 26
+            },
+            {
+                  "term": "hoe?",
+                  "page": 26
+            },
+            {
+                  "term": "enkele praktische tips",
+                  "page": 27
+            },
+            {
+                  "term": "‘absolute’ denkers",
+                  "page": 28
+            },
+            {
+                  "term": "abstract",
+                  "page": 28
+            },
+            {
+                  "term": "vs. concreet",
+                  "page": 28
+            },
+            {
+                  "term": "‘achteraf’",
+                  "page": 29
+            },
+            {
+                  "term": "verwerken / reageren",
+                  "page": 29
+            },
+            {
+                  "term": "antwoorden",
+                  "page": 30
+            },
+            {
+                  "term": "ad rem",
+                  "page": 30
+            },
+            {
+                  "term": "administratie",
+                  "page": 30
+            },
+            {
+                  "term": "moeite met",
+                  "page": 30
+            },
+            {
+                  "term": "afbouwen van ondersteuning",
+                  "page": 30
+            },
+            {
+                  "term": "afgeleid worden",
+                  "page": 30
+            },
+            {
+                  "term": "agenda",
+                  "page": 30
+            },
+            {
+                  "term": "opstellen",
+                  "page": 30
+            },
+            {
+                  "term": "agressie",
+                  "page": 31
+            },
+            {
+                  "term": "‘alles’ of ‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 32
+            },
+            {
+                  "term": "‘alles’",
+                  "page": 32
+            },
+            {
+                  "term": "‘niets’",
+                  "page": 32
+            },
+            {
+                  "term": "andere manier van",
+                  "page": 32
+            },
+            {
+                  "term": "luisteren",
+                  "page": 32
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 33
+            },
+            {
+                  "term": "interpreteren",
+                  "page": 34
+            },
+            {
+                  "term": "communiceren",
+                  "page": 34
+            },
+            {
+                  "term": "expressie",
+                  "page": 34
+            },
+            {
+                  "term": "anderen",
+                  "page": 34
+            },
+            {
+                  "term": "inschatten",
+                  "page": 34
+            },
+            {
+                  "term": "invloed op",
+                  "page": 34
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 35
+            },
+            {
+                  "term": "leren",
+                  "page": 35
+            },
+            {
+                  "term": "angst",
+                  "page": 35
+            },
+            {
+                  "term": "arrogant",
+                  "page": 35
+            },
+            {
+                  "term": "‘asociaal’",
+                  "page": 35
+            },
+            {
+                  "term": "associatief",
+                  "page": 35
+            },
+            {
+                  "term": "denken",
+                  "page": 35
+            },
+            {
+                  "term": "geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "‘attention shifting’",
+                  "page": 36
+            },
+            {
+                  "term": "‘autistische’ logica",
+                  "page": 36
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 36
+            },
+            {
+                  "term": "enthousiasmes / stereotiepe of obsessieve interesses",
+                  "page": 36
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 36
+            },
+            {
+                  "term": "autobiografisch geheugen",
+                  "page": 36
+            },
+            {
+                  "term": "autonomie",
+                  "page": 37
+            },
+            {
+                  "term": "begrijpen",
+                  "page": 37
+            },
+            {
+                  "term": "behandelen van autisme in de praktijk",
+                  "page": 37
+            },
+            {
+                  "term": "belonen",
+                  "page": 38
+            },
+            {
+                  "term": "belonen vs. bestraffen",
+                  "page": 38
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 39
+            },
+            {
+                  "term": "beredeneren",
+                  "page": 40
+            },
+            {
+                  "term": "berekenen",
+                  "page": 40
+            },
+            {
+                  "term": "bestraffen",
+                  "page": 40
+            },
+            {
+                  "term": "‘betekenis achter de betekenis’",
+                  "page": 41
+            },
+            {
+                  "term": "betekenisverlening",
+                  "page": 41
+            },
+            {
+                  "term": "fouten in",
+                  "page": 41
+            },
+            {
+                  "term": "bewaken eigen grenzen",
+                  "page": 41
+            },
+            {
+                  "term": "‘boodschap achter de boodschap’",
+                  "page": 41
+            },
+            {
+                  "term": "camoufleren",
+                  "page": 42
+            },
+            {
+                  "term": "catatonie",
+                  "page": 42
+            },
+            {
+                  "term": "centrale coherentie",
+                  "page": 42
+            },
+            {
+                  "term": "chaos",
+                  "page": 42
+            },
+            {
+                  "term": "communicatie",
+                  "page": 43
+            },
+            {
+                  "term": "anders",
+                  "page": 43
+            },
+            {
+                  "term": "beperkingen bij hoog en normaal begaafden",
+                  "page": 43
+            },
+            {
+                  "term": "beurtrolneming",
+                  "page": 48
+            },
+            {
+                  "term": "concreet en visueel",
+                  "page": 48
+            },
+            {
+                  "term": "couperen",
+                  "page": 49
+            },
+            {
+                  "term": "emotioneel incorrect",
+                  "page": 49
+            },
+            {
+                  "term": "≠expressie",
+                  "page": 49
+            },
+            {
+                  "term": "pedant, formeel, stijf, houterig, harkerig",
+                  "page": 50
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 50
+            },
+            {
+                  "term": "traag",
+                  "page": 51
+            },
+            {
+                  "term": "uitputtend, veel energie vragen",
+                  "page": 51
+            },
+            {
+                  "term": "visueel",
+                  "page": 52
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 52
+            },
+            {
+                  "term": "schriftelijk",
+                  "page": 52
+            },
+            {
+                  "term": "communicatienood",
+                  "page": 52
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "beperkt gamma aan communicatiestijlen",
+                  "page": 52
+            },
+            {
+                  "term": "communicatiestijl van televisieprogramma’s imiteren",
+                  "page": 54
+            },
+            {
+                  "term": "compenseren",
+                  "page": 54
+            },
+            {
+                  "term": "concentratieproblemen",
+                  "page": 54
+            },
+            {
+                  "term": "concreet",
+                  "page": 55
+            },
+            {
+                  "term": "vs. abstract",
+                  "page": 55
+            },
+            {
+                  "term": "visueel",
+                  "page": 55
+            },
+            {
+                  "term": "concretiseren",
+                  "page": 55
+            },
+            {
+                  "term": "contextblindheid",
+                  "page": 57
+            },
+            {
+                  "term": "contextongevoeligheid",
+                  "page": 57
+            },
+            {
+                  "term": "corrigeren",
+                  "page": 57
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 57
+            },
+            {
+                  "term": "serieel",
+                  "page": 57
+            },
+            {
+                  "term": "associatief",
+                  "page": 57
+            },
+            {
+                  "term": "traag",
+                  "page": 57
+            },
+            {
+                  "term": "visueel",
+                  "page": 57
+            },
+            {
+                  "term": "couperen",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 58
+            },
+            {
+                  "term": "‘denken dat de ander al weet wat jij weet / denkt’",
+                  "page": 58
+            },
+            {
+                  "term": "depressie",
+                  "page": 59
+            },
+            {
+                  "term": "detaildenken",
+                  "page": 59
+            },
+            {
+                  "term": "diagnosestelling",
+                  "page": 59
+            },
+            {
+                  "term": "disharmonisch ontwikkelingsprofiel",
+                  "page": 60
+            },
+            {
+                  "term": "distantie",
+                  "page": 61
+            },
+            {
+                  "term": "driftbuien",
+                  "page": 61
+            },
+            {
+                  "term": "dubbelzinnigheid, dubbelzinnig taalgebruik",
+                  "page": 61
+            },
+            {
+                  "term": "echolalie",
+                  "page": 62
+            },
+            {
+                  "term": "egocentrisch",
+                  "page": 63
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 65
+            },
+            {
+                  "term": "eigen keuzes",
+                  "page": 65
+            },
+            {
+                  "term": "maken",
+                  "page": 65
+            },
+            {
+                  "term": "ondersteunen",
+                  "page": 65
+            },
+            {
+                  "term": "eisend zijn / klinken",
+                  "page": 65
+            },
+            {
+                  "term": "emoties",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele intelligentie",
+                  "page": 66
+            },
+            {
+                  "term": "emotionele onrijpheid",
+                  "page": 66
+            },
+            {
+                  "term": "empathie",
+                  "page": 66
+            },
+            {
+                  "term": "energiekost",
+                  "page": 67
+            },
+            {
+                  "term": "hoog",
+                  "page": 67
+            },
+            {
+                  "term": "enthousiasmes",
+                  "page": 67
+            },
+            {
+                  "term": "episodisch geheugen",
+                  "page": 67
+            },
+            {
+                  "term": "‘executive function’",
+                  "page": 67
+            },
+            {
+                  "term": "expliciet aanleren",
+                  "page": 68
+            },
+            {
+                  "term": "expliciteren",
+                  "page": 69
+            },
+            {
+                  "term": "explosieve",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 69
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 69
+            },
+            {
+                  "term": "expressie",
+                  "page": 70
+            },
+            {
+                  "term": "≠communicatie",
+                  "page": 70
+            },
+            {
+                  "term": "externaliseren",
+                  "page": 70
+            },
+            {
+                  "term": "extreme",
+                  "page": 70
+            },
+            {
+                  "term": "gevoelsexpressie",
+                  "page": 70
+            },
+            {
+                  "term": "emotie",
+                  "page": 71
+            },
+            {
+                  "term": "figuurlijk taalgebruik",
+                  "page": 71
+            },
+            {
+                  "term": "flexibiliteit",
+                  "page": 71
+            },
+            {
+                  "term": "fragmentarisch / fragmentair",
+                  "page": 72
+            },
+            {
+                  "term": "beleven \\- informatieverwerking",
+                  "page": 72
+            },
+            {
+                  "term": "communiceren",
+                  "page": 72
+            },
+            {
+                  "term": "geheugen",
+                  "page": 73
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 73
+            },
+            {
+                  "term": "waarnemen",
+                  "page": 73
+            },
+            {
+                  "term": "gebrek",
+                  "page": 73
+            },
+            {
+                  "term": "aan communicatie",
+                  "page": 73
+            },
+            {
+                  "term": "gedachten",
+                  "page": 74
+            },
+            {
+                  "term": "ordenen",
+                  "page": 74
+            },
+            {
+                  "term": "repetitief",
+                  "page": 74
+            },
+            {
+                  "term": "geen twee dingen tegelijk kunnen doen",
+                  "page": 74
+            },
+            {
+                  "term": "‘gedeelde’ aandacht",
+                  "page": 74
+            },
+            {
+                  "term": "gedrag",
+                  "page": 75
+            },
+            {
+                  "term": "gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "autisme is geen gedragsstoornis",
+                  "page": 75
+            },
+            {
+                  "term": "gefragmenteerde beleving, informatieverwerking",
+                  "page": 75
+            },
+            {
+                  "term": "geheugen",
+                  "page": 75
+            },
+            {
+                  "term": "autobiografisch",
+                  "page": 75
+            },
+            {
+                  "term": "episodisch",
+                  "page": 75
+            },
+            {
+                  "term": "fragmentarisch",
+                  "page": 75
+            },
+            {
+                  "term": "‘slecht geheugen’",
+                  "page": 75
+            },
+            {
+                  "term": "gelijktijdig",
+                  "page": 75
+            },
+            {
+                  "term": "twee dingen",
+                  "page": 75
+            },
+            {
+                  "term": "denken en voelen",
+                  "page": 75
+            },
+            {
+                  "term": "‘gepakt’ worden",
+                  "page": 76
+            },
+            {
+                  "term": "in snelheid",
+                  "page": 76
+            },
+            {
+                  "term": "door emoties",
+                  "page": 77
+            },
+            {
+                  "term": "gepest worden",
+                  "page": 77
+            },
+            {
+                  "term": "gesprekken",
+                  "page": 77
+            },
+            {
+                  "term": "voeren",
+                  "page": 77
+            },
+            {
+                  "term": "volgen",
+                  "page": 79
+            },
+            {
+                  "term": "met meerdere personen",
+                  "page": 79
+            },
+            {
+                  "term": "‘rechttoe rechtaan’ / duidelijkheid / eenduidigheid / letterlijk / ondubbelzinnigheid",
+                  "page": 79
+            },
+            {
+                  "term": "gevoelens",
+                  "page": 79
+            },
+            {
+                  "term": "alles of niets",
+                  "page": 79
+            },
+            {
+                  "term": "‘anders’",
+                  "page": 79
+            },
+            {
+                  "term": "communicatie van emoties",
+                  "page": 82
+            },
+            {
+                  "term": "eigen emoties",
+                  "page": 82
+            },
+            {
+                  "term": "beleven",
+                  "page": 82
+            },
+            {
+                  "term": "herkennen",
+                  "page": 83
+            },
+            {
+                  "term": "uitdrukken / verwoorden",
+                  "page": 83
+            },
+            {
+                  "term": "explosief",
+                  "page": 84
+            },
+            {
+                  "term": "herkennen",
+                  "page": 85
+            },
+            {
+                  "term": "hevig",
+                  "page": 85
+            },
+            {
+                  "term": "moduleren en reguleren",
+                  "page": 86
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 87
+            },
+            {
+                  "term": "onaangepast",
+                  "page": 87
+            },
+            {
+                  "term": "praten over",
+                  "page": 87
+            },
+            {
+                  "term": "reguleren",
+                  "page": 87
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 88
+            },
+            {
+                  "term": "geen volumeknop",
+                  "page": 88
+            },
+            {
+                  "term": "van anderen",
+                  "page": 88
+            },
+            {
+                  "term": "verkeerd uiten",
+                  "page": 89
+            },
+            {
+                  "term": "negatieve",
+                  "page": 91
+            },
+            {
+                  "term": "goed gevoel",
+                  "page": 91
+            },
+            {
+                  "term": "goede sfeer",
+                  "page": 91
+            },
+            {
+                  "term": "goede verstandhouding",
+                  "page": 91
+            },
+            {
+                  "term": "‘grote’ meisjes",
+                  "page": 91
+            },
+            {
+                  "term": "‘grotere plaatje’",
+                  "page": 91
+            },
+            {
+                  "term": "‘hak op de tak’",
+                  "page": 91
+            },
+            {
+                  "term": "hautain",
+                  "page": 92
+            },
+            {
+                  "term": "herhaling",
+                  "page": 92
+            },
+            {
+                  "term": "hersenprocessen",
+                  "page": 92
+            },
+            {
+                  "term": "coördinatie",
+                  "page": 92
+            },
+            {
+                  "term": "‘hoe’ je iets zegt",
+                  "page": 92
+            },
+            {
+                  "term": "humor",
+                  "page": 94
+            },
+            {
+                  "term": "hyperrealisme",
+                  "page": 94
+            },
+            {
+                  "term": "hypersensitiviteit",
+                  "page": 94
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 95
+            },
+            {
+                  "term": "idiosyncratisch",
+                  "page": 95
+            },
+            {
+                  "term": "taalgebruik",
+                  "page": 95
+            },
+            {
+                  "term": "communiceren",
+                  "page": 96
+            },
+            {
+                  "term": "iets vragen",
+                  "page": 96
+            },
+            {
+                  "term": "ik-ander differentiatie",
+                  "page": 96
+            },
+            {
+                  "term": "impulscontrole",
+                  "page": 98
+            },
+            {
+                  "term": "‘in snelheid gepakt’ worden",
+                  "page": 98
+            },
+            {
+                  "term": "individuele begeleiding",
+                  "page": 98
+            },
+            {
+                  "term": "informatienood",
+                  "page": 98
+            },
+            {
+                  "term": "gesprekspartner",
+                  "page": 98
+            },
+            {
+                  "term": "informatieoverlast",
+                  "page": 98
+            },
+            {
+                  "term": "initiatief nemen / initiëren van contact",
+                  "page": 98
+            },
+            {
+                  "term": "inlevingsvermogen",
+                  "page": 99
+            },
+            {
+                  "term": "integratieve intelligentie",
+                  "page": 99
+            },
+            {
+                  "term": "kanaliseren",
+                  "page": 99
+            },
+            {
+                  "term": "kernsymptomen",
+                  "page": 99
+            },
+            {
+                  "term": "van autisme",
+                  "page": 99
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 99
+            },
+            {
+                  "term": "klungeligheid",
+                  "page": 100
+            },
+            {
+                  "term": "kort lontje",
+                  "page": 100
+            },
+            {
+                  "term": "‘kwade’ bedoelingen",
+                  "page": 100
+            },
+            {
+                  "term": "leren",
+                  "page": 101
+            },
+            {
+                  "term": "anders leren",
+                  "page": 101
+            },
+            {
+                  "term": "NLD",
+                  "page": 101
+            },
+            {
+                  "term": "letterlijk begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "lijstjes",
+                  "page": 101
+            },
+            {
+                  "term": "logica",
+                  "page": 101
+            },
+            {
+                  "term": "autistische logica",
+                  "page": 101
+            },
+            {
+                  "term": "luisteren",
+                  "page": 101
+            },
+            {
+                  "term": "anders luisteren om mensen met autisme te begrijpen",
+                  "page": 101
+            },
+            {
+                  "term": "manipulatie",
+                  "page": 102
+            },
+            {
+                  "term": "door anderen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale rituelen",
+                  "page": 102
+            },
+            {
+                  "term": "mentale weerstand",
+                  "page": 102
+            },
+            {
+                  "term": "metavisie",
+                  "page": 103
+            },
+            {
+                  "term": "miscommuniceren",
+                  "page": 103
+            },
+            {
+                  "term": "misdiagnose",
+                  "page": 103
+            },
+            {
+                  "term": "misinterpreteren",
+                  "page": 104
+            },
+            {
+                  "term": "misverstanden",
+                  "page": 104
+            },
+            {
+                  "term": "moeilijkheden met communicatie",
+                  "page": 105
+            },
+            {
+                  "term": "naïviteit",
+                  "page": 105
+            },
+            {
+                  "term": "narcisme",
+                  "page": 106
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 108
+            },
+            {
+                  "term": "‘neen’ zeggen",
+                  "page": 109
+            },
+            {
+                  "term": "negatieve gevoelens",
+                  "page": 109
+            },
+            {
+                  "term": "neologisme",
+                  "page": 109
+            },
+            {
+                  "term": "netwerk",
+                  "page": 109
+            },
+            {
+                  "term": "sociaal netwerk opbouwen en onderhouden",
+                  "page": 109
+            },
+            {
+                  "term": "neurotypische projecties",
+                  "page": 109
+            },
+            {
+                  "term": "niet begrepen voelen",
+                  "page": 110
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 110
+            },
+            {
+                  "term": "‘niet kunnen’ vs. ‘niet willen’",
+                  "page": 111
+            },
+            {
+                  "term": "nld",
+                  "page": 112
+            },
+            {
+                  "term": "non-verbaal",
+                  "page": 113
+            },
+            {
+                  "term": "nuance",
+                  "page": 113
+            },
+            {
+                  "term": "obsessieve interesses",
+                  "page": 114
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 114
+            },
+            {
+                  "term": "omgeving aanpassen",
+                  "page": 114
+            },
+            {
+                  "term": "omgaan met autisme als begeleider / verzorger / therapeut",
+                  "page": 114
+            },
+            {
+                  "term": "omkering van persoonlijke voornaamwoorden",
+                  "page": 116
+            },
+            {
+                  "term": "onaangepaste",
+                  "page": 116
+            },
+            {
+                  "term": "communicatie",
+                  "page": 116
+            },
+            {
+                  "term": "emotie",
+                  "page": 116
+            },
+            {
+                  "term": "expressie",
+                  "page": 119
+            },
+            {
+                  "term": "gedrag",
+                  "page": 119
+            },
+            {
+                  "term": "reactie",
+                  "page": 120
+            },
+            {
+                  "term": "ondervragingen",
+                  "page": 120
+            },
+            {
+                  "term": "onlogische angsten",
+                  "page": 120
+            },
+            {
+                  "term": "hypochondrie",
+                  "page": 121
+            },
+            {
+                  "term": "onrijpheid",
+                  "page": 121
+            },
+            {
+                  "term": "emotioneel",
+                  "page": 121
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 121
+            },
+            {
+                  "term": "‘ons’ aanpassen",
+                  "page": 121
+            },
+            {
+                  "term": "ontvangstpatroon opleggen",
+                  "page": 122
+            },
+            {
+                  "term": "‘op eigen benen staan’",
+                  "page": 123
+            },
+            {
+                  "term": "opdringerig",
+                  "page": 123
+            },
+            {
+                  "term": "‘op maat’",
+                  "page": 123
+            },
+            {
+                  "term": "communiceren",
+                  "page": 123
+            },
+            {
+                  "term": "behandelen",
+                  "page": 123
+            },
+            {
+                  "term": "orde",
+                  "page": 124
+            },
+            {
+                  "term": "ordenen",
+                  "page": 124
+            },
+            {
+                  "term": "gedachten",
+                  "page": 124
+            },
+            {
+                  "term": "organiseren",
+                  "page": 124
+            },
+            {
+                  "term": "organisatorische aspecten van",
+                  "page": 125
+            },
+            {
+                  "term": "informatieverwerking",
+                  "page": 125
+            },
+            {
+                  "term": "communicatie",
+                  "page": 125
+            },
+            {
+                  "term": "overgangen maken",
+                  "page": 125
+            },
+            {
+                  "term": "overgevoeligheid",
+                  "page": 125
+            },
+            {
+                  "term": "overprikkeling",
+                  "page": 126
+            },
+            {
+                  "term": "overschakelingskosten",
+                  "page": 126
+            },
+            {
+                  "term": "overschatting",
+                  "page": 127
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 127
+            },
+            {
+                  "term": "door anderen",
+                  "page": 128
+            },
+            {
+                  "term": "overselectiviteit",
+                  "page": 128
+            },
+            {
+                  "term": "overspannen geraken",
+                  "page": 128
+            },
+            {
+                  "term": "overspoeld worden",
+                  "page": 128
+            },
+            {
+                  "term": "door emoties",
+                  "page": 128
+            },
+            {
+                  "term": "overzicht",
+                  "page": 129
+            },
+            {
+                  "term": "nood aan",
+                  "page": 129
+            },
+            {
+                  "term": "overzichtelijkheid",
+                  "page": 130
+            },
+            {
+                  "term": "pedant",
+                  "page": 130
+            },
+            {
+                  "term": "performantiedeficit",
+                  "page": 130
+            },
+            {
+                  "term": "‘performantie-deficit’",
+                  "page": 131
+            },
+            {
+                  "term": "perseveratie",
+                  "page": 132
+            },
+            {
+                  "term": "persoonlijkheid",
+                  "page": 132
+            },
+            {
+                  "term": "perspectiefneming",
+                  "page": 132
+            },
+            {
+                  "term": "tweede orde",
+                  "page": 132
+            },
+            {
+                  "term": "piekvaardigheden",
+                  "page": 133
+            },
+            {
+                  "term": "pijn",
+                  "page": 133
+            },
+            {
+                  "term": "emotioneel lijden",
+                  "page": 133
+            },
+            {
+                  "term": "ondraaglijk lijden",
+                  "page": 133
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 134
+            },
+            {
+                  "term": "planning",
+                  "page": 134
+            },
+            {
+                  "term": "positieve atmosfeer",
+                  "page": 134
+            },
+            {
+                  "term": "pragmatiek",
+                  "page": 134
+            },
+            {
+                  "term": "praten",
+                  "page": 135
+            },
+            {
+                  "term": "preoccupaties",
+                  "page": 135
+            },
+            {
+                  "term": "prikkelgevoeligheid",
+                  "page": 135
+            },
+            {
+                  "term": "indeling patienten per",
+                  "page": 135
+            },
+            {
+                  "term": "projectie",
+                  "page": 135
+            },
+            {
+                  "term": "psychiatrische testen",
+                  "page": 136
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 136
+            },
+            {
+                  "term": "psychische structuurvastheid",
+                  "page": 137
+            },
+            {
+                  "term": "psycho-educatie",
+                  "page": 137
+            },
+            {
+                  "term": "psychologische begeleiding",
+                  "page": 138
+            },
+            {
+                  "term": "psychopathie",
+                  "page": 138
+            },
+            {
+                  "term": "psychose",
+                  "page": 139
+            },
+            {
+                  "term": "psychotherapie",
+                  "page": 139
+            },
+            {
+                  "term": "concretiseren en visualiseren \\- meer tonen dan praten – al doende praat men",
+                  "page": 140
+            },
+            {
+                  "term": "depressie",
+                  "page": 142
+            },
+            {
+                  "term": "factoren die doeltreffendheid/succes bepalen",
+                  "page": 142
+            },
+            {
+                  "term": "publieke referentie",
+                  "page": 142
+            },
+            {
+                  "term": "realisme",
+                  "page": 143
+            },
+            {
+                  "term": "sociaal inlevingsvermogen",
+                  "page": 143
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 143
+            },
+            {
+                  "term": "rechterhemisfeerdeficit",
+                  "page": 143
+            },
+            {
+                  "term": "‘rechttoe rechtaan’",
+                  "page": 143
+            },
+            {
+                  "term": "rechtvaardigheidsgevoel",
+                  "page": 143
+            },
+            {
+                  "term": "relaties",
+                  "page": 143
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 143
+            },
+            {
+                  "term": "relativeren",
+                  "page": 144
+            },
+            {
+                  "term": "relevante informatie van irrelevante informatie onderscheiden",
+                  "page": 144
+            },
+            {
+                  "term": "repetitieve",
+                  "page": 144
+            },
+            {
+                  "term": "gedachten",
+                  "page": 144
+            },
+            {
+                  "term": "gedragingen",
+                  "page": 145
+            },
+            {
+                  "term": "rigiditeit",
+                  "page": 145
+            },
+            {
+                  "term": "routines / rituelen",
+                  "page": 145
+            },
+            {
+                  "term": "samenhang",
+                  "page": 146
+            },
+            {
+                  "term": "gebrek aan",
+                  "page": 146
+            },
+            {
+                  "term": "schoolloopbaan",
+                  "page": 146
+            },
+            {
+                  "term": "schriftelijk communiceren",
+                  "page": 146
+            },
+            {
+                  "term": "scripts / scenario’s",
+                  "page": 146
+            },
+            {
+                  "term": "seksualiteit",
+                  "page": 147
+            },
+            {
+                  "term": "autistische preoccupatie",
+                  "page": 147
+            },
+            {
+                  "term": "experimenteren",
+                  "page": 147
+            },
+            {
+                  "term": "misbruik",
+                  "page": 147
+            },
+            {
+                  "term": "moeilijkheden",
+                  "page": 147
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit",
+                  "page": 148
+            },
+            {
+                  "term": "serieel denken",
+                  "page": 148
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 148
+            },
+            {
+                  "term": "snelheid",
+                  "page": 149
+            },
+            {
+                  "term": "sociaal netwerk",
+                  "page": 150
+            },
+            {
+                  "term": "opbouwen en onderhouden",
+                  "page": 150
+            },
+            {
+                  "term": "sociale intelligentie",
+                  "page": 150
+            },
+            {
+                  "term": "sociale interactie",
+                  "page": 151
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 152
+            },
+            {
+                  "term": "sociale naïviteit",
+                  "page": 152
+            },
+            {
+                  "term": "‘slechte’ bedoelingen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale relaties",
+                  "page": 153
+            },
+            {
+                  "term": "interpersoonlijke problemen",
+                  "page": 153
+            },
+            {
+                  "term": "sociale vaardigheden",
+                  "page": 153
+            },
+            {
+                  "term": "de sociale aspecten van taal",
+                  "page": 154
+            },
+            {
+                  "term": "sociale verbeelding",
+                  "page": 154
+            },
+            {
+                  "term": "spel",
+                  "page": 154
+            },
+            {
+                  "term": "symbolisch spel",
+                  "page": 154
+            },
+            {
+                  "term": "stereotiep spel",
+                  "page": 157
+            },
+            {
+                  "term": "spel van de communicatie",
+                  "page": 157
+            },
+            {
+                  "term": "het sociale spel",
+                  "page": 157
+            },
+            {
+                  "term": "spontaan ageren/reageren, spontaan zijn",
+                  "page": 157
+            },
+            {
+                  "term": "stereotiepe interesses",
+                  "page": 158
+            },
+            {
+                  "term": "Stereotypieën",
+                  "page": 158
+            },
+            {
+                  "term": "Motorische stereotiepieën",
+                  "page": 158
+            },
+            {
+                  "term": "stijl van communiceren",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de communicatie",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de sociale omgang",
+                  "page": 158
+            },
+            {
+                  "term": "stoornis in de (sociale) verbeelding",
+                  "page": 158
+            },
+            {
+                  "term": "stoorzender",
+                  "page": 158
+            },
+            {
+                  "term": "‘stop’ zeggen",
+                  "page": 159
+            },
+            {
+                  "term": "stress",
+                  "page": 159
+            },
+            {
+                  "term": "testings",
+                  "page": 159
+            },
+            {
+                  "term": "onbetrouwbaarheid",
+                  "page": 159
+            },
+            {
+                  "term": "theory of mind",
+                  "page": 160
+            },
+            {
+                  "term": "theory of own mind",
+                  "page": 160
+            },
+            {
+                  "term": "therapie",
+                  "page": 160
+            },
+            {
+                  "term": "timing",
+                  "page": 161
+            },
+            {
+                  "term": "tijd geven",
+                  "page": 161
+            },
+            {
+                  "term": "traagheid",
+                  "page": 162
+            },
+            {
+                  "term": "transferproblemen",
+                  "page": 162
+            },
+            {
+                  "term": "trauma \\- traumatisering",
+                  "page": 162
+            },
+            {
+                  "term": "triade van stoornissen",
+                  "page": 163
+            },
+            {
+                  "term": "tweede orde perspectiefneming",
+                  "page": 163
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 164
+            },
+            {
+                  "term": "eigen gevoel",
+                  "page": 164
+            },
+            {
+                  "term": "uiten",
+                  "page": 164
+            },
+            {
+                  "term": "emoties",
+                  "page": 164
+            },
+            {
+                  "term": "uitgestelde",
+                  "page": 164
+            },
+            {
+                  "term": "emotie",
+                  "page": 164
+            },
+            {
+                  "term": "reactie",
+                  "page": 164
+            },
+            {
+                  "term": "verwerking",
+                  "page": 164
+            },
+            {
+                  "term": "uitputtend",
+                  "page": 165
+            },
+            {
+                  "term": "vaag woordgebruik",
+                  "page": 165
+            },
+            {
+                  "term": "vaste regels",
+                  "page": 165
+            },
+            {
+                  "term": "veiligheid",
+                  "page": 165
+            },
+            {
+                  "term": "geborgenheid – zekerheid – voorspelbaarheid – overzichtelijkheid \\- duidelijkheid",
+                  "page": 165
+            },
+            {
+                  "term": "verbaliseren",
+                  "page": 167
+            },
+            {
+                  "term": "verbeelding",
+                  "page": 167
+            },
+            {
+                  "term": "sociale",
+                  "page": 167
+            },
+            {
+                  "term": "verbergen \\- verborgen houden",
+                  "page": 167
+            },
+            {
+                  "term": "vergeetachtigheid",
+                  "page": 167
+            },
+            {
+                  "term": "verheldering",
+                  "page": 167
+            },
+            {
+                  "term": "verhoren",
+                  "page": 167
+            },
+            {
+                  "term": "politieverhoren etc.",
+                  "page": 167
+            },
+            {
+                  "term": "verkeerd begrijpen",
+                  "page": 169
+            },
+            {
+                  "term": "verkeerd communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "vertrouwenspersoon",
+                  "page": 169
+            },
+            {
+                  "term": "verwachtingen",
+                  "page": 169
+            },
+            {
+                  "term": "communiceren",
+                  "page": 169
+            },
+            {
+                  "term": "van anderen",
+                  "page": 169
+            },
+            {
+                  "term": "uitdrukken",
+                  "page": 169
+            },
+            {
+                  "term": "visualiseren",
+                  "page": 169
+            },
+            {
+                  "term": "visueel",
+                  "page": 172
+            },
+            {
+                  "term": "denken",
+                  "page": 172
+            },
+            {
+                  "term": "communiceren",
+                  "page": 172
+            },
+            {
+                  "term": "voelen",
+                  "page": 173
+            },
+            {
+                  "term": "niet gelijktijdig kunnen ‘denken en voelen’",
+                  "page": 173
+            },
+            {
+                  "term": "voorbereiding",
+                  "page": 174
+            },
+            {
+                  "term": "voorbereiding maken",
+                  "page": 174
+            },
+            {
+                  "term": "voorspelbaarheid",
+                  "page": 174
+            },
+            {
+                  "term": "elke dag hetzelfde",
+                  "page": 174
+            },
+            {
+                  "term": "nood aan",
+                  "page": 175
+            },
+            {
+                  "term": "sensoriële hypersensitiviteit / zintuiglijke overgevoeligheid",
+                  "page": 175
+            },
+            {
+                  "term": "‘vooruitgang’",
+                  "page": 176
+            },
+            {
+                  "term": "vormgeven",
+                  "page": 176
+            },
+            {
+                  "term": "communicatie . boodschap",
+                  "page": 176
+            },
+            {
+                  "term": "vragen om iets",
+                  "page": 176
+            },
+            {
+                  "term": "vrijheid",
+                  "page": 176
+            },
+            {
+                  "term": "eigen keuzes maken",
+                  "page": 176
+            },
+            {
+                  "term": "waarneming",
+                  "page": 176
+            },
+            {
+                  "term": "anders",
+                  "page": 176
+            },
+            {
+                  "term": "‘wat niet gezegd wordt’",
+                  "page": 176
+            },
+            {
+                  "term": "wederkerigheid",
+                  "page": 176
+            },
+            {
+                  "term": "in de sociale interactie",
+                  "page": 176
+            },
+            {
+                  "term": "weerstand tegen verandering",
+                  "page": 176
+            },
+            {
+                  "term": "Moeite om taken los te laten eens ik er mee begonnen ben",
+                  "page": 176
+            },
+            {
+                  "term": "werkelijkheid achter de werkelijkheid",
+                  "page": 177
+            },
+            {
+                  "term": "wisselen van aandacht",
+                  "page": 177
+            },
+            {
+                  "term": "woordvindingsproblemen",
+                  "page": 177
+            },
+            {
+                  "term": "zekerheid",
+                  "page": 178
+            },
+            {
+                  "term": "zelf kiezen",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeschikkingsrecht",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbeeld",
+                  "page": 179
+            },
+            {
+                  "term": "zelfbewustzijn",
+                  "page": 180
+            },
+            {
+                  "term": "zelfevaluatie",
+                  "page": 180
+            },
+            {
+                  "term": "zelfinzicht",
+                  "page": 180
+            },
+            {
+                  "term": "zelfoverschatting",
+                  "page": 180
+            },
+            {
+                  "term": "zelfrapportage",
+                  "page": 181
+            },
+            {
+                  "term": "depressie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfreflectie",
+                  "page": 183
+            },
+            {
+                  "term": "zelfstandigheid",
+                  "page": 183
+            },
+            {
+                  "term": "zintuiglijke overgevoeligheid",
+                  "page": 184
+            }
       ]
-    };
+};
 
-    // DOM Elements
-    const container = document.getElementById('pdfContainer');
-    const pageInput = document.getElementById('pageInput');
-    const pageCount = document.getElementById('pageCount');
-    const prevPageBtn = document.getElementById('prevPageBtn');
-    const nextPageBtn = document.getElementById('nextPageBtn');
-    const zoomInBtn = document.getElementById('zoomInBtn');
-    const zoomOutBtn = document.getElementById('zoomOutBtn');
-    const zoomPercent = document.getElementById('zoomPercent');
     const indexList = document.getElementById('indexList');
+    const noResults = document.getElementById('noResults');
 
     // UI Translation trigger
     function updateUITranslations() {
@@ -771,17 +6522,13 @@
       document.getElementById('chat-p1').textContent = data.chatP1;
       document.getElementById('chat-p2').innerHTML = data.chatP2;
       document.getElementById('chat-p3').textContent = data.chatP3;
-
-      prevPageBtn.title = data.toolbarPrev;
-      nextPageBtn.title = data.toolbarNext;
-      zoomInBtn.title = data.toolbarZoomIn;
-      zoomOutBtn.title = data.toolbarZoomOut;
+      noResults.textContent = data.noResults;
     }
 
     // Build interactive A-Z terms list
     function renderTermsList() {
       indexList.innerHTML = '';
-      const list = termsData[currentLang];
+      const list = termsData[currentLang] || [];
       
       list.forEach(item => {
         const div = document.createElement('div');
@@ -789,27 +6536,36 @@
         div.onclick = () => scrollToPage(item.page);
         
         div.innerHTML = `
-          <span>${item.term}</span>
+          <span class="index-item-text">${item.term}</span>
           <span class="index-item-page">p. ${item.page}</span>
         `;
         indexList.appendChild(div);
       });
+      filterIndex();
     }
 
     // Filter index search
-    function filterIndex() {
-      const query = document.getElementById('searchInput').value.toLowerCase();
+    window.filterIndex = function() {
+      const query = document.getElementById('searchInput').value.toLowerCase().trim();
       const items = indexList.getElementsByClassName('index-item');
+      let visibleCount = 0;
       
       Array.from(items).forEach(item => {
-        const text = item.querySelector('span').textContent.toLowerCase();
+        const text = item.querySelector('.index-item-text').textContent.toLowerCase();
         if (text.includes(query)) {
           item.style.display = 'flex';
+          visibleCount++;
         } else {
           item.style.display = 'none';
         }
       });
-    }
+
+      if (visibleCount === 0) {
+        noResults.style.display = 'block';
+      } else {
+        noResults.style.display = 'none';
+      }
+    };
 
     // Switch tabs
     window.switchTab = function(tabId) {
@@ -833,148 +6589,30 @@
       updateUITranslations();
       renderTermsList();
 
+      // Clear search input on language change
+      document.getElementById('searchInput').value = '';
+      noResults.style.display = 'none';
+
       // Load matching PDF
       loadPdf(`autiwiki-${langCode}.pdf`);
     };
 
-    // Load PDF using PDF.js
+    // Load PDF in iframe
     function loadPdf(filename) {
       currentFilename = filename;
-      container.innerHTML = `<div class="loading">${translations[currentLang].loadingText}</div>`;
-      
-      pdfjsLib.getDocument(filename).promise.then(pdf => {
-        currentPdf = pdf;
-        pageCount.textContent = '/ ' + pdf.numPages;
-        pageInput.max = pdf.numPages;
-        pageInput.value = 1;
-        renderPdf();
-      }).catch(err => {
-        container.innerHTML = '<div class="error">Fout bij het laden van het document: ' + err.message + '</div>';
-      });
-    }
-
-    // Render all PDF pages
-    function renderPdf() {
-      if (!currentPdf) return;
-      container.innerHTML = '';
-      
-      const containerWidth = container.clientWidth;
-      const desiredWidth = Math.min(containerWidth - 48, baseWidth * zoomLevel);
-      zoomPercent.textContent = Math.round(zoomLevel * 100) + '%';
-      
-      for (let pageNum = 1; pageNum <= currentPdf.numPages; pageNum++) {
-        const pageWrapper = document.createElement('div');
-        pageWrapper.className = 'pdf-page-wrapper';
-        pageWrapper.id = 'page-' + pageNum;
-        
-        const canvas = document.createElement('canvas');
-        pageWrapper.appendChild(canvas);
-        container.appendChild(pageWrapper);
-        
-        currentPdf.getPage(pageNum).then(page => {
-          const unscaledViewport = page.getViewport({ scale: 1 });
-          const scale = desiredWidth / unscaledViewport.width;
-          const viewport = page.getViewport({ scale: scale });
-          
-          const context = canvas.getContext('2d');
-          canvas.height = viewport.height;
-          canvas.width = viewport.width;
-          
-          const renderContext = {
-            canvasContext: context,
-            viewport: viewport
-          };
-          page.render(renderContext);
-        });
-      }
-      
-      setTimeout(setupObserver, 500);
-    }
-
-    // Scroll container to target page wrapper
-    function scrollToPage(num) {
-      if (!currentPdf || num < 1 || num > currentPdf.numPages) return;
-      const targetPage = document.getElementById('page-' + num);
-      if (targetPage) {
-        isScrollingToPage = true;
-        targetPage.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        pageInput.value = num;
-        
-        setTimeout(() => {
-          isScrollingToPage = false;
-        }, 800);
+      const viewer = document.getElementById('pdfViewer');
+      if (viewer) {
+        viewer.src = filename;
       }
     }
 
-    // Navigation Event Listeners
-    prevPageBtn.addEventListener('click', () => {
-      const currentVal = parseInt(pageInput.value);
-      if (currentVal > 1) scrollToPage(currentVal - 1);
-    });
-
-    nextPageBtn.addEventListener('click', () => {
-      const currentVal = parseInt(pageInput.value);
-      if (currentPdf && currentVal < currentPdf.numPages) scrollToPage(currentVal + 1);
-    });
-
-    pageInput.addEventListener('change', () => {
-      let num = parseInt(pageInput.value);
-      if (isNaN(num)) return;
-      if (num < 1) num = 1;
-      if (currentPdf && num > currentPdf.numPages) num = currentPdf.numPages;
-      scrollToPage(num);
-    });
-
-    // Zoom Event Listeners
-    zoomInBtn.addEventListener('click', () => {
-      if (zoomLevel < 2.5) {
-        zoomLevel += 0.15;
-        renderPdf();
+    // Navigate to page in iframe PDF viewer
+    function scrollToPage(pageNum) {
+      const viewer = document.getElementById('pdfViewer');
+      if (viewer) {
+        viewer.src = `${currentFilename}#page=${pageNum}`;
       }
-    });
-
-    zoomOutBtn.addEventListener('click', () => {
-      if (zoomLevel > 0.5) {
-        zoomLevel -= 0.15;
-        renderPdf();
-      }
-    });
-
-    // IntersectionObserver to sync page counter input while scrolling
-    let observer = null;
-    function setupObserver() {
-      if (observer) observer.disconnect();
-      
-      const options = {
-        root: container,
-        rootMargin: '-10% 0px -60% 0px',
-        threshold: 0
-      };
-      
-      observer = new IntersectionObserver((entries) => {
-        if (isScrollingToPage) return;
-        
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const pageId = entry.target.id;
-            const pageNum = parseInt(pageId.replace('page-', ''));
-            if (!isNaN(pageNum)) {
-              pageInput.value = pageNum;
-            }
-          }
-        });
-      }, options);
-      
-      document.querySelectorAll('.pdf-page-wrapper').forEach(wrapper => {
-        observer.observe(wrapper);
-      });
     }
-
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(renderPdf, 250);
-    });
 
     // Startup Initialization
     window.addEventListener('DOMContentLoaded', () => {
