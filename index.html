@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LCSBW7WSV"></script>
+  <!-- ============================================================ -->
+  <!-- Google Consent Mode v2 — MOET als EERSTE script staan       -->
+  <!-- Standaard alles geblokkeerd (GDPR/EEA compliance)           -->
+  <!-- Google's CMP zal dit automatisch updaten na toestemming     -->
+  <!-- ============================================================ -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+
+    // Consent Mode v2: standaard ALLES geweigerd voor EEA-bezoekers
+    gtag('consent', 'default', {
+      'ad_storage':              'denied',
+      'ad_user_data':            'denied',
+      'ad_personalization':      'denied',
+      'analytics_storage':       'denied',
+      'functionality_storage':   'denied',
+      'personalization_storage': 'denied',
+      'security_storage':        'granted',  // Altijd toegestaan (veiligheid)
+      'wait_for_update':         500         // Wacht max 500ms op CMP-beslissing
+    });
+
+    // Regio-specifieke override: buiten EEA standaard toestaan
+    // (EEA-landen blijven op 'denied' hierboven)
+    gtag('consent', 'default', {
+      'ad_storage':              'granted',
+      'ad_user_data':            'granted',
+      'ad_personalization':      'granted',
+      'analytics_storage':       'granted',
+      'regions': [
+        // Landen BUITEN EEA/UK/CH — daar is geen consent nodig
+        // Lege array = enkel de EEA-default hierboven geldt wereldwijd
+        // Voeg hier eventueel niet-EEA-regio's toe als gewenst
+      ]
+    });
+  </script>
+
+  <!-- Google tag (gtag.js) — NA Consent Mode default -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LCSBW7WSV"></script>
+  <script>
     gtag('js', new Date());
     gtag('config', 'G-5LCSBW7WSV');
   </script>
-  <!-- Google AdSense -->
+
+  <!-- Google AdSense — NA Consent Mode default -->
+  <!-- Publisher ID: ca-pub-4173155609967435 | Review ingediend: 19 jun 2026 -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4173155609967435"
      crossorigin="anonymous"></script>
   <meta charset="UTF-8" />
