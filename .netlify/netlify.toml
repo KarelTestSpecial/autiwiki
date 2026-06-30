@@ -7,7 +7,7 @@ redirects = []
 [functions."*"]
 
 [build]
-publish = "/home/kareltestspecial/1-IT/5-Personal/Sites/autiwiki/autiwiki-netlify"
+publish = "/home/kareltestspecial/workspace/sites/autiwiki/autiwiki-netlify"
 publishOrigin = "default"
 
 [build.environment]

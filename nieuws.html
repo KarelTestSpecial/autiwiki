@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <!-- ============================================================ -->
+  <!-- Google Consent Mode v2 — MOET als EERSTE script staan       -->
+  <!-- Standaard alles geblokkeerd (GDPR/EEA compliance)           -->
+  <!-- ============================================================ -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('consent', 'default', {
+      'ad_storage':              'denied',
+      'ad_user_data':            'denied',
+      'ad_personalization':      'denied',
+      'analytics_storage':       'denied',
+      'functionality_storage':   'denied',
+      'personalization_storage': 'denied',
+      'security_storage':        'granted',
+      'wait_for_update':         500
+    });
+  </script>
+
+  <!-- Google tag (gtag.js) — NA Consent Mode default -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5LCSBW7WSV"></script>
+  <script>
+    gtag('js', new Date());
+    gtag('config', 'G-5LCSBW7WSV');
+  </script>
+
+  <!-- Google AdSense — NA Consent Mode default -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4173155609967435"
+     crossorigin="anonymous"></script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <title>Nieuws — Doorbraak in autisme-onderzoek | AutiWiki</title>
+  <meta name="description" content="In eenvoudige taal: een nieuwe studie in Nature Neuroscience (2026) toont aan dat autisme waarschijnlijk niet één ding is, maar (minstens) twee biologisch verschillende types, herkenbaar aan hersenverbindingen.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-base: #060913;
+      --bg-surface: #0b0f19;
+      --bg-card: #151b2c;
+      --border-color: rgba(255, 255, 255, 0.08);
+      --border-color-hover: rgba(59, 130, 246, 0.4);
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+      --gradient-glow: 0 4px 20px rgba(59, 130, 246, 0.25);
+      --font-family: 'Outfit', sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-family);
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      line-height: 1.7;
+    }
+
+    /* Top bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border-color);
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      background: var(--gradient-accent);
+      border-radius: 9px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      color: #fff;
+      font-size: 1.2em;
+      box-shadow: var(--gradient-glow);
+    }
+
+    .brand h1 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      background: var(--gradient-accent);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .back-link {
+      margin-left: auto;
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9em;
+      font-weight: 600;
+      padding: 8px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      transition: all 0.2s ease;
+    }
+    .back-link:hover {
+      color: var(--text-primary);
+      border-color: var(--border-color-hover);
+    }
+
+    /* Article column */
+    .article {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 24px 80px 24px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+      background: rgba(59, 130, 246, 0.12);
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+
+    .article h1.title {
+      font-size: 2.2rem;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    .subtitle {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+    }
+
+    .meta {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+    }
+
+    .article h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin: 40px 0 14px 0;
+    }
+
+    .article p { margin-bottom: 18px; color: #e2e8f0; }
+    .article strong { color: var(--text-primary); }
+
+    /* TL;DR box */
+    .tldr {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-left: 4px solid var(--accent-blue);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 28px 0;
+    }
+    .tldr h3 {
+      font-size: 1.05rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    .tldr ul { margin: 0; padding-left: 20px; }
+    .tldr li { margin-bottom: 8px; color: #e2e8f0; }
+
+    /* Two subtype cards */
+    .subtypes {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .subtype-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      padding: 22px;
+    }
+    .subtype-card .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+    }
+    .subtype-card.more .tag { background: rgba(139, 92, 246, 0.18); color: #c4b5fd; }
+    .subtype-card.less .tag { background: rgba(59, 130, 246, 0.18); color: #93c5fd; }
+    .subtype-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
+    .subtype-card p { font-size: 0.95rem; margin-bottom: 0; color: #cbd5e1; }
+
+    /* Caveat box */
+    .caveat {
+      background: rgba(234, 179, 8, 0.07);
+      border: 1px solid rgba(234, 179, 8, 0.25);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 28px 0;
+    }
+    .caveat h3 { font-size: 1.05rem; margin-bottom: 12px; color: #fde68a; }
+    .caveat ul { margin: 0; padding-left: 20px; }
+    .caveat li { margin-bottom: 8px; color: #e2e8f0; }
+
+    /* Sources */
+    .sources {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 22px 24px;
+      margin: 36px 0 0 0;
+    }
+    .sources h3 { font-size: 1rem; margin-bottom: 12px; }
+    .sources a { color: var(--accent-blue); text-decoration: none; word-break: break-word; }
+    .sources a:hover { text-decoration: underline; }
+    .sources li { margin-bottom: 10px; font-size: 0.9rem; color: var(--text-secondary); }
+    .sources ul { padding-left: 20px; }
+
+    .disclaimer {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      font-style: italic;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border-color);
+    }
+
+    @media (max-width: 640px) {
+      .article h1.title { font-size: 1.7rem; }
+      .subtypes { grid-template-columns: 1fr; }
+      .brand h1 { font-size: 1.1rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="index.html">
+      <div class="brand-logo">A</div>
+      <h1>AutiWiki</h1>
+    </a>
+    <a class="back-link" href="index.html">&larr; Terug naar het werkboek</a>
+  </header>
+
+  <article class="article">
+
+    <span class="eyebrow">Nieuws &middot; Onderzoek</span>
+    <h1 class="title">Grote doorbraak: autisme is waarschijnlijk niet één ding, maar (minstens) twee</h1>
+    <p class="subtitle">
+      Een nieuwe studie ontdekte twee biologisch verschillende vormen van autisme &mdash; herkenbaar aan de manier waarop hersengebieden met elkaar &lsquo;praten&rsquo;.
+    </p>
+    <p class="meta">
+      Bron: <em>Nature Neuroscience</em> (2026) &middot; gepubliceerd juni 2026 &middot; samengevat in eenvoudige taal door AutiWiki
+    </p>
+
+    <div class="tldr">
+      <h3>In het kort</h3>
+      <ul>
+        <li>Onderzoekers vonden <strong>minstens twee verschillende types autisme</strong>, gebaseerd op hoe sterk hersengebieden met elkaar samenwerken.</li>
+        <li>Bij het ene type werken hersengebieden <strong>méér</strong> samen dan gewoonlijk, bij het andere type <strong>minder</strong>.</li>
+        <li>Dit bevestigt iets wat veel autistische mensen al lang voelen: autisme is <strong>geen één-maat-past-iedereen</strong>. Op termijn kan dat leiden tot zorg en begeleiding op maat.</li>
+      </ul>
+    </div>
+
+    <h2>Wat hebben de onderzoekers ontdekt?</h2>
+    <p>
+      Autisme verschilt enorm van persoon tot persoon. Tot nu toe was het lastig om die verschillen aan iets <em>biologisch</em> te koppelen. Een internationaal team (onder leiding van het Italiaans Instituut voor Technologie en het Child Mind Institute in New York) heeft nu met hersenscans laten zien dat er <strong>verschillende, herkenbare patronen</strong> in het autistische brein bestaan.
+    </p>
+    <p>
+      De sleutel zit in iets dat wetenschappers <strong>&lsquo;functionele connectiviteit&rsquo;</strong> noemen. Eenvoudig gezegd: je hersenen bestaan uit gebieden die met elkaar verbonden zijn en samenwerken &mdash; een beetje zoals steden die met elkaar bellen. Bij sommige autistische mensen wordt er <em>meer</em> &lsquo;gebeld&rsquo; dan gemiddeld, bij anderen juist <em>minder</em>. Die twee patronen blijken bij ongeveer <strong>1 op de 4</strong> deelnemers duidelijk terug te komen.
+    </p>
+
+    <div class="subtypes">
+      <div class="subtype-card more">
+        <span class="tag">Type 1 &middot; méér verbindingen</span>
+        <h3>Hyperconnectiviteit</h3>
+        <p>
+          Hersengebieden communiceren <strong>meer dan gewoonlijk</strong>. Dit type lijkt samen te hangen met het <strong>immuunsysteem</strong> (de afweer van het lichaam). Deze groep had gemiddeld iets sterker uitgesproken autismekenmerken.
+        </p>
+      </div>
+      <div class="subtype-card less">
+        <span class="tag">Type 2 &middot; minder verbindingen</span>
+        <h3>Hypoconnectiviteit</h3>
+        <p>
+          Hersengebieden communiceren <strong>minder dan gewoonlijk</strong>. Dit type lijkt samen te hangen met de <strong>synapsen</strong> &mdash; de contactpunten waarmee hersencellen signalen aan elkaar doorgeven.
+        </p>
+      </div>
+    </div>
+
+    <h2>Hoe weten ze dit zo zeker?</h2>
+    <p>
+      Het onderzoek is stevig opgebouwd. De onderzoekers maakten <strong>hersenscans (fMRI)</strong> van <strong>940 autistische kinderen en jongvolwassenen</strong> en vergeleken die met meer dan <strong>1.000 niet-autistische mensen</strong>. Die gegevens komen uit grote, gedeelde databanken (ABIDE en het Child Mind Institute).
+    </p>
+    <p>
+      Het slimme extra: ze legden de menselijke hersenpatronen naast die van <strong>20 muismodellen</strong> van autisme. Daardoor konden ze de patronen op de scan koppelen aan de onderliggende biologie. De onderzoekers noemden dit hun <strong>&lsquo;steen van Rosetta&rsquo;</strong>: een vertaalsleutel tussen wat je op een hersenscan ziet en wat er op moleculair niveau gebeurt.
+    </p>
+
+    <h2>Waarom is dit belangrijk?</h2>
+    <p>
+      Omdat het de deur opent naar <strong>zorg op maat</strong> (&lsquo;precisiegeneeskunde&rsquo;). Als verschillende vormen van autisme een verschillende biologische oorzaak hebben, dan past niet voor iedereen dezelfde aanpak. In de toekomst zouden diagnose, begeleiding en eventuele behandeling beter afgestemd kunnen worden op de specifieke biologie van een persoon.
+    </p>
+    <p>
+      Even belangrijk: het onderzoek <strong>bevestigt dat de verschillen tussen autistische mensen echt en biologisch zijn</strong> &mdash; niet zomaar &lsquo;een beetje meer of minder erg&rsquo;. De biologische verschillen brachten zelfs onderscheiden aan het licht die je met een gedragstest alleen niet ziet.
+    </p>
+
+    <div class="caveat">
+      <h3>Belangrijke kanttekeningen (lees dit ook)</h3>
+      <ul>
+        <li><strong>Dit is nog géén test die je vandaag kunt doen.</strong> Het gaat om patronen in groepen mensen, niet om een diagnose voor één persoon.</li>
+        <li><strong>Het verklaart maar een deel.</strong> De twee types pasten bij ongeveer 1 op de 4 deelnemers. Er zijn waarschijnlijk nog meer types die nog ontdekt moeten worden.</li>
+        <li><strong>Een &lsquo;type&rsquo; beschrijft biologie, geen mens.</strong> Het zegt niets over wie je bent, wat je kan, of hoeveel je waard bent.</li>
+        <li>De onderzoekers benadrukken zelf dat dit een <strong>eerste stap</strong> is. Grotere studies moeten het bevestigen en aanvullen.</li>
+      </ul>
+    </div>
+
+    <div class="sources">
+      <h3>Bronnen &amp; meer lezen</h3>
+      <ul>
+        <li>Wetenschappelijk artikel: Pagani e.a., &ldquo;Autism subtypes identified using cross-species functional connectivity analyses&rdquo;, <em>Nature Neuroscience</em> (2026) &mdash; <a href="https://www.nature.com/articles/s41593-026-02287-z" target="_blank" rel="noopener">nature.com</a> <em>(Engelstalig, deels achter betaalmuur)</em></li>
+        <li>Persbericht (Engelstalig): <a href="https://www.eurekalert.org/news-releases/1130160" target="_blank" rel="noopener">EurekAlert!</a></li>
+        <li>Toegankelijke uitleg (Engelstalig): <a href="https://www.sciencedaily.com/releases/2026/06/260602021634.htm" target="_blank" rel="noopener">ScienceDaily</a></li>
+      </ul>
+    </div>
+
+    <p class="disclaimer">
+      Deze pagina is een vereenvoudigde samenvatting in lekentaal, gemaakt door AutiWiki op basis van het wetenschappelijke artikel en de officiële persberichten. Het is geen medisch advies en geen vervanging van een gesprek met een arts of hulpverlener. Bij twijfel of vragen over je eigen situatie: raadpleeg altijd een professional.
+    </p>
+
+  </article>
+
+</body>
+</html>
