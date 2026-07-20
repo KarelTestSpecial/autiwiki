@@ -44,17 +44,17 @@
 
   <style>
     :root {
-      --bg-base: #060913;
-      --bg-surface: #0b0f19;
-      --bg-card: #151b2c;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-color-hover: rgba(59, 130, 246, 0.4);
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --accent-blue: #3b82f6;
-      --accent-purple: #8b5cf6;
-      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      --gradient-glow: 0 4px 20px rgba(59, 130, 246, 0.25);
+      --bg-base: #2a2a2a;
+      --bg-surface: #333333;
+      --bg-card: #3d3d3d;
+      --border-color: rgba(200, 200, 200, 0.15);
+      --border-color-hover: rgba(200, 200, 200, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #b8b8b8;
+      --accent-blue: #9a9a9a;
+      --accent-purple: #a8a8a8;
+      --gradient-accent: linear-gradient(135deg, #9a9a9a 0%, #a8a8a8 100%);
+      --gradient-glow: 0 4px 20px rgba(200, 200, 200, 0.1);
       --font-family: 'Outfit', sans-serif;
     }
 
@@ -72,7 +72,7 @@
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(11, 15, 25, 0.9);
+      background: rgba(42, 42, 42, 0.95);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border-color);
       padding: 14px 24px;
@@ -141,7 +141,7 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--accent-blue);
-      background: rgba(59, 130, 246, 0.12);
+      background: rgba(200, 200, 200, 0.12);
       padding: 5px 12px;
       border-radius: 6px;
       margin-bottom: 20px;
@@ -176,7 +176,7 @@
       margin: 40px 0 14px 0;
     }
 
-    .article p { margin-bottom: 18px; color: #e2e8f0; }
+    .article p { margin-bottom: 18px; color: var(--text-secondary); }
     .article strong { color: var(--text-primary); }
 
     /* TL;DR box */
@@ -194,7 +194,7 @@
       color: var(--text-primary);
     }
     .tldr ul { margin: 0; padding-left: 20px; }
-    .tldr li { margin-bottom: 8px; color: #e2e8f0; }
+    .tldr li { margin-bottom: 8px; color: var(--text-secondary); }
 
     /* Two subtype cards */
     .subtypes {
@@ -217,22 +217,22 @@
       border-radius: 6px;
       margin-bottom: 12px;
     }
-    .subtype-card.more .tag { background: rgba(139, 92, 246, 0.18); color: #c4b5fd; }
-    .subtype-card.less .tag { background: rgba(59, 130, 246, 0.18); color: #93c5fd; }
+    .subtype-card.more .tag { background: rgba(200, 200, 200, 0.18); color: var(--accent-purple); }
+    .subtype-card.less .tag { background: rgba(200, 200, 200, 0.18); color: var(--accent-blue); }
     .subtype-card h3 { font-size: 1.15rem; margin-bottom: 8px; }
-    .subtype-card p { font-size: 0.95rem; margin-bottom: 0; color: #cbd5e1; }
+    .subtype-card p { font-size: 0.95rem; margin-bottom: 0; color: var(--text-secondary); }
 
     /* Caveat box */
     .caveat {
-      background: rgba(234, 179, 8, 0.07);
-      border: 1px solid rgba(234, 179, 8, 0.25);
+      background: rgba(200, 200, 200, 0.08);
+      border: 1px solid var(--border-color);
       border-radius: 12px;
       padding: 22px 24px;
       margin: 28px 0;
     }
-    .caveat h3 { font-size: 1.05rem; margin-bottom: 12px; color: #fde68a; }
+    .caveat h3 { font-size: 1.05rem; margin-bottom: 12px; color: var(--accent-blue); }
     .caveat ul { margin: 0; padding-left: 20px; }
-    .caveat li { margin-bottom: 8px; color: #e2e8f0; }
+    .caveat li { margin-bottom: 8px; color: var(--text-secondary); }
 
     /* Sources */
     .sources {
@@ -262,6 +262,7 @@
       .subtypes { grid-template-columns: 1fr; }
       .brand h1 { font-size: 1.1rem; }
     }
+
   </style>
 </head>
 <body>
@@ -271,17 +272,24 @@
       <div class="brand-logo">A</div>
       <h1>AutiWiki</h1>
     </a>
-    <a class="back-link" href="index.html">&larr; Terug naar het werkboek</a>
+    <div style="display: flex; gap: 12px; margin-left: auto; align-items: center;">
+      <div style="display: flex; gap: 6px;">
+        <button id="lang-nl" class="lang-btn active" onclick="changeLang('nl')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85em; transition: all 0.2s ease; font-family: var(--font-family);">NL</button>
+        <button id="lang-en" class="lang-btn" onclick="changeLang('en')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85em; transition: all 0.2s ease; font-family: var(--font-family);">EN</button>
+        <button id="lang-fr" class="lang-btn" onclick="changeLang('fr')" style="background: transparent; border: 1px solid var(--border-color); color: var(--text-secondary); padding: 6px 10px; border-radius: 6px; cursor: pointer; font-weight: 600; font-size: 0.85em; transition: all 0.2s ease; font-family: var(--font-family);">FR</button>
+      </div>
+      <a class="back-link" href="index.html" id="back-link">&larr; Terug naar het werkboek</a>
+    </div>
   </header>
 
   <article class="article">
 
-    <span class="eyebrow">Nieuws &middot; Onderzoek</span>
-    <h1 class="title">Grote doorbraak: autisme is waarschijnlijk niet één ding, maar (minstens) twee</h1>
-    <p class="subtitle">
+    <span class="eyebrow" id="eyebrow">Nieuws &middot; Onderzoek</span>
+    <h1 class="title" id="article-title">Grote doorbraak: autisme is waarschijnlijk niet één ding, maar (minstens) twee</h1>
+    <p class="subtitle" id="article-subtitle">
       Een nieuwe studie ontdekte twee biologisch verschillende vormen van autisme &mdash; herkenbaar aan de manier waarop hersengebieden met elkaar &lsquo;praten&rsquo;.
     </p>
-    <p class="meta">
+    <p class="meta" id="article-meta">
       Bron: <em>Nature Neuroscience</em> (2026) &middot; gepubliceerd juni 2026 &middot; samengevat in eenvoudige taal door AutiWiki
     </p>
 
@@ -359,6 +367,142 @@
     </p>
 
   </article>
+
+  <script>
+    let currentLang = localStorage.getItem('AutiWiki-lang') || 'nl';
+
+    const translations = {
+      nl: {
+        backLink: "&larr; Terug naar het werkboek",
+        eyebrow: "Nieuws &middot; Onderzoek",
+        title: "Grote doorbraak: autisme is waarschijnlijk niet één ding, maar (minstens) twee",
+        subtitle: "Een nieuwe studie ontdekte twee biologisch verschillende vormen van autisme &mdash; herkenbaar aan de manier waarop hersengebieden met elkaar &lsquo;praten&rsquo;.",
+        meta: "Bron: <em>Nature Neuroscience</em> (2026) &middot; gepubliceerd juni 2026 &middot; samengevat in eenvoudige taal door AutiWiki",
+        tldrTitle: "In het kort",
+        tldrP1: "Onderzoekers vonden <strong>minstens twee verschillende types autisme</strong>, gebaseerd op hoe sterk hersengebieden met elkaar samenwerken.",
+        tldrP2: "Bij het ene type werken hersengebieden <strong>méér</strong> samen dan gewoonlijk, bij het andere type <strong>minder</strong>.",
+        tldrP3: "Dit bevestigt iets wat veel autistische mensen al lang voelen: autisme is <strong>geen één-maat-past-iedereen</strong>. Op termijn kan dat leiden tot zorg en begeleiding op maat.",
+        h2a: "Wat hebben de onderzoekers ontdekt?",
+        p1a: "Autisme verschilt enorm van persoon tot persoon. Tot nu toe was het lastig om die verschillen aan iets <em>biologisch</em> te koppelen. Een internationaal team (onder leiding van het Italiaans Instituut voor Technologie en het Child Mind Institute in New York) heeft nu met hersenscans laten zien dat er <strong>verschillende, herkenbare patronen</strong> in het autistische brein bestaan.",
+        p2a: "De sleutel zit in iets dat wetenschappers <strong>&lsquo;functionele connectiviteit&rsquo;</strong> noemen. Eenvoudig gezegd: je hersenen bestaan uit gebieden die met elkaar verbonden zijn en samenwerken &mdash; een beetje zoals steden die met elkaar bellen. Bij sommige autistische mensen wordt er <em>meer</em> &lsquo;gebeld&rsquo; dan gemiddeld, bij anderen juist <em>minder</em>. Die twee patronen blijken bij ongeveer <strong>1 op de 4</strong> deelnemers duidelijk terug te komen.",
+        type1Tag: "Type 1 &middot; méér verbindingen",
+        type1Title: "Hyperconnectiviteit",
+        type1Desc: "Hersengebieden communiceren <strong>meer dan gewoonlijk</strong>. Dit type lijkt samen te hangen met het <strong>immuunsysteem</strong> (de afweer van het lichaam). Deze groep had gemiddeld iets sterker uitgesproken autismekenmerken.",
+        type2Tag: "Type 2 &middot; minder verbindingen",
+        type2Title: "Hypoconnectiviteit",
+        type2Desc: "Hersengebieden communiceren <strong>minder dan gewoonlijk</strong>. Dit type lijkt samen te hangen met de <strong>synapsen</strong> &mdash; de contactpunten waarmee hersencellen signalen aan elkaar doorgeven.",
+        h2b: "Hoe weten ze dit zo zeker?",
+        p1b: "Het onderzoek is stevig opgebouwd. De onderzoekers maakten <strong>hersenscans (fMRI)</strong> van <strong>940 autistische kinderen en jongvolwassenen</strong> en vergeleken die met meer dan <strong>1.000 niet-autistische mensen</strong>. Die gegevens komen uit grote, gedeelde databanken (ABIDE en het Child Mind Institute).",
+        p2b: "Het slimme extra: ze legden de menselijke hersenpatronen naast die van <strong>20 muismodellen</strong> van autisme. Daardoor konden ze de patronen op de scan koppelen aan de onderliggende biologie. De onderzoekers noemden dit hun <strong>&lsquo;steen van Rosetta&rsquo;</strong>: een vertaalsleutel tussen wat je op een hersenscan ziet en wat er op moleculair niveau gebeurt.",
+        h2c: "Waarom is dit belangrijk?",
+        p1c: "Omdat het de deur opent naar <strong>zorg op maat</strong> (&lsquo;precisiegeneeskunde&rsquo;). Als verschillende vormen van autisme een verschillende biologische oorzaak hebben, dan past niet voor iedereen dezelfde aanpak. In de toekomst zouden diagnose, begeleiding en eventuele behandeling beter afgestemd kunnen worden op de specifieke biologie van een persoon.",
+        p2c: "Even belangrijk: het onderzoek <strong>bevestigt dat de verschillen tussen autistische mensen echt en biologisch zijn</strong> &mdash; niet zomaar &lsquo;een beetje meer of minder erg&rsquo;. De biologische verschillen brachten zelfs onderscheiden aan het licht die je met een gedragstest alleen niet ziet.",
+        caveatTitle: "Belangrijke kanttekeningen (lees dit ook)",
+        caveatP1: "<strong>Dit is nog gён test die je vandaag kunt doen.</strong> Het gaat om patronen in groepen mensen, niet om een diagnose voor één persoon.",
+        caveatP2: "<strong>Het verklaart maar een deel.</strong> De twee types pasten bij ongeveer 1 op de 4 deelnemers. Er zijn waarschijnlijk nog meer types die nog ontdekt moeten worden.",
+        caveatP3: "<strong>Een &lsquo;type&rsquo; beschrijft biologie, geen mens.</strong> Het zegt niets over wie je bent, wat je kan, of hoeveel je waard bent.",
+        caveatP4: "De onderzoekers benadrukken zelf dat dit een <strong>eerste stap</strong> is. Grotere studies moeten het bevestigen en aanvullen.",
+        sourcesTitle: "Bronnen &amp; meer lezen",
+        disclaimer: "Deze pagina is een vereenvoudigde samenvatting in lekentaal, gemaakt door AutiWiki op basis van het wetenschappelijke artikel en de officiële persberichten. Het is geen medisch advies en geen vervanging van een gesprek met een arts of hulpverlener. Bij twijfel of vragen over je eigen situatie: raadpleeg altijd een professional."
+      },
+      en: {
+        backLink: "&larr; Back to the workbook",
+        eyebrow: "News &middot; Research",
+        title: "Major breakthrough: autism is probably not one thing, but (at least) two",
+        subtitle: "A new study discovered two biologically distinct forms of autism — recognizable by the way brain regions &lsquo;talk&rsquo; to each other.",
+        meta: "Source: <em>Nature Neuroscience</em> (2026) &middot; published June 2026 &middot; summarized in plain language by AutiWiki",
+        tldrTitle: "In brief",
+        tldrP1: "Researchers found <strong>at least two different types of autism</strong>, based on how strongly brain regions work together.",
+        tldrP2: "In one type, brain regions communicate <strong>more</strong> than usual; in the other type, <strong>less</strong>.",
+        tldrP3: "This confirms something many autistic people have long felt: autism is <strong>not one-size-fits-all</strong>. In the future, this could lead to personalized care and support.",
+        h2a: "What did the researchers discover?",
+        p1a: "Autism varies enormously from person to person. Until now, it was difficult to link these differences to something <em>biological</em>. An international team (led by the Italian Institute of Technology and the Child Mind Institute in New York) has now used brain scans to show that there are <strong>different, recognizable patterns</strong> in the autistic brain.",
+        p2a: "The key lies in something scientists call <strong>&lsquo;functional connectivity&rsquo;</strong>. In simple terms: your brain consists of regions that are connected and work together &mdash; a bit like cities calling each other. In some autistic people, there is <em>more</em> &lsquo;communication&rsquo; than average, in others <em>less</em>. These two patterns appeared clearly in about <strong>1 in 4</strong> participants.",
+        type1Tag: "Type 1 &middot; more connections",
+        type1Title: "Hyperconnectivity",
+        type1Desc: "Brain regions communicate <strong>more than usual</strong>. This type appears to be related to the <strong>immune system</strong>. This group showed slightly more pronounced autism characteristics on average.",
+        type2Tag: "Type 2 &middot; fewer connections",
+        type2Title: "Hypoconnectivity",
+        type2Desc: "Brain regions communicate <strong>less than usual</strong>. This type appears to be related to <strong>synapses</strong> &mdash; the connection points through which brain cells pass signals to each other.",
+        h2b: "How sure are they?",
+        p1b: "The research is well-designed. The researchers made <strong>brain scans (fMRI)</strong> of <strong>940 autistic children and young adults</strong> and compared them with more than <strong>1,000 non-autistic people</strong>. This data comes from large, shared databases (ABIDE and the Child Mind Institute).",
+        p2b: "The clever addition: they placed human brain patterns alongside those of <strong>20 mouse models</strong> of autism. This allowed them to link the patterns on the scan to the underlying biology. The researchers called this their <strong>&lsquo;Rosetta Stone&rsquo;</strong>: a translation key between what you see on a brain scan and what happens at the molecular level.",
+        h2c: "Why does this matter?",
+        p1c: "Because it opens the door to <strong>personalized care</strong> (&lsquo;precision medicine&rsquo;). If different forms of autism have different biological causes, then a one-size-fits-all approach won't work for everyone. In the future, diagnosis, support, and any treatment could be better tailored to a person's specific biology.",
+        p2c: "Equally important: the research <strong>confirms that differences between autistic people are real and biological</strong> &mdash; not just &lsquo;a little more or less severe&rsquo;. The biological differences even revealed distinctions that behavioral tests alone cannot see.",
+        caveatTitle: "Important caveats (read this too)",
+        caveatP1: "<strong>This is not a test you can take today.</strong> It's about patterns in groups of people, not a diagnosis for one person.",
+        caveatP2: "<strong>It explains only part of the picture.</strong> The two types matched about 1 in 4 participants. There are likely more types still to be discovered.",
+        caveatP3: "<strong>A &lsquo;type&rsquo; describes biology, not a person.</strong> It says nothing about who you are, what you can do, or your worth.",
+        caveatP4: "The researchers themselves emphasize that this is a <strong>first step</strong>. Larger studies must confirm and expand on it.",
+        sourcesTitle: "Sources &amp; further reading",
+        disclaimer: "This page is a simplified summary in plain language, created by AutiWiki based on the scientific article and official press releases. It is not medical advice and not a substitute for a conversation with a doctor or healthcare provider. If you have doubts or questions about your own situation: always consult a professional."
+      },
+      fr: {
+        backLink: "&larr; Retour au manuel",
+        eyebrow: "Actualités &middot; Recherche",
+        title: "Percée majeure : l'autisme n'est probablement pas une seule chose, mais (au moins) deux",
+        subtitle: "Une nouvelle étude a découvert deux formes d'autisme biologiquement distinctes — reconnaissables par la manière dont les régions cérébrales se &lsquo;parlent&rsquo;.",
+        meta: "Source : <em>Nature Neuroscience</em> (2026) &middot; publié en juin 2026 &middot; résumé en langage simple par AutiWiki",
+        tldrTitle: "En bref",
+        tldrP1: "Les chercheurs ont trouvé <strong>au moins deux types d'autisme différents</strong>, basés sur la force avec laquelle les régions cérébrales travaillent ensemble.",
+        tldrP2: "Dans un type, les régions cérébrales communiquent <strong>plus</strong> que d'habitude ; dans l'autre type, <strong>moins</strong>.",
+        tldrP3: "Cela confirme ce que de nombreuses personnes autistes ressentent depuis longtemps : l'autisme n'est <strong>pas une solution unique</strong>. À l'avenir, cela pourrait mener à des soins et un soutien personnalisés.",
+        h2a: "Qu'ont découvert les chercheurs ?",
+        p1a: "L'autisme varie énormément d'une personne à l'autre. Jusqu'à présent, il était difficile de relier ces différences à quelque chose de <em>biologique</em>. Une équipe internationale (dirigée par l'Institut italien de technologie et le Child Mind Institute à New York) a maintenant montré à l'aide d'imagerie cérébrale qu'il existe des <strong>schémas différents et reconnaissables</strong> dans le cerveau autiste.",
+        p2a: "La clé réside dans ce que les scientifiques appellent la <strong>&lsquo;connectivité fonctionnelle&rsquo;</strong>. En termes simples : votre cerveau se compose de régions qui sont connectées et qui travaillent ensemble — un peu comme des villes qui s'appellent mutuellement. Chez certaines personnes autistes, il y a <em>plus</em> de &lsquo;communication&rsquo; que la moyenne, chez d'autres <em>moins</em>. Ces deux modèles sont apparus clairement chez environ <strong>1 personne sur 4</strong> participants.",
+        type1Tag: "Type 1 &middot; plus de connexions",
+        type1Title: "Hyperconnectivité",
+        type1Desc: "Les régions cérébrales communiquent <strong>plus que d'habitude</strong>. Ce type semble être lié au <strong>système immunitaire</strong>. Ce groupe présentait des caractéristiques d'autisme en moyenne légèrement plus prononcées.",
+        type2Tag: "Type 2 &middot; moins de connexions",
+        type2Title: "Hypoconnectivité",
+        type2Desc: "Les régions cérébrales communiquent <strong>moins que d'habitude</strong>. Ce type semble être lié aux <strong>synapses</strong> — les points de contact par lesquels les cellules cérébrales se transmettent des signaux.",
+        h2b: "En sont-ils sûrs ?",
+        p1b: "La recherche est bien conçue. Les chercheurs ont effectué des <strong>imageries cérébrales (IRM fonctionnelle)</strong> chez <strong>940 enfants et jeunes adultes autistes</strong> et les ont comparées à plus de <strong>1 000 personnes non autistes</strong>. Ces données proviennent de grandes bases de données partagées (ABIDE et le Child Mind Institute).",
+        p2b: "L'élément intelligent en plus : ils ont placé les schémas cérébraux humains à côté de ceux de <strong>20 modèles de souris</strong> d'autisme. Cela leur a permis de relier les schémas observés au scanner à la biologie sous-jacente. Les chercheurs ont appelé cela leur <strong>&lsquo;Pierre de Rosette&rsquo;</strong> : une clé de traduction entre ce que vous voyez sur une imagerie cérébrale et ce qui se passe au niveau moléculaire.",
+        h2c: "Pourquoi est-ce important ?",
+        p1c: "Parce que cela ouvre la porte à des <strong>soins personnalisés</strong> (&lsquo;médecine de précision&rsquo;). Si différentes formes d'autisme ont des causes biologiques différentes, alors une approche universelle ne convient pas à tout le monde. À l'avenir, le diagnostic, le soutien et tout traitement pourraient être mieux adaptés à la biologie spécifique d'une personne.",
+        p2c: "Tout aussi important : la recherche <strong>confirme que les différences entre les personnes autistes sont réelles et biologiques</strong> — pas seulement &lsquo;un peu plus ou moins grave&rsquo;. Les différences biologiques ont même révélé des distinctions que les tests comportementaux seuls ne peuvent pas voir.",
+        caveatTitle: "Mises en garde importantes (lisez aussi ceci)",
+        caveatP1: "<strong>Ce n'est pas un test que vous pouvez faire aujourd'hui.</strong> Il s'agit de schémas dans les groupes de personnes, pas d'un diagnostic pour une seule personne.",
+        caveatP2: "<strong>Cela n'explique qu'une partie du tableau.</strong> Les deux types correspondaient à environ 1 personne sur 4 participants. Il y a probablement d'autres types encore à découvrir.",
+        caveatP3: "<strong>Un &lsquo;type&rsquo; décrit la biologie, pas une personne.</strong> Il ne dit rien sur qui vous êtes, ce que vous pouvez faire ou votre valeur.",
+        caveatP4: "Les chercheurs eux-mêmes soulignent qu'il s'agit d'une <strong>première étape</strong>. Des études plus importantes doivent le confirmer et l'approfondir.",
+        sourcesTitle: "Sources et lectures complémentaires",
+        disclaimer: "Cette page est un résumé simplifié en langage simple, créé par AutiWiki sur la base de l'article scientifique et des communiqués de presse officiels. Ce n'est pas un conseil médical et ne remplace pas une conversation avec un médecin ou un professionnel de la santé. Si vous avez des doutes ou des questions concernant votre situation personnelle : consultez toujours un professionnel."
+      }
+    };
+
+    function changeLang(langCode) {
+      currentLang = langCode;
+      localStorage.setItem('AutiWiki-lang', langCode);
+
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`lang-${langCode}`).classList.add('active');
+
+      const t = translations[langCode];
+      document.getElementById('back-link').innerHTML = t.backLink;
+      document.getElementById('eyebrow').innerHTML = t.eyebrow;
+      document.getElementById('article-title').textContent = t.title;
+      document.getElementById('article-subtitle').innerHTML = t.subtitle;
+      document.getElementById('article-meta').innerHTML = t.meta;
+    }
+
+    // Apply saved language on page load
+    changeLang(currentLang);
+  </script>
+
+  <style>
+    .lang-btn.active {
+      background: var(--gradient-accent);
+      color: #ffffff;
+      border-color: var(--accent-blue);
+    }
+    .lang-btn:hover {
+      color: var(--text-primary);
+      border-color: var(--border-color-hover);
+    }
+  </style>
 
 </body>
 </html>

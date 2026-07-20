@@ -60,18 +60,18 @@
 
   <style>
     :root {
-      --bg-base: #060913;
-      --bg-surface: #0b0f19;
-      --bg-card: #151b2c;
-      --bg-card-hover: #1e253a;
-      --border-color: rgba(255, 255, 255, 0.08);
-      --border-color-hover: rgba(59, 130, 246, 0.4);
-      --text-primary: #f8fafc;
-      --text-secondary: #94a3b8;
-      --accent-blue: #3b82f6;
-      --accent-purple: #8b5cf6;
-      --gradient-accent: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
-      --gradient-glow: 0 4px 20px rgba(59, 130, 246, 0.25);
+      --bg-base: #2a2a2a;
+      --bg-surface: #333333;
+      --bg-card: #3d3d3d;
+      --bg-card-hover: #4a4a4a;
+      --border-color: rgba(200, 200, 200, 0.15);
+      --border-color-hover: rgba(200, 200, 200, 0.3);
+      --text-primary: #e8e8e8;
+      --text-secondary: #b8b8b8;
+      --accent-blue: #9a9a9a;
+      --accent-purple: #a8a8a8;
+      --gradient-accent: linear-gradient(135deg, #9a9a9a 0%, #a8a8a8 100%);
+      --gradient-glow: 0 4px 20px rgba(200, 200, 200, 0.1);
       --font-family: 'Outfit', sans-serif;
     }
 
@@ -184,48 +184,27 @@
       box-shadow: 0 4px 12px rgba(59, 130, 246, 0.25);
     }
 
-    /* News CTA button */
-    .news-button {
-      display: flex;
-      align-items: center;
-      gap: 10px;
+    /* News link */
+    .sidebar-header a {
       text-decoration: none;
-      background: var(--gradient-accent);
-      color: #ffffff;
-      padding: 12px 16px;
-      border-radius: 10px;
+      color: var(--text-primary);
       font-weight: 600;
-      font-size: 0.92em;
-      box-shadow: 0 4px 14px rgba(59, 130, 246, 0.3);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      border: 1px solid rgba(255, 255, 255, 0.12);
+      font-size: 0.95em;
+      padding: 10px 14px;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      display: inline-block;
+      border: 1px solid var(--border-color);
     }
 
-    .news-button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 22px rgba(59, 130, 246, 0.4);
-    }
-
-    .news-button .news-icon {
-      font-size: 1.2em;
-      line-height: 1;
-    }
-
-    .news-button .news-text {
-      flex: 1;
-      line-height: 1.3;
-    }
-
-    .news-button .news-badge {
-      background: rgba(255, 255, 255, 0.2);
+    .sidebar-header a:hover {
       color: #ffffff;
-      font-size: 0.68em;
-      font-weight: 700;
-      letter-spacing: 0.05em;
-      padding: 3px 7px;
-      border-radius: 6px;
-      white-space: nowrap;
+      background: rgba(200, 200, 200, 0.08);
+      border-color: var(--border-color-hover);
+      transform: translateX(2px);
     }
+
+    /* Auti-Bot CTA Button */
 
     /* Navigation Tabs */
     .tabs-nav {
@@ -452,7 +431,7 @@
       display: flex;
       flex-direction: column;
       height: 100%;
-      background: #0f121d;
+      background: #2a2a2a;
       overflow: hidden;
       position: relative;
     }
@@ -461,7 +440,7 @@
       width: 100%;
       height: 100%;
       border: none;
-      background: #0f121d;
+      background: #2a2a2a;
       z-index: 1;
     }
 
@@ -500,6 +479,7 @@
         height: 50vh;
       }
     }
+
   </style>
 </head>
 <body>
@@ -514,28 +494,44 @@
           <div class="brand-logo">A</div>
           <h1>AutiWiki</h1>
         </div>
+
         <div class="language-buttons">
           <button onclick="changeLang('nl')" id="lang-nl" class="active">NL</button>
           <button onclick="changeLang('en')" id="lang-en">EN</button>
           <button onclick="changeLang('fr')" id="lang-fr">FR</button>
         </div>
-        <a class="news-button" href="nieuws.html">
-          <span class="news-icon">📰</span>
-          <span class="news-text">Nieuws</span>
-        </a>
+        <a href="nieuws.html" id="news-link">Nieuws</a>
       </div>
 
       <!-- Navigation Tabs -->
       <nav class="tabs-nav">
-        <button class="tab-btn" onclick="switchTab('about')" id="tab-about-btn">Project</button>
-        <button class="tab-btn active" onclick="switchTab('index')" id="tab-index-btn">Index</button>
-        <button class="tab-btn" onclick="switchTab('chat')" id="tab-chat-btn">AI-Assistent</button>
+        <button class="tab-btn active" onclick="switchTab('chat')" id="tab-chat-btn">Auti-Bot</button>
+        <button class="tab-btn" onclick="switchTab('about')" id="tab-about-btn">Over</button>
       </nav>
 
       <!-- Scrollable Tab Panes Container -->
       <div class="sidebar-content">
-        
-        <!-- Tab 1: Project Information -->
+
+        <!-- Tab 1: AI Chatbot (Auti-Bot) - NOW PRIMARY -->
+        <div class="tab-pane active" id="tab-chat">
+          <div class="card">
+            <h2 id="chat-title">Auti-Bot</h2>
+            <p id="chat-p1">
+              Rechtsonder in je scherm zie je het Auti-Bot icoontje. Klik erop om het chatvenster te openen.
+            </p>
+            <p id="chat-p2">
+              Vraag bijvoorbeeld:<br>
+              • "Wat is contextblindheid?"<br>
+              • "Hoe ga ik om met overprikkeling?"<br>
+              • "Wat is het verschil tussen denken en voelen?"
+            </p>
+            <p id="chat-p3">
+              De chatbot werkt volledig in het Nederlands, Engels en Frans.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tab 2: Project Information -->
         <div class="tab-pane" id="tab-about">
           <div class="card">
             <h2 id="about-title">Over AutiWiki</h2>
@@ -555,42 +551,6 @@
           </div>
         </div>
 
-        <!-- Tab 2: Searchable Term Index -->
-        <div class="tab-pane active" id="tab-index">
-          <h2 id="index-title">Snelzoeker & Index</h2>
-          <p id="index-p">Zoek en selecteer een begrip om direct naar de juiste pagina in het beveiligde werkboek te springen.</p>
-          
-          <div class="search-wrapper">
-            <input type="text" id="searchInput" class="search-input" placeholder="Zoek op begrip..." onkeyup="filterIndex()">
-            <svg class="search-icon-svg" viewBox="0 0 24 24">
-              <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
-            </svg>
-          </div>
-
-          <div class="index-list" id="indexList">
-            <!-- Dynamic Index Items will be injected here -->
-          </div>
-          <div class="no-results" id="noResults">Geen resultaten gevonden.</div>
-        </div>
-
-        <!-- Tab 3: AI Chatbot Description -->
-        <div class="tab-pane" id="tab-chat">
-          <div class="card">
-            <h2 id="chat-title">Onze AI-Expert</h2>
-            <p id="chat-p1">
-              Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.
-            </p>
-            <p id="chat-p2">
-              <strong>Stel gerust vragen zoals:</strong><br>
-              • "Wat is contextblindheid?"<br>
-              • "Hoe ga ik om met overprikkeling?"<br>
-              • "Wat is het verschil tussen denken en voelen?"
-            </p>
-            <p style="font-size: 0.9em; font-style: italic; margin-bottom: 0;" id="chat-p3">
-              De chatbot werkt volledig in het Nederlands, Engels en Frans.
-            </p>
-          </div>
-        </div>
 
       </div>
 
@@ -618,7 +578,7 @@
   <script>
     // Global App State
     let currentFilename = 'autiwiki-nl.pdf';
-    let currentLang = 'nl';
+    let currentLang = localStorage.getItem('AutiWiki-lang') || 'nl';
 
     // Translation Data
     const translations = {
@@ -628,17 +588,13 @@
         aboutP2: "Dit platform combineert een digitaal beveiligd werkboek met een krachtige AI-chatbot. De chatbot stelt bezoekers en professionals in staat om direct vragen te stellen en onmiddellijk betrouwbare, wetenschappelijk onderbouwde antwoorden te krijgen.",
         partnerTitle: "Samenwerking & Partners",
         partnerP: "Dit project is een samenwerking tussen dr. Peter Vermeulen (expert in autisme), Sterkmakers in autisme (VZW) en softwareontwikkelaar Karel Decherf.",
-        indexTitle: "Snelzoeker & Index",
-        indexP: "Zoek en selecteer een begrip om direct naar de juiste pagina in het werkboek te springen.",
-        searchPlaceholder: "Zoek op begrip...",
-        chatTitle: "Onze AI-Expert",
-        chatP1: "Rechtsonder in je scherm zie je het icoon van onze AI-chatbot. Deze intelligente assistent is specifiek getraind op de inhoud van de AutiWiki en de expertise van dr. Peter Vermeulen.",
-        chatP2: "<strong>Stel gerust vragen zoals:</strong><br>• \"Wat is contextblindheid?\"<br>• \"Hoe ga ik om met overprikkeling?\"<br>• \"Wat is het verschil tussen denken en voelen?\"",
+        chatTitle: "Auti-Bot",
+        chatP1: "Rechtsonder in je scherm zie je het Auti-Bot icoontje. Klik erop om het chatvenster te openen.",
+        chatP2: "Vraag bijvoorbeeld:<br>• \"Wat is contextblindheid?\"<br>• \"Hoe ga ik om met overprikkeling?\"<br>• \"Wat is het verschil tussen denken en voelen?\"",
         chatP3: "De chatbot werkt volledig in het Nederlands, Engels en Frans.",
-        tabAbout: "Project",
-        tabIndex: "Index",
-        tabChat: "AI-Assistent",
-        noResults: "Geen resultaten gevonden."
+        newsLink: "Nieuws",
+        tabAbout: "Over",
+        tabChat: "Auti-Bot"
       },
       en: {
         aboutTitle: "About AutiWiki",
@@ -646,17 +602,13 @@
         aboutP2: "This platform combines a digitally protected workbook with a powerful AI chatbot. The chatbot allows visitors and professionals to ask questions directly and receive immediate, scientifically supported answers.",
         partnerTitle: "Collaboration & Partners",
         partnerP: "This project is a collaboration between dr. Peter Vermeulen (autism expert), Sterkmakers in autisme (NGO), and software developer Karel Decherf.",
-        indexTitle: "Term Finder & Index",
-        indexP: "Search and select a term to jump directly to the correct page in the protected workbook.",
-        searchPlaceholder: "Search for a term...",
-        chatTitle: "Our AI Expert",
-        chatP1: "At the bottom right of your screen, you can see our AI chatbot icon. This intelligent assistant is specifically trained on the content of AutiWiki and the expertise of dr. Peter Vermeulen.",
-        chatP2: "<strong>Feel free to ask questions like:</strong><br>• \"What is context blindness?\"<br>• \"How do I cope with overstimulation?\"<br>• \"What is the difference between thinking and feeling?\"",
+        chatTitle: "Auti-Bot",
+        chatP1: "At the bottom right of your screen, you can see our Auti-Bot icon. Click it to open the chat window.",
+        chatP2: "Try asking for example:<br>• \"What is context blindness?\"<br>• \"How do I cope with overstimulation?\"<br>• \"What is the difference between thinking and feeling?\"",
         chatP3: "The chatbot works completely in Dutch, English, and French.",
-        tabAbout: "Project",
-        tabIndex: "Index",
-        tabChat: "AI-Assistant",
-        noResults: "No results found."
+        newsLink: "News",
+        tabAbout: "About",
+        tabChat: "Auti-Bot"
       },
       fr: {
         aboutTitle: "À propos d'AutiWiki",
@@ -664,17 +616,13 @@
         aboutP2: "Cette plateforme combine un manuel sécurisé numériquement et un chatbot IA performant. Le chatbot permet aux visiteurs et aux professionnels de poser des questions directement et de recevoir immédiatement des réponses scientifiquement fondées.",
         partnerTitle: "Collaboration et Partenaires",
         partnerP: "Ce projet est une collaboration entre le dr. Peter Vermeulen (expert en autisme), Sterkmakers in autisme (ASBL) et le développeur de logiciels Karel Decherf.",
-        indexTitle: "Recherche et Index",
-        indexP: "Recherchez et sélectionnez un terme pour accéder directement à la page correspondante du manuel.",
-        searchPlaceholder: "Rechercher un terme...",
-        chatTitle: "Notre Expert IA",
-        chatP1: "En bas à droite de votre écran, vous pouvez voir notre icône de chatbot. Cet assistant intelligent est spécifiquement formé sur le contenu d'AutiWiki et l'expertise du dr. Peter Vermeulen.",
-        chatP2: "<strong>N'hésitez pas à poser des questions comme:</strong><br>• \"Qu'est-ce que la cécité contextuelle ?\"<br>• \"Comment gérer la surstimulation ?\"<br>• \"Quelle est la différence entre penser et ressentir ?\"",
+        chatTitle: "Auti-Bot",
+        chatP1: "En bas à droite de votre écran, vous pouvez voir notre icône Auti-Bot. Cliquez dessus pour ouvrir la fenêtre de chat.",
+        chatP2: "Essayez par exemple:<br>• \"Qu'est-ce que la cécité contextuelle ?\"<br>• \"Comment gérer la surstimulation ?\"<br>• \"Quelle est la différence entre penser et ressentir ?\"",
         chatP3: "Le chatbot fonctionne en néerlandais, anglais et français.",
-        tabAbout: "Projet",
-        tabIndex: "Index",
-        tabChat: "Assistant IA",
-        noResults: "Aucun résultat trouvé."
+        newsLink: "Actualités",
+        tabAbout: "À propos",
+        tabChat: "Auti-Bot"
       }
     };
 
@@ -6586,9 +6534,9 @@
     // UI Translation trigger
     function updateUITranslations() {
       const data = translations[currentLang];
-      
+
+      document.getElementById('news-link').textContent = data.newsLink;
       document.getElementById('tab-about-btn').textContent = data.tabAbout;
-      document.getElementById('tab-index-btn').textContent = data.tabIndex;
       document.getElementById('tab-chat-btn').textContent = data.tabChat;
 
       document.getElementById('about-title').textContent = data.aboutTitle;
@@ -6597,15 +6545,10 @@
       document.getElementById('partner-title').textContent = data.partnerTitle;
       document.getElementById('partner-p').textContent = data.partnerP;
 
-      document.getElementById('index-title').textContent = data.indexTitle;
-      document.getElementById('index-p').textContent = data.indexP;
-      document.getElementById('searchInput').placeholder = data.searchPlaceholder;
-
       document.getElementById('chat-title').textContent = data.chatTitle;
       document.getElementById('chat-p1').textContent = data.chatP1;
       document.getElementById('chat-p2').innerHTML = data.chatP2;
       document.getElementById('chat-p3').textContent = data.chatP3;
-      noResults.textContent = data.noResults;
     }
 
     // Build interactive A-Z terms list
@@ -6617,7 +6560,8 @@
         const div = document.createElement('div');
         div.className = 'index-item';
         div.onclick = () => scrollToPage(item.page);
-        
+        div.style.cursor = 'pointer';
+
         div.innerHTML = `
           <span class="index-item-text">${item.term}</span>
           <span class="index-item-page">p. ${item.page}</span>
@@ -6663,6 +6607,7 @@
     window.changeLang = function(langCode) {
       if (langCode === currentLang) return;
       currentLang = langCode;
+      localStorage.setItem('AutiWiki-lang', langCode);
 
       // Update button visual active state
       document.querySelectorAll('.language-buttons button').forEach(btn => btn.classList.remove('active'));
@@ -6699,9 +6644,13 @@
 
     // Startup Initialization
     window.addEventListener('DOMContentLoaded', () => {
+      // Set language button active state
+      document.querySelectorAll('.language-buttons button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById(`lang-${currentLang}`).classList.add('active');
+
       updateUITranslations();
-      renderTermsList();
-      loadPdf('autiwiki-nl.pdf');
+      loadPdf(`autiwiki-${currentLang}.pdf`);
+      switchTab('chat');  // Start with Auti-Bot as primary feature
     });
   </script>
 </body>
