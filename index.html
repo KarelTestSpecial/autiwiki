@@ -566,7 +566,7 @@
 
     <!-- Right Side: Native PDF Viewport -->
     <main class="pdf-viewport">
-      <iframe id="pdfViewer" src="autiwiki-nl.pdf" class="pdf-frame"></iframe>
+      <embed id="pdfViewer" src="autiwiki-nl.pdf" class="pdf-frame" type="application/pdf">
     </main>
 
   </div>
@@ -6553,9 +6553,10 @@
 
     // Build interactive A-Z terms list
     function renderTermsList() {
+      if (!indexList) return;
       indexList.innerHTML = '';
       const list = termsData[currentLang] || [];
-      
+
       list.forEach(item => {
         const div = document.createElement('div');
         div.className = 'index-item';
@@ -6618,19 +6619,27 @@
       renderTermsList();
 
       // Clear search input on language change
-      document.getElementById('searchInput').value = '';
-      noResults.style.display = 'none';
+      const searchInput = document.getElementById('searchInput');
+      if (searchInput) searchInput.value = '';
+      const noResults = document.getElementById('noResults');
+      if (noResults) noResults.style.display = 'none';
 
       // Load matching PDF
       loadPdf(`autiwiki-${langCode}.pdf`);
     };
 
-    // Load PDF in iframe
+    // Load PDF in embed element
     function loadPdf(filename) {
       currentFilename = filename;
       const viewer = document.getElementById('pdfViewer');
+      console.log('loadPdf called with:', filename);
       if (viewer) {
+        console.log('Current src:', viewer.src);
+        console.log('Setting to:', filename);
         viewer.src = filename;
+        console.log('After set, src is:', viewer.src);
+      } else {
+        console.log('ERROR: pdfViewer element not found!');
       }
     }
 
